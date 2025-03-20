@@ -1,11 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import ExperienceItem from '../Experience';
 
 // Mock the Image component from next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props) => {
+  default: (props: any) => {
     // Convert the fill prop to a string to avoid React warnings
     const modifiedProps = { ...props };
     if (props.fill) {
