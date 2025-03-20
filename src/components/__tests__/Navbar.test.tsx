@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Navbar from '../Navbar';
 
 // Mock ThemeSwitcher component
@@ -11,7 +12,7 @@ jest.mock('../ThemeSwitcher', () => {
 
 // Mock next/link
 jest.mock('next/link', () => {
-  return ({ children, href, className }) => {
+  return function MockLink({ children, href, className }: { children: React.ReactNode; href: string; className?: string }) {
     return (
       <a href={href} className={className} data-testid={`link-to-${href}`}>
         {children}
