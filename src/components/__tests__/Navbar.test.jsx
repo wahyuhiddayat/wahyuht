@@ -9,16 +9,41 @@ jest.mock('../ThemeSwitcher', () => {
   };
 });
 
+// Mock next/link
+jest.mock('next/link', () => {
+  return ({ children, href, className }) => {
+    return (
+      <a href={href} className={className} data-testid={`link-to-${href}`}>
+        {children}
+      </a>
+    );
+  };
+});
+
 describe('Navbar', () => {
-  it('renders all navigation links', () => {
+  it('renders all navigation links with correct hrefs', () => {
+    // Test the function directly by calling it and checking the result
+    const NavbarResult = Navbar();
+    expect(NavbarResult).toBeDefined();
+    
+    // Render the component
     render(<Navbar />);
     
-    // Check that all nav links are rendered
+    // Check that all nav links are rendered with correct href values
     expect(screen.getByText('Home')).toBeInTheDocument();
+    expect(screen.getByTestId('link-to-/')).toHaveAttribute('href', '/');
+    
     expect(screen.getByText('About')).toBeInTheDocument();
+    expect(screen.getByTestId('link-to-/about')).toHaveAttribute('href', '/about');
+    
     expect(screen.getByText('Projects')).toBeInTheDocument();
+    expect(screen.getByTestId('link-to-/projects')).toHaveAttribute('href', '/projects');
+    
     expect(screen.getByText('Blog')).toBeInTheDocument();
+    expect(screen.getByTestId('link-to-/blog')).toHaveAttribute('href', '/blog');
+    
     expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getByTestId('link-to-/contact')).toHaveAttribute('href', '/contact');
   });
 
   it('renders theme switcher', () => {
