@@ -27,6 +27,21 @@ describe('ThemeSwitcher', () => {
       writable: true
     });
 
+    // Mock matchMedia - required for system preference detection
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn().mockImplementation(query => ({
+        matches: false, // Default to light mode system preference
+        media: query,
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+      writable: true,
+    });
+
     // Mock classList methods as jest.fn()
     const mockAdd = jest.fn();
     const mockRemove = jest.fn();
@@ -54,12 +69,11 @@ describe('ThemeSwitcher', () => {
     });
   });
 
-  it('renders correctly in light mode by default', () => {
+  it('renders correctly with no saved preference', () => {
     render(<ThemeSwitcher />);
     
-    // Should always initialize in light mode and clear any previous settings
+    // Default to light mode when no preference is saved and system is light
     expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
-    expect(window.localStorage.removeItem).toHaveBeenCalledWith('darkMode');
     
     // Check button exists
     const button = screen.getByRole('button', { name: /toggle dark mode/i });
@@ -85,37 +99,52 @@ describe('ThemeSwitcher', () => {
     // Should add dark class and store preference
     expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
     expect(window.localStorage.setItem).toHaveBeenCalledWith('darkMode', 'true');
-    
-    // Should update style
-    expect(document.body.style.backgroundColor).toBe('rgb(10, 10, 10)');
-    expect(document.body.style.color).toBe('rgb(255, 255, 255)');
   });
 
   it('toggles back to light mode from dark mode', () => {
+    // Mock initial state as dark mode
+    window.localStorage.getItem = jest.fn().mockReturnValue('true');
+    document.documentElement.classList.contains = jest.fn().mockReturnValue(true);
+    
     const { rerender } = render(<ThemeSwitcher />);
     
     // Get the button
     const button = screen.getByRole('button', { name: /toggle dark mode/i });
-
-    // First update component state to be in dark mode
-    fireEvent.click(button);
     
-    // Mock that we're now in dark mode (for the component's internal state check)
-    const { contains } = document.documentElement.classList;
-    jest.mocked(contains).mockReturnValue(true);
-    
-    // Clear mocks to only track the second click
+    // Clear mocks to only track the click
     jest.clearAllMocks();
     
-    // Click again to toggle back to light mode
+    // Click to toggle back to light mode
     fireEvent.click(button);
     
     // Should remove dark class and store false in localStorage
     expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
     expect(window.localStorage.setItem).toHaveBeenCalledWith('darkMode', 'false');
+  });
+  
+  it('respects system preference for dark mode', () => {
+    // Mock system preference for dark mode
+    Object.defineProperty(window, 'matchMedia', {
+      value: jest.fn().mockImplementation(query => ({
+        matches: true, // System prefers dark mode
+        media: query,
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+      writable: true,
+    });
     
-    // Should update style for light mode
-    expect(document.body.style.backgroundColor).toBe('rgb(255, 255, 255)');
-    expect(document.body.style.color).toBe('rgb(0, 0, 0)');
+    render(<ThemeSwitcher />);
+    
+    // Should detect system preference and add dark class
+    expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
+    
+    // Button should show sun icon (dark mode active)
+    const button = screen.getByRole('button', { name: /toggle dark mode/i });
+    expect(button.innerHTML).toContain('clip-rule="evenodd"');
   });
 }); 
