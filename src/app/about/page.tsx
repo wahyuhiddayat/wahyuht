@@ -42,14 +42,6 @@ export default function About() {
               <SkillTag>Software Engineering</SkillTag>
             </div>
           </div>
-          
-          <div className="rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-            <h3 className="font-bold text-lg">High School Diploma</h3>
-            <p className="text-gray-500 text-sm mb-2">SMAN 7 Bandung • 2019 - 2022</p>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Natural Science track.
-            </p>
-          </div>
         </div>
         
         <div className="mb-12">
