@@ -14,27 +14,66 @@ jest.mock('next/link', () => {
   };
 });
 
-describe('Root Page', () => {
-  it('renders the welcome section', () => {
+describe('Portfolio Home Page', () => {
+  it('renders the header section', () => {
     render(<RootPage />);
     
-    // Check heading
-    expect(screen.getByRole('heading', { name: /Hi, I'm Wahyu/i })).toBeInTheDocument();
-    
-    // Check links
-    expect(screen.getByText('About Me')).toBeInTheDocument();
-    expect(screen.getByText('View Projects')).toBeInTheDocument();
+    // Check heading and intro
+    expect(screen.getByRole('heading', { name: /Wahyu Hidayat/i })).toBeInTheDocument();
+    expect(screen.getByText(/Computer Science student at Universitas Indonesia/i)).toBeInTheDocument();
+    expect(screen.getByText(/My journey started with web development/i)).toBeInTheDocument();
   });
   
-  it('renders the featured sections', () => {
+  it('renders all main sections', () => {
     render(<RootPage />);
     
-    // Check headings
-    expect(screen.getByRole('heading', { name: /Featured Projects/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Latest Articles/i })).toBeInTheDocument();
+    // Check section headings
+    expect(screen.getByRole('heading', { name: /Experience/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Education/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Skills/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Projects/i })).toBeInTheDocument();
+  });
+
+  it('displays experience items correctly', () => {
+    render(<RootPage />);
     
-    // Check CTA buttons
-    expect(screen.getByText('View All Projects')).toBeInTheDocument();
-    expect(screen.getByText('Read My Blog')).toBeInTheDocument();
+    expect(screen.getByText('Software Engineering Intern')).toBeInTheDocument();
+    expect(screen.getByText('Teaching Assistant — Introduction to Computer Organization')).toBeInTheDocument();
+    expect(screen.getByText('Deputy of Advocacy and Student Welfare')).toBeInTheDocument();
+    expect(screen.getByText('Staff of Advocacy and Student Welfare')).toBeInTheDocument();
+    
+    // Check date formats
+    expect(screen.getByText('Feb 2025–Present')).toBeInTheDocument();
+    expect(screen.getByText('Aug 2024–Jan 2025')).toBeInTheDocument();
+  });
+
+  it('displays education information correctly', () => {
+    render(<RootPage />);
+    
+    expect(screen.getByText('Bachelor of Science in Computer Science')).toBeInTheDocument();
+    expect(screen.getByText('Universitas Indonesia')).toBeInTheDocument();
+    expect(screen.getByText('2022–Present')).toBeInTheDocument();
+  });
+
+  it('displays skills categories correctly', () => {
+    render(<RootPage />);
+    
+    expect(screen.getByText('Languages')).toBeInTheDocument();
+    expect(screen.getByText('Web')).toBeInTheDocument();
+    expect(screen.getByText('ML & Data')).toBeInTheDocument();
+    expect(screen.getByText('Tools')).toBeInTheDocument();
+    
+    // Check some specific skills
+    expect(screen.getByText(/JavaScript, TypeScript, Python, Java/i)).toBeInTheDocument();
+    expect(screen.getByText(/PyTorch, Scikit-learn, Pandas/i)).toBeInTheDocument();
+  });
+
+  it('has a working "View all" link for projects', () => {
+    render(<RootPage />);
+    
+    const projectsLink = screen.getByTestId('link-to-/projects');
+    expect(projectsLink).toBeInTheDocument();
+    expect(projectsLink).toHaveAttribute('href', '/projects');
+    expect(projectsLink).toHaveTextContent('View all');
   });
 }); 
