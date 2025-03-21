@@ -3,39 +3,52 @@
 import { useState, useEffect } from 'react';
 
 export default function ThemeSwitcher() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState<boolean | null>(null);
 
   // Initialize on component mount
   useEffect(() => {
-    // Force clear any previous settings to start fresh
-    localStorage.removeItem('darkMode');
-    document.documentElement.classList.remove('dark');
-    setDarkMode(false);
+    // Check localStorage first
+    const savedDarkMode = localStorage.getItem('darkMode');
     
-    console.log('ThemeSwitcher initialized, dark mode cleared');
+    if (savedDarkMode !== null) {
+      // User has a saved preference
+      const isDark = savedDarkMode === 'true';
+      setDarkMode(isDark);
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } else {
+      // No saved preference, check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setDarkMode(prefersDark);
+      if (prefersDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
   }, []);
 
   const toggleDarkMode = () => {
-    // Simple toggle with no system preference consideration
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
     
     if (newDarkMode) {
       document.documentElement.classList.add('dark');
-      console.log('Dark mode enabled');
     } else {
       document.documentElement.classList.remove('dark');
-      console.log('Dark mode disabled');
     }
     
     // Save the user's choice
     localStorage.setItem('darkMode', newDarkMode.toString());
-    console.log('Saved dark mode preference:', newDarkMode);
-    
-    // Force a style update
-    document.body.style.backgroundColor = newDarkMode ? 'rgb(10, 10, 10)' : 'rgb(255, 255, 255)';
-    document.body.style.color = newDarkMode ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)';
   };
+  
+  // Don't render anything until the initial mode is determined
+  if (darkMode === null) {
+    return null;
+  }
 
   return (
     <button 
