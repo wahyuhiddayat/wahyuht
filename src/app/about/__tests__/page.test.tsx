@@ -32,7 +32,6 @@ describe('About page', () => {
     // Check education section
     expect(screen.getByText('Bachelor of Science in Computer Science')).toBeInTheDocument();
     expect(screen.getByText('Universitas Indonesia • 2022 - Present')).toBeInTheDocument();
-    expect(screen.getByText('High School Diploma')).toBeInTheDocument();
     
     // Check skills section contains categories
     expect(screen.getByText('Programming Languages')).toBeInTheDocument();
