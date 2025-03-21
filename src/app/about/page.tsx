@@ -14,16 +14,17 @@ export default function About() {
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4 text-center">Background</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            I'm a third-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence and machine learning.
-            My journey in tech began with web development, which evolved into a deeper interest in AI and its applications.
+            I'm a third-year Computer Science student at Universitas Indonesia, focusing on AI, machine learning, and deep learning. 
+            I started my journey through web development, where I enjoyed creating real-world applications and beautiful user interfaces. 
+            Over time, my curiosity shifted toward intelligent systems and how data can drive meaningful decisions.
           </p>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            I'm particularly passionate about deep learning and its potential to solve complex problems. 
-            At the same time, I enjoy software engineering and building practical applications that can make a difference.
+            I'm especially passionate about deep learning and its potential to solve complex problems in creative ways. 
+            While AI/ML is my main focus, I also enjoy software engineering and designing user-centric interfaces — bridging functionality and experience.
           </p>
           <p className="text-gray-600 dark:text-gray-300">
-            When I'm not coding, you can find me exploring new technologies, contributing to
-            open-source projects, or diving into the latest research papers in AI.
+            Outside of code, I spend time exploring new technologies, reading research papers, and occasionally contributing to open-source projects. 
+            I also enjoy café hopping and discovering new coffee spots — it keeps me inspired and caffeinated.
           </p>
         </div>
         
