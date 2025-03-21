@@ -45,6 +45,63 @@ export default function About() {
         </div>
         
         <div className="mb-12">
+          <h2 className="text-2xl font-semibold mb-4 text-center">Experience</h2>
+
+          <div className="rounded-lg p-6 border border-gray-200 dark:border-gray-700 mb-4">
+            <h3 className="font-bold text-lg">Software Engineer Intern</h3>
+            <p className="text-gray-500 text-sm mb-2">Sokratech • Feb 2025 – Present</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">
+              Building and maintaining full-stack web features while collaborating in an agile team setting.
+            </p>
+            <div className="flex flex-wrap">
+              <SkillTag>React</SkillTag>
+              <SkillTag>TypeScript</SkillTag>
+              <SkillTag>Next.js</SkillTag>
+              <SkillTag>Agile</SkillTag>
+            </div>
+          </div>
+          
+          <div className="rounded-lg p-6 border border-gray-200 dark:border-gray-700 mb-4">
+            <h3 className="font-bold text-lg">Teaching Assistant — Introduction to Computer Organization</h3>
+            <p className="text-gray-500 text-sm mb-2">Faculty of Computer Science, Universitas Indonesia • Aug 2024 – Jan 2025</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">
+              Mentored students, prepared learning materials, and assisted with grading and practical sessions.
+            </p>
+            <div className="flex flex-wrap">
+              <SkillTag>Mentoring</SkillTag>
+              <SkillTag>Computer Architecture</SkillTag>
+              <SkillTag>Communication</SkillTag>
+            </div>
+          </div>
+
+          <div className="rounded-lg p-6 border border-gray-200 dark:border-gray-700 mb-4">
+            <h3 className="font-bold text-lg">Deputy of Advocacy and Student Welfare</h3>
+            <p className="text-gray-500 text-sm mb-2">BEM Fasilkom UI • Mar 2024 – Feb 2025</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">
+              Led initiatives to improve student welfare, coordinated advocacy efforts, and represented student voices in academic discussions.
+            </p>
+            <div className="flex flex-wrap">
+              <SkillTag>Leadership</SkillTag>
+              <SkillTag>Public Speaking</SkillTag>
+              <SkillTag>Student Affairs</SkillTag>
+            </div>
+          </div>
+
+          <div className="rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-lg">Staff of Advocacy and Student Welfare</h3>
+            <p className="text-gray-500 text-sm mb-2">BEM Fasilkom UI • Apr 2023 – Feb 2024</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-2">
+              Supported student advocacy programs, handled student feedback, and contributed to events aimed at academic and non-academic support.
+            </p>
+            <div className="flex flex-wrap">
+              <SkillTag>Teamwork</SkillTag>
+              <SkillTag>Empathy</SkillTag>
+              <SkillTag>Student Support</SkillTag>
+            </div>
+          </div>
+        </div>
+        
+        <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4 text-center">Skills</h2>
           <div className="rounded-lg p-6 border border-gray-200 dark:border-gray-700">
             <div className="mb-4">

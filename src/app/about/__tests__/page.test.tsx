@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import About from '../page';
 
@@ -24,6 +24,7 @@ describe('About page', () => {
     // Check main sections exist
     expect(screen.getByText('Background')).toBeInTheDocument();
     expect(screen.getByText('Education')).toBeInTheDocument();
+    expect(screen.getByText('Experience')).toBeInTheDocument();
     expect(screen.getByText('Skills')).toBeInTheDocument();
     
     // Check background content
@@ -33,15 +34,35 @@ describe('About page', () => {
     expect(screen.getByText('Bachelor of Science in Computer Science')).toBeInTheDocument();
     expect(screen.getByText('Universitas Indonesia • 2022 - Present')).toBeInTheDocument();
     
+    // Check experience section
+    expect(screen.getByText('Software Engineer Intern')).toBeInTheDocument();
+    expect(screen.getByText('Sokratech • Feb 2025 – Present')).toBeInTheDocument();
+    expect(screen.getByText('Teaching Assistant — Introduction to Computer Organization')).toBeInTheDocument();
+    expect(screen.getByText('Faculty of Computer Science, Universitas Indonesia • Aug 2024 – Jan 2025')).toBeInTheDocument();
+    expect(screen.getByText('Deputy of Advocacy and Student Welfare')).toBeInTheDocument();
+    expect(screen.getByText('BEM Fasilkom UI • Mar 2024 – Feb 2025')).toBeInTheDocument();
+    expect(screen.getByText('Staff of Advocacy and Student Welfare')).toBeInTheDocument();
+    expect(screen.getByText('BEM Fasilkom UI • Apr 2023 – Feb 2024')).toBeInTheDocument();
+    
+    // Check for specific experience skills (using more specific selectors)
+    const experienceSection = screen.getByText('Experience').closest('div');
+    expect(experienceSection).not.toBeNull();
+    
+    // Check for skills that appear in the experience section
+    within(experienceSection as HTMLElement).getByText('Agile');
+    within(experienceSection as HTMLElement).getByText('Mentoring');
+    within(experienceSection as HTMLElement).getByText('Leadership');
+    within(experienceSection as HTMLElement).getByText('Teamwork');
+    
     // Check skills section contains categories
     expect(screen.getByText('Programming Languages')).toBeInTheDocument();
     expect(screen.getByText('Web Development')).toBeInTheDocument();
     expect(screen.getByText('Data & ML')).toBeInTheDocument();
     expect(screen.getByText('Tools & Others')).toBeInTheDocument();
     
-    // Check for specific skills
+    // Check for specific skills (using getAllByText for skills that appear multiple times)
     expect(screen.getByText('JavaScript')).toBeInTheDocument();
-    expect(screen.getByText('React')).toBeInTheDocument();
+    expect(screen.getAllByText('React').length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText('PyTorch')).toBeInTheDocument();
     expect(screen.getByText('Git')).toBeInTheDocument();
     
