@@ -2,81 +2,120 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 animate-fade-in">
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Hi, I'm <span className="relative inline-block">Wahyu</span> 👋
-          </h1>
-          <p className="text-lg md:text-xl mb-8 mx-auto text-gray-600 dark:text-gray-300">
-            Computer Science student with interests in AI, ML, and Software Engineering.
-          </p>
-          <div className="flex justify-center space-x-4">
-            <Link
-              href="/about"
-              className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black rounded-md hover:opacity-90 transition-opacity"
-            >
-              About Me
-            </Link>
-            <Link
-              href="/projects"
-              className="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              View Projects
-            </Link>
+    <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
+      {/* Header */}
+      <header className="mb-16">
+        <h1 className="text-2xl font-bold mb-1">Wahyu Hidayat</h1>
+        <p className="text-gray-600 dark:text-gray-300 mb-5">
+          Computer Science student at Universitas Indonesia, passionate about AI, ML, and software engineering.
+        </p>
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          My journey started with web development and grew into a deeper interest in data, machine learning, and deep learning. 
+          I enjoy building intelligent systems and exploring new tools — often while working from cozy coffee shops.
+        </p>
+      </header>
+
+      {/* Experience */}
+      <section className="mb-16">
+        <h2 className="text-lg font-medium mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Experience</h2>
+        
+        <div className="space-y-6">
+          <div>
+            <div className="flex justify-between">
+              <div className="pr-4 w-3/4">
+                <p className="font-medium">Software Engineering Intern</p>
+              </div>
+              <p className="text-sm text-gray-500 text-right shrink-0">Feb 2025–Present</p>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Sokratech</p>
+          </div>
+          
+          <div>
+            <div className="flex justify-between">
+              <div className="pr-4 w-3/4">
+                <p className="font-medium">Teaching Assistant — Introduction to Computer Organization</p>
+              </div>
+              <p className="text-sm text-gray-500 text-right shrink-0">Aug 2024–Jan 2025</p>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Faculty of Computer Science, Universitas Indonesia</p>
+          </div>
+          
+          <div>
+            <div className="flex justify-between">
+              <div className="pr-4 w-3/4">
+                <p className="font-medium">Deputy of Advocacy and Student Welfare</p>
+              </div>
+              <p className="text-sm text-gray-500 text-right shrink-0">Mar 2024–Feb 2025</p>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-300">BEM Fasilkom UI</p>
+          </div>
+          
+          <div>
+            <div className="flex justify-between">
+              <div className="pr-4 w-3/4">
+                <p className="font-medium">Staff of Advocacy and Student Welfare</p>
+              </div>
+              <p className="text-sm text-gray-500 text-right shrink-0">Apr 2023–Feb 2024</p>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-300">BEM Fasilkom UI</p>
           </div>
         </div>
       </section>
 
-      {/* Brief Introduction */}
-      <section className="py-16 animate-slide-up">
-        <div className="max-w-xl mx-auto text-center">
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Welcome to my portfolio! I'm a passionate Computer Science student focused on building innovative solutions 
-            using modern technologies. Explore my projects, read my blog, or get in touch to connect.
-          </p>
+      {/* Education */}
+      <section className="mb-16">
+        <h2 className="text-lg font-medium mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Education</h2>
+        
+        <div>
+          <div className="flex justify-between">
+            <div className="pr-4 w-3/4">
+              <p className="font-medium">Bachelor of Science in Computer Science</p>
+            </div>
+            <p className="text-sm text-gray-500 text-right shrink-0">2022–Present</p>
+          </div>
+          <p className="text-sm text-gray-600 dark:text-gray-300">Universitas Indonesia</p>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="mb-16">
+        <h2 className="text-lg font-medium mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Skills</h2>
+        
+        <div className="grid grid-cols-2 gap-x-12 gap-y-6">
+          <div>
+            <p className="font-medium mb-2">Languages</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">JavaScript, TypeScript, Python, Java</p>
+          </div>
           
-          <div className="flex justify-center space-x-6">
-            <Link href="/about" className="text-black dark:text-white font-medium hover:underline">
-              Learn more about me →
-            </Link>
+          <div>
+            <p className="font-medium mb-2">Web</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">React, Next.js, Tailwind CSS</p>
+          </div>
+          
+          <div>
+            <p className="font-medium mb-2">ML & Data</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">PyTorch, Scikit-learn, Pandas</p>
+          </div>
+          
+          <div>
+            <p className="font-medium mb-2">Tools</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Git, Docker, AWS, Jira</p>
           </div>
         </div>
       </section>
 
-      {/* Featured Projects Teaser */}
-      <section className="py-16 animate-slide-up bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-2xl font-semibold mb-6">Featured Projects</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-8">
-            Check out some of my recent work in AI, web development, and more.
-          </p>
-          
-          <Link
-            href="/projects"
-            className="px-4 py-2 bg-black text-white dark:bg-white dark:text-black rounded-md hover:opacity-90 transition-opacity inline-block"
-          >
-            View All Projects
+      {/* Projects */}
+      <section className="mb-16">
+        <div className="flex justify-between items-center mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">
+          <h2 className="text-lg font-medium">Projects</h2>
+          <Link href="/projects" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
+            View all →
           </Link>
         </div>
-      </section>
-
-      {/* Blog Teaser */}
-      <section className="py-16 animate-slide-up">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-2xl font-semibold mb-6">Latest Articles</h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-8">
-            I write about technology, programming, and my learning journey.
-          </p>
-          
-          <Link
-            href="/blog"
-            className="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors inline-block"
-          >
-            Read My Blog
-          </Link>
-        </div>
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          Working on machine learning models, web applications, and 
+          open-source tools. See my projects page for details.
+        </p>
       </section>
     </div>
   );
