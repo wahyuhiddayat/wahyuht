@@ -1,26 +1,62 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 10, 10, 10;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer components {
+  h1 {
+    @apply text-3xl lg:text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl lg:text-2xl font-semibold mt-8 mb-4;
+  }
+
+  h3 {
+    @apply text-lg lg:text-xl font-medium mt-6 mb-3;
+  }
+
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  .skill-pill {
+    @apply inline-block px-3 py-1 rounded-full text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 mr-2 mb-2;
+  }
+
+  .project-card {
+    @apply border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden transition-all hover:shadow-md;
+  }
+
+  .project-card:hover {
+    @apply border-gray-400 dark:border-gray-600;
+  }
+
+  .section-title {
+    @apply text-2xl lg:text-3xl font-bold mb-6 text-center;
+  }
+
+  .timeline-item {
+    @apply grid grid-cols-1 md:grid-cols-[1fr_auto] gap-2 mb-6;
+  }
+
+  .timeline-date {
+    @apply text-sm text-gray-500 md:text-right;
+  }
 }
