@@ -84,17 +84,22 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-x-12 gap-y-6">
           <div>
             <p className="font-medium mb-2">Languages</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">JavaScript, TypeScript, Python, Java</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">JavaScript, TypeScript, Python, Java, Dart</p>
           </div>
           
           <div>
             <p className="font-medium mb-2">Web</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">React, Next.js, Tailwind CSS</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">HTML/CSS, React, Next.js, Tailwind CSS</p>
           </div>
           
           <div>
             <p className="font-medium mb-2">ML & Data</p>
             <p className="text-sm text-gray-600 dark:text-gray-300">PyTorch, Scikit-learn, Pandas</p>
+          </div>
+          
+          <div>
+            <p className="font-medium mb-2">Frameworks</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Spring Boot, Django, Flutter</p>
           </div>
           
           <div>
