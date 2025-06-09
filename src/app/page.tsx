@@ -23,9 +23,19 @@ export default function Home() {
           <div>
             <div className="flex justify-between">
               <div className="pr-4 w-3/4">
+                <p className="font-medium">Vice President</p>
+              </div>
+              <p className="text-sm text-gray-500 text-right shrink-0">May 2025–Present</p>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-300">BEM Fasilkom UI</p>
+          </div>
+          
+          <div>
+            <div className="flex justify-between">
+              <div className="pr-4 w-3/4">
                 <p className="font-medium">Software Engineering Intern</p>
               </div>
-              <p className="text-sm text-gray-500 text-right shrink-0">Feb 2025–Present</p>
+              <p className="text-sm text-gray-500 text-right shrink-0">Feb 2025–May 2025</p>
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-300">Sokratech</p>
           </div>
@@ -40,7 +50,7 @@ export default function Home() {
             <p className="text-sm text-gray-600 dark:text-gray-300">Faculty of Computer Science, Universitas Indonesia</p>
           </div>
           
-          <div>
+         <div>
             <div className="flex justify-between">
               <div className="pr-4 w-3/4">
                 <p className="font-medium">Deputy of Advocacy and Student Welfare</p>
@@ -49,7 +59,7 @@ export default function Home() {
             </div>
             <p className="text-sm text-gray-600 dark:text-gray-300">BEM Fasilkom UI</p>
           </div>
-          
+
           <div>
             <div className="flex justify-between">
               <div className="pr-4 w-3/4">
