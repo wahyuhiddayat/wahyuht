@@ -1,17 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
       {/* Header */}
-      <header className="mb-16">
-        <h1 className="text-2xl font-bold mb-1">Wahyu Hidayat</h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-5">
-          Computer Science student at Universitas Indonesia, passionate about AI, ML, and software engineering.
-        </p>
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          My journey started with web development and grew into a deeper interest in data, machine learning, and deep learning. 
-          I enjoy building intelligent systems and exploring new tools — often while working from cozy coffee shops.
+      <header className="mb-16 text-center">
+        <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 mx-auto mb-6">
+          <Image
+            src="/profile.jpg"
+            alt="Wahyu Hidayat"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <h1 className="text-2xl font-bold mb-1 tracking-tight">Wahyu Hidayat</h1>
+        <p className="text-gray-600 dark:text-gray-300">
+          Computer Science student at Universitas Indonesia, passionate about artificial intelligence and machine learning.
         </p>
       </header>
 
