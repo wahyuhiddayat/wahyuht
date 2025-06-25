@@ -28,27 +28,27 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-x-12 gap-y-6">
           <div>
             <p className="font-medium mb-2">Languages</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">JavaScript, TypeScript, Python, Java, Dart</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Python, JavaScript, TypeScript, Java, Go, Dart</p>
           </div>
           
           <div>
-            <p className="font-medium mb-2">Web</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">HTML/CSS, React, Next.js, Tailwind CSS</p>
+            <p className="font-medium mb-2">Machine Learning</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">PyTorch, TensorFlow, Scikit-learn, Hugging Face</p>
           </div>
           
           <div>
-            <p className="font-medium mb-2">ML & Data</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">PyTorch, Scikit-learn, Pandas</p>
+            <p className="font-medium mb-2">Data & Analytics</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Pandas, NumPy, Matplotlib, Seaborn, PostgreSQL</p>
           </div>
           
           <div>
-            <p className="font-medium mb-2">Frameworks</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Spring Boot, Django, Flutter</p>
+            <p className="font-medium mb-2">Web Development</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">React, Next.js, Django, Spring Boot, Bun</p>
           </div>
           
           <div>
-            <p className="font-medium mb-2">Tools</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Git, Docker, AWS, Jira</p>
+            <p className="font-medium mb-2">Tools & Platforms</p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Git, Docker, Google Cloud Platform, Jupyter</p>
           </div>
         </div>
       </section>
