@@ -82,22 +82,6 @@ export default function Home() {
             <div className="flex-1 pb-6">
               <div className="flex justify-between">
                 <div className="pr-4 w-3/4">
-                  <p className="font-medium">Software Engineering Intern</p>
-                </div>
-                <p className="text-sm text-gray-500 text-right shrink-0">Feb 2025–May 2025</p>
-              </div>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Sokratech</p>
-            </div>
-          </div>
-          
-          <div className="flex">
-            <div className="flex flex-col items-center mr-4">
-              <div className="w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full mt-2"></div>
-              <div className="w-px bg-gray-200 dark:bg-gray-700 flex-1 mt-2"></div>
-            </div>
-            <div className="flex-1 pb-6">
-              <div className="flex justify-between">
-                <div className="pr-4 w-3/4">
                   <p className="font-medium">Teaching Assistant — Introduction to Computer Organization</p>
                 </div>
                 <p className="text-sm text-gray-500 text-right shrink-0">Aug 2024–Jan 2025</p>
@@ -105,7 +89,6 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-gray-300">Faculty of Computer Science, Universitas Indonesia</p>
             </div>
           </div>
-          
           <div className="flex">
             <div className="flex flex-col items-center mr-4">
               <div className="w-2 h-2 bg-gray-300 dark:bg-gray-600 rounded-full mt-2"></div>
