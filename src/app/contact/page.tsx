@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 export default function Contact() {
   return (
-    <div className="pt-32 pb-16 animate-fade-in">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">Contact Me</h1>
+    <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
+      <h1 className="text-2xl font-bold mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Contact Me</h1>
       
-      <div className="max-w-xl mx-auto mt-12">
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-8">
+      <div className="mt-8">
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-8">
           I'm always open to new opportunities and collaborations. Feel free to reach out!
         </p>
         

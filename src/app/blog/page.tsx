@@ -12,17 +12,17 @@ const BlogPostCard = ({
   excerpt: string; 
   slug: string;
 }) => (
-  <div className="rounded-lg p-6 border border-gray-200 dark:border-gray-700 mb-6">
-    <h3 className="text-xl font-semibold mb-2">
+  <div className="border-b border-gray-200 dark:border-gray-700 pb-6 mb-6">
+    <h3 className="text-lg font-medium mb-2">
       <Link href={`/blog/${slug}`} className="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
         {title}
       </Link>
     </h3>
     <p className="text-sm text-gray-500 mb-3">{date}</p>
-    <p className="text-gray-600 dark:text-gray-300 mb-4">{excerpt}</p>
+    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{excerpt}</p>
     <Link 
       href={`/blog/${slug}`}
-      className="text-black dark:text-white font-medium hover:underline"
+      className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
     >
       Read more →
     </Link>
@@ -59,15 +59,15 @@ export default function Blog() {
   ];
 
   return (
-    <div className="pt-32 pb-16 animate-fade-in">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">Blog</h1>
+    <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
+      <h1 className="text-2xl font-bold mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Blog</h1>
       
-      <div className="max-w-xl mx-auto mt-12">
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
+      <div className="mt-8">
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-8">
           Thoughts, ideas, and insights about technology, programming, and design.
         </p>
         
-        <div className="space-y-8">
+        <div className="space-y-6">
           {posts.map((post, index) => (
             <BlogPostCard 
               key={index}

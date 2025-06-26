@@ -3,15 +3,15 @@ import ProjectCard from '@/components/ProjectCard';
 
 export default function Projects() {
   return (
-    <div className="pt-32 pb-16 animate-fade-in">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">Projects</h1>
+    <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
+      <h1 className="text-2xl font-bold mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Projects</h1>
       
-      <div className="max-w-xl mx-auto mt-12">
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
+      <div className="mt-8">
+        <p className="text-sm text-gray-600 dark:text-gray-300 mb-8">
           A collection of my work, side projects, and experiments.
         </p>
         
-        <div className="space-y-10">
+        <div className="space-y-6">
           <ProjectCard
             title="Project One"
             description="A web application for tracking personal finances and creating budgets. Built with React and Node.js, this app helps users manage their expenses, set financial goals, and visualize spending patterns through interactive charts."
