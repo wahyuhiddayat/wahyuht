@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   return (
@@ -137,18 +138,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Featured Projects */}
       <section className="mb-16">
         <div className="flex justify-between items-center mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">
-          <h2 className="text-lg font-medium">Projects</h2>
+          <h2 className="text-lg font-medium">Featured Projects</h2>
           <Link href="/projects" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
-            View all →
+            Other projects →
           </Link>
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          Working on machine learning models, web applications, and 
-          open-source tools. See my projects page for details.
-        </p>
+        
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <ProjectCard
+              title="ML Sentiment Analyzer"
+              description="A machine learning model built with PyTorch for analyzing sentiment in Indonesian text. Features real-time prediction API and web interface with 89% accuracy on test data."
+              date="2024"
+              skills={['Python', 'PyTorch', 'FastAPI', 'React', 'Docker']}
+              links={{
+                github: "https://github.com/wahyuhidayat/sentiment-analyzer",
+                website: "https://sentiment-analyzer-demo.vercel.app"
+              }}
+            />
+          </div>
+          
+          <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <ProjectCard
+              title="Academic Dashboard"
+              description="Full-stack web application for university course management with real-time notifications. Built with modern tech stack and used by 500+ students in Faculty of Computer Science."
+              date="2024"
+              skills={['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Prisma']}
+              links={{
+                github: "https://github.com/wahyuhidayat/academic-dashboard",
+                website: "https://fasilkom-dashboard.vercel.app"
+              }}
+            />
+          </div>
+          
+          <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <ProjectCard
+              title="AI Code Assistant"
+              description="VS Code extension powered by OpenAI API for intelligent code completion and documentation generation. Supports multiple programming languages with context-aware suggestions."
+              date="2024"
+              skills={['TypeScript', 'VS Code API', 'OpenAI API', 'Node.js']}
+              links={{
+                github: "https://github.com/wahyuhidayat/ai-code-assistant"
+              }}
+            />
+          </div>
+          
+          <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow">
+            <ProjectCard
+              title="Data Visualization Tool"
+              description="Interactive data visualization platform for exploring large datasets. Built with D3.js and Python backend, featuring real-time charts and statistical analysis capabilities."
+              date="2023"
+              skills={['Python', 'Django', 'D3.js', 'PostgreSQL', 'Pandas']}
+              links={{
+                github: "https://github.com/wahyuhidayat/data-viz-tool",
+                website: "https://dataviz-demo.herokuapp.com"
+              }}
+            />
+          </div>
+        </div>
       </section>
     </div>
   );
