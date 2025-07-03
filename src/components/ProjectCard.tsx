@@ -36,8 +36,8 @@ export default function ProjectCard({
       
       <div className="space-y-3">
         <div className="flex justify-between items-center">
-          <h3 className="font-medium text-sm">{title}</h3>
-          <span className="text-xs text-gray-400">{date}</span>
+          <h3 className="font-medium text-sm dark:text-white">{title}</h3>
+          <span className="text-xs text-gray-400 dark:text-gray-500">{date}</span>
         </div>
         
         <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
