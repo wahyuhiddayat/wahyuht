@@ -17,6 +17,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                function setTheme(theme) {
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                }
+
+                try {
+                  var savedDarkMode = localStorage.getItem('darkMode');
+                  if (savedDarkMode !== null) {
+                    setTheme(savedDarkMode === 'true' ? 'dark' : 'light');
+                  } else {
+                    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    setTheme(prefersDark ? 'dark' : 'light');
+                  }
+                } catch (error) {
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  setTheme(prefersDark ? 'dark' : 'light');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Navbar />
         <main className="max-w-2xl mx-auto px-4 py-8 min-h-screen">{children}</main>
