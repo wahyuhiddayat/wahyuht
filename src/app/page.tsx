@@ -9,7 +9,7 @@ export default function Home() {
       <header className="mb-16 text-center">
         <div className="relative w-32 h-32 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 mx-auto mb-6">
           <Image
-            src="/profile.jpg"
+            src="/images/profile.jpg"
             alt="Wahyu Hidayat"
             fill
             className="object-cover"
