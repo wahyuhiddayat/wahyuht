@@ -1,136 +1,210 @@
 import Link from "next/link";
+import Image from "next/image";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   return (
-    <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
-      {/* Header */}
-      <header className="mb-16">
-        <h1 className="text-2xl font-bold mb-1">Wahyu Hidayat</h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-5">
-          Computer Science student at Universitas Indonesia, passionate about AI, ML, and software engineering.
+    <div className="max-w-2xl mx-auto px-6 pt-32 pb-8">
+      {/* Hero Section */}
+      <header className="mb-16 text-center">
+        <div className="relative w-32 h-32 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 mx-auto mb-6">
+          <Image
+            src="/profile.jpg"
+            alt="Wahyu Hidayat"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <h1 className="text-3xl font-bold mb-2 tracking-tight">
+          Hi, I’m Wahyu Hidayat 👋
+        </h1>
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
+          Building intelligent solutions through machine learning and thoughtful software engineering.
         </p>
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          My journey started with web development and grew into a deeper interest in data, machine learning, and deep learning. 
-          I enjoy building intelligent systems and exploring new tools — often while working from cozy coffee shops.
+        <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+          When I'm not coding, I’m probably at a coffee shop or exploring new tech.
         </p>
       </header>
 
-      {/* Experience */}
+      {/* Background Section */}
       <section className="mb-16">
-        <h2 className="text-lg font-medium mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Experience</h2>
-        
-        <div className="space-y-6">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
+          BACKGROUND
+        </h2>
+        <p className="text-sm text-gray-600 dark:text-gray-300">
+          I'm a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
+        </p>
+      </section>
+
+      {/* Skills Section */}
+      <section className="mb-16">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
+          SKILLS
+        </h2>
+
+        <div className="grid grid-cols-2 gap-x-12 gap-y-6 text-sm">
           <div>
-            <div className="flex justify-between">
-              <div className="pr-4 w-3/4">
-                <p className="font-medium">Vice President</p>
-              </div>
-              <p className="text-sm text-gray-500 text-right shrink-0">May 2025–Present</p>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">BEM Fasilkom UI</p>
-          </div>
-          
-          <div>
-            <div className="flex justify-between">
-              <div className="pr-4 w-3/4">
-                <p className="font-medium">Software Engineering Intern</p>
-              </div>
-              <p className="text-sm text-gray-500 text-right shrink-0">Feb 2025–May 2025</p>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Sokratech</p>
-          </div>
-          
-          <div>
-            <div className="flex justify-between">
-              <div className="pr-4 w-3/4">
-                <p className="font-medium">Teaching Assistant — Introduction to Computer Organization</p>
-              </div>
-              <p className="text-sm text-gray-500 text-right shrink-0">Aug 2024–Jan 2025</p>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Faculty of Computer Science, Universitas Indonesia</p>
-          </div>
-          
-         <div>
-            <div className="flex justify-between">
-              <div className="pr-4 w-3/4">
-                <p className="font-medium">Deputy of Advocacy and Student Welfare</p>
-              </div>
-              <p className="text-sm text-gray-500 text-right shrink-0">Mar 2024–Feb 2025</p>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">BEM Fasilkom UI</p>
+            <p className="font-medium mb-1">Languages</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              Python, JavaScript, TypeScript, Java, Go, Dart
+            </p>
           </div>
 
           <div>
-            <div className="flex justify-between">
-              <div className="pr-4 w-3/4">
-                <p className="font-medium">Staff of Advocacy and Student Welfare</p>
-              </div>
-              <p className="text-sm text-gray-500 text-right shrink-0">Apr 2023–Feb 2024</p>
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-300">BEM Fasilkom UI</p>
+            <p className="font-medium mb-1">Machine Learning</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              PyTorch, TensorFlow, Scikit-learn, Hugging Face
+            </p>
+          </div>
+
+          <div>
+            <p className="font-medium mb-1">Web & Frameworks</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              React, Next.js, Django, Spring Boot, Bun
+            </p>
+          </div>
+
+          <div>
+            <p className="font-medium mb-1">Data & Analytics</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              Pandas, NumPy, Matplotlib, Seaborn, PostgreSQL
+            </p>
+          </div>
+
+          <div>
+            <p className="font-medium mb-1">Tools</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              Git, Docker, Google Cloud, Jupyter
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Education */}
+      {/* Experience Section */}
       <section className="mb-16">
-        <h2 className="text-lg font-medium mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Education</h2>
-        
-        <div>
-          <div className="flex justify-between">
-            <div className="pr-4 w-3/4">
-              <p className="font-medium">Bachelor of Science in Computer Science</p>
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
+          EXPERIENCE
+        </h2>
+        <div className="space-y-4 text-sm">
+          <div>
+            <div className="flex justify-between items-start">
+              <p className="font-medium">Vice President</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">May 2025–Present</p>
             </div>
-            <p className="text-sm text-gray-500 text-right shrink-0">2022–Present</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              BEM Fasilkom UI
+            </p>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-300">Universitas Indonesia</p>
+          <div>
+            <div className="flex justify-between items-start">
+              <p className="font-medium">
+                Teaching Assistant — Introduction to Computer Organization
+              </p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Aug 2024–Jan 2025</p>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300">
+              Universitas Indonesia
+            </p>
+          </div>
+          <div>
+            <div className="flex justify-between items-start">
+              <p className="font-medium">Deputy of Advocacy and Student Welfare</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Mar 2024–Feb 2025</p>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300">
+              BEM Fasilkom UI
+            </p>
+          </div>
+          <div>
+            <div className="flex justify-between items-start">
+              <p className="font-medium">Staff of Advocacy and Student Welfare</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Apr 2023–Feb 2024</p>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300">
+              BEM Fasilkom UI
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Skills */}
+      {/* Education Section */}
       <section className="mb-16">
-        <h2 className="text-lg font-medium mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">Skills</h2>
-        
-        <div className="grid grid-cols-2 gap-x-12 gap-y-6">
-          <div>
-            <p className="font-medium mb-2">Languages</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">JavaScript, TypeScript, Python, Java, Dart</p>
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
+          EDUCATION
+        </h2>
+        <div className="text-sm">
+          <div className="flex justify-between items-start">
+            <p className="font-medium">Bachelor of Science in Computer Science</p>
+            <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022–Present</p>
           </div>
-          
-          <div>
-            <p className="font-medium mb-2">Web</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">HTML/CSS, React, Next.js, Tailwind CSS</p>
-          </div>
-          
-          <div>
-            <p className="font-medium mb-2">ML & Data</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">PyTorch, Scikit-learn, Pandas</p>
-          </div>
-          
-          <div>
-            <p className="font-medium mb-2">Frameworks</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Spring Boot, Django, Flutter</p>
-          </div>
-          
-          <div>
-            <p className="font-medium mb-2">Tools</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Git, Docker, AWS, Jira</p>
-          </div>
+          <p className="text-gray-600 dark:text-gray-300">
+            Universitas Indonesia
+          </p>
         </div>
       </section>
 
-      {/* Projects */}
-      <section className="mb-16">
-        <div className="flex justify-between items-center mb-6 pb-1 border-b border-gray-200 dark:border-gray-800">
-          <h2 className="text-lg font-medium">Projects</h2>
-          <Link href="/projects" className="text-sm text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white">
-            View all →
+      {/* Projects Section */}
+      <section className="mb-4">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
+          FEATURED PROJECTS
+        </h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <ProjectCard
+            title="ML Sentiment Analyzer"
+            description="A machine learning model built with PyTorch for analyzing sentiment in Indonesian text. Features real-time prediction API and web interface with 89% accuracy on test data."
+            date="2024"
+            imageUrl="/images/project1.webp" 
+            skills={['Python', 'PyTorch', 'FastAPI', 'React', 'Docker']}
+            links={{
+              github: "https://github.com/wahyuhidayat/sentiment-analyzer",
+              website: "https://sentiment-analyzer-demo.vercel.app"
+            }}
+          />
+          
+          <ProjectCard
+            title="Academic Dashboard"
+            description="Full-stack web application for university course management with real-time notifications. Built with modern tech stack and used by 500+ students in Faculty of Computer Science."
+            date="2024"
+            imageUrl="/images/project2.jpg"
+            skills={['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Prisma']}
+            links={{
+              github: "https://github.com/wahyuhidayat/academic-dashboard",
+              website: "https://fasilkom-dashboard.vercel.app"
+            }}
+          />
+          
+          <ProjectCard
+            title="AI Code Assistant"
+            description="VS Code extension powered by OpenAI API for intelligent code completion and documentation generation. Supports multiple programming languages with context-aware suggestions."
+            date="2024"
+            imageUrl="/images/project1.webp"
+            skills={['TypeScript', 'VS Code API', 'OpenAI API', 'Node.js']}
+            links={{
+              github: "https://github.com/wahyuhidayat/ai-code-assistant"
+            }}
+          />
+          
+          <ProjectCard
+            title="Data Visualization Tool"
+            description="Interactive data visualization platform for exploring large datasets. Built with D3.js and Python backend, featuring real-time charts and statistical analysis capabilities."
+            date="2023"
+            imageUrl="/images/project2.jpg"
+            skills={['Python', 'Django', 'D3.js', 'PostgreSQL', 'Pandas']}
+            links={{
+              github: "https://github.com/wahyuhidayat/data-viz-tool",
+              website: "https://dataviz-demo.herokuapp.com"
+            }}
+          />
+        </div>
+        <div className="mt-6 text-right">
+          <Link
+            href="/projects"
+            className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            See all projects →
           </Link>
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          Working on machine learning models, web applications, and 
-          open-source tools. See my projects page for details.
-        </p>
       </section>
     </div>
   );
