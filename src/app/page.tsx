@@ -16,8 +16,8 @@ export default function Home() {
             priority
           />
         </div>
-        <h1 className="text-3xl font-bold mb-4 tracking-tight">
-          👋 Hi, I’m Wahyu Hidayat
+        <h1 className="text-3xl font-bold mb-2 tracking-tight">
+          Hi, I’m Wahyu Hidayat 👋
         </h1>
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           Building intelligent solutions through machine learning and thoughtful software engineering.
@@ -149,13 +149,11 @@ export default function Home() {
         <h2 className="text-xs font-semibold text-blue-600 tracking-wider mb-4">
           FEATURED PROJECTS
         </h2>
-        {/* MODIFIKASI DI SINI: tambahkan md:grid-cols-2 */}
         <div className="grid md:grid-cols-2 gap-4">
           <ProjectCard
             title="ML Sentiment Analyzer"
             description="A machine learning model built with PyTorch for analyzing sentiment in Indonesian text. Features real-time prediction API and web interface with 89% accuracy on test data."
             date="2024"
-            // Pastikan path imageUrl benar
             imageUrl="/images/project1.webp" 
             skills={['Python', 'PyTorch', 'FastAPI', 'React', 'Docker']}
             links={{
@@ -180,7 +178,7 @@ export default function Home() {
             title="AI Code Assistant"
             description="VS Code extension powered by OpenAI API for intelligent code completion and documentation generation. Supports multiple programming languages with context-aware suggestions."
             date="2024"
-            imageUrl="/images/project1.webp" // Ganti dengan gambar yang relevan
+            imageUrl="/images/project1.webp"
             skills={['TypeScript', 'VS Code API', 'OpenAI API', 'Node.js']}
             links={{
               github: "https://github.com/wahyuhidayat/ai-code-assistant"
@@ -191,7 +189,7 @@ export default function Home() {
             title="Data Visualization Tool"
             description="Interactive data visualization platform for exploring large datasets. Built with D3.js and Python backend, featuring real-time charts and statistical analysis capabilities."
             date="2023"
-            imageUrl="/images/project2.jpg" // Ganti dengan gambar yang relevan
+            imageUrl="/images/project2.jpg"
             skills={['Python', 'Django', 'D3.js', 'PostgreSQL', 'Pandas']}
             links={{
               github: "https://github.com/wahyuhidayat/data-viz-tool",
