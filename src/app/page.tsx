@@ -4,10 +4,10 @@ import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   return (
-    <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
+    <div className="max-w-2xl mx-auto px-6 pt-32 pb-8">
       {/* Hero Section */}
       <header className="mb-16 text-center">
-        <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 mx-auto mb-4">
+        <div className="relative w-32 h-32 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 mx-auto mb-6">
           <Image
             src="/profile.jpg"
             alt="Wahyu Hidayat"
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="mb-16">
+      <section className="mb-4">
         <h2 className="text-xs font-semibold text-blue-600 tracking-wider mb-4">
           FEATURED PROJECTS
         </h2>
