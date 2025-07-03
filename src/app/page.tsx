@@ -29,17 +29,17 @@ export default function Home() {
 
       {/* Background Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 tracking-wider mb-4">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
           BACKGROUND
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-300">
-          I’m a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
+          I'm a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
         </p>
       </section>
 
       {/* Skills Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 tracking-wider mb-4">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
           SKILLS
         </h2>
 
@@ -83,14 +83,14 @@ export default function Home() {
 
       {/* Experience Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 tracking-wider mb-4">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
           EXPERIENCE
         </h2>
         <div className="space-y-4 text-sm">
           <div>
             <div className="flex justify-between items-start">
               <p className="font-medium">Vice President</p>
-              <p className="text-gray-500 text-right shrink-0">May 2025–Present</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">May 2025–Present</p>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
               BEM Fasilkom UI
@@ -101,7 +101,7 @@ export default function Home() {
               <p className="font-medium">
                 Teaching Assistant — Introduction to Computer Organization
               </p>
-              <p className="text-gray-500 text-right shrink-0">Aug 2024–Jan 2025</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Aug 2024–Jan 2025</p>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
               Universitas Indonesia
@@ -110,7 +110,7 @@ export default function Home() {
           <div>
             <div className="flex justify-between items-start">
               <p className="font-medium">Deputy of Advocacy and Student Welfare</p>
-              <p className="text-gray-500 text-right shrink-0">Mar 2024–Feb 2025</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Mar 2024–Feb 2025</p>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
               BEM Fasilkom UI
@@ -119,7 +119,7 @@ export default function Home() {
           <div>
             <div className="flex justify-between items-start">
               <p className="font-medium">Staff of Advocacy and Student Welfare</p>
-              <p className="text-gray-500 text-right shrink-0">Apr 2023–Feb 2024</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Apr 2023–Feb 2024</p>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
               BEM Fasilkom UI
@@ -130,13 +130,13 @@ export default function Home() {
 
       {/* Education Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 tracking-wider mb-4">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
           EDUCATION
         </h2>
         <div className="text-sm">
           <div className="flex justify-between items-start">
             <p className="font-medium">Bachelor of Science in Computer Science</p>
-            <p className="text-gray-500 text-right shrink-0">2022–Present</p>
+            <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022–Present</p>
           </div>
           <p className="text-gray-600 dark:text-gray-300">
             Universitas Indonesia
@@ -146,7 +146,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <section className="mb-4">
-        <h2 className="text-xs font-semibold text-blue-600 tracking-wider mb-4">
+        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
           FEATURED PROJECTS
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
