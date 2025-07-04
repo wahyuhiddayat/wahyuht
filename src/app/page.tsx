@@ -12,6 +12,53 @@ const skillsData = [
   { title: "Tools", skills: "Git, Docker, Google Cloud, Jupyter" },
 ];
 
+const experienceData = [
+  {
+    position: "Vice President",
+    company: "BEM Fasilkom UI",
+    period: "May 2025–Present"
+  },
+  {
+    position: "Teaching Assistant — Introduction to Computer Organization",
+    company: "Universitas Indonesia",
+    period: "Aug 2024–Jan 2025"
+  },
+  {
+    position: "Deputy of Advocacy and Student Welfare",
+    company: "BEM Fasilkom UI",
+    period: "Mar 2024–Feb 2025"
+  },
+  {
+    position: "Staff of Advocacy and Student Welfare",
+    company: "BEM Fasilkom UI",
+    period: "Apr 2023–Feb 2024"
+  },
+];
+
+const projectsData = [
+  {
+    title: "Sokratech Fraud Risk Automation",
+    description: "University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing.",
+    date: "2025",
+    imageUrl: "/images/sokratech.png",
+    skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
+    links: {
+      website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
+    }
+  },
+  {
+    title: "Coming Soon Project",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    date: "2024",
+    imageUrl: "/images/coming_soon.png",
+    skills: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    links: {
+      website: "#",
+      github: "#"
+    }
+  }
+];
+
 export default function Home() {
   return (
     <div className="max-w-2xl mx-auto px-6 pt-32 pb-8">
@@ -70,26 +117,14 @@ export default function Home() {
           EXPERIENCE
         </h2>
         <div className="space-y-4 text-sm">
-          <ExperienceItem
-            position="Vice President"
-            company="BEM Fasilkom UI"
-            period="May 2025–Present"
-          />
-          <ExperienceItem
-            position="Teaching Assistant — Introduction to Computer Organization"
-            company="Universitas Indonesia"
-            period="Aug 2024–Jan 2025"
-          />
-          <ExperienceItem
-            position="Deputy of Advocacy and Student Welfare"
-            company="BEM Fasilkom UI"
-            period="Mar 2024–Feb 2025"
-          />
-          <ExperienceItem
-            position="Staff of Advocacy and Student Welfare"
-            company="BEM Fasilkom UI"
-            period="Apr 2023–Feb 2024"
-          />
+          {experienceData.map((experience, index) => (
+            <ExperienceItem
+              key={index}
+              position={experience.position}
+              company={experience.company}
+              period={experience.period}
+            />
+          ))}
         </div>
       </section>
 
@@ -115,28 +150,17 @@ export default function Home() {
           FEATURED PROJECTS
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <ProjectCard
-            title="Sokratech Fraud Risk Automation"
-            description="University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing."
-            date="2025"
-            imageUrl="/images/sokratech.png"
-            skills={['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker']}
-            links={{
-              website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
-            }}
-          />
-
-          <ProjectCard
-            title="Coming Soon Project"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            date="2024"
-            imageUrl="/images/coming_soon.png"
-            skills={["Next.js", "TypeScript", "Supabase", "Tailwind CSS"]}
-            links={{
-              website: "#",
-              github: "#"
-            }}
-          />
+          {projectsData.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              date={project.date}
+              imageUrl={project.imageUrl}
+              skills={project.skills}
+              links={project.links}
+            />
+          ))}
         </div>
         <div className="mt-6 text-right">
           <Link
