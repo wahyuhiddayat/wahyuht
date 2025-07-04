@@ -1,6 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
+import ExperienceItem from "@/components/Experience";
+import SkillCategory from "@/components/SkillCategory";
+
+const skillsData = [
+  { title: "Languages", skills: "Python, JavaScript, TypeScript, Java, Go, Dart" },
+  { title: "Machine Learning", skills: "PyTorch, TensorFlow, Scikit-learn, Hugging Face" },
+  { title: "Web & Frameworks", skills: "React, Next.js, Django, Spring Boot, Bun" },
+  { title: "Data & Analytics", skills: "Pandas, NumPy, Matplotlib, Seaborn, PostgreSQL" },
+  { title: "Tools", skills: "Git, Docker, Google Cloud, Jupyter" },
+];
 
 export default function Home() {
   return (
@@ -44,40 +54,13 @@ export default function Home() {
         </h2>
 
         <div className="grid grid-cols-2 gap-x-12 gap-y-6 text-sm">
-          <div>
-            <p className="font-medium mb-1">Languages</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              Python, JavaScript, TypeScript, Java, Go, Dart
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Machine Learning</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              PyTorch, TensorFlow, Scikit-learn, Hugging Face
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Web & Frameworks</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              React, Next.js, Django, Spring Boot, Bun
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Data & Analytics</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              Pandas, NumPy, Matplotlib, Seaborn, PostgreSQL
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Tools</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              Git, Docker, Google Cloud, Jupyter
-            </p>
-          </div>
+          {skillsData.map((skill, index) => (
+            <SkillCategory
+              key={index}
+              title={skill.title}
+              skills={skill.skills}
+            />
+          ))}
         </div>
       </section>
 
@@ -87,44 +70,26 @@ export default function Home() {
           EXPERIENCE
         </h2>
         <div className="space-y-4 text-sm">
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">Vice President</p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">May 2025–Present</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              BEM Fasilkom UI
-            </p>
-          </div>
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">
-                Teaching Assistant — Introduction to Computer Organization
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Aug 2024–Jan 2025</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              Universitas Indonesia
-            </p>
-          </div>
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">Deputy of Advocacy and Student Welfare</p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Mar 2024–Feb 2025</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              BEM Fasilkom UI
-            </p>
-          </div>
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">Staff of Advocacy and Student Welfare</p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Apr 2023–Feb 2024</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              BEM Fasilkom UI
-            </p>
-          </div>
+          <ExperienceItem
+            position="Vice President"
+            company="BEM Fasilkom UI"
+            period="May 2025–Present"
+          />
+          <ExperienceItem
+            position="Teaching Assistant — Introduction to Computer Organization"
+            company="Universitas Indonesia"
+            period="Aug 2024–Jan 2025"
+          />
+          <ExperienceItem
+            position="Deputy of Advocacy and Student Welfare"
+            company="BEM Fasilkom UI"
+            period="Mar 2024–Feb 2025"
+          />
+          <ExperienceItem
+            position="Staff of Advocacy and Student Welfare"
+            company="BEM Fasilkom UI"
+            period="Apr 2023–Feb 2024"
+          />
         </div>
       </section>
 
