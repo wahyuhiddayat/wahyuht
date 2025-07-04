@@ -1,3 +1,53 @@
+import SocialLink from '@/components/SocialLink';
+
+const socialLinksData = [
+  {
+    name: "GitHub",
+    description: "Check out my code and projects",
+    url: "https://github.com/wahyuhiddayat",
+    username: "@wahyuhiddayat"
+  },
+  {
+    name: "LinkedIn",
+    description: "Professional network and experience",
+    url: "https://www.linkedin.com/in/wahyuuhidayat/",
+    username: "wahyuuhidayat"
+  },
+  {
+    name: "Kaggle",
+    description: "Data science competitions and datasets",
+    url: "https://www.kaggle.com/wahyuuhidaayat",
+    username: "wahyuuhidaayat"
+  },
+  {
+    name: "Hugging Face",
+    description: "ML models and datasets",
+    url: "https://huggingface.co/wahyuhidayat",
+    username: "wahyuhidayat"
+  },
+  {
+    name: "Instagram",
+    description: "Personal updates and behind-the-scenes",
+    url: "https://www.instagram.com/wahyyuhidaayat/",
+    username: "@wahyyuhidaayat"
+  }
+];
+
+const opportunitiesData = [
+  {
+    title: "Internship Opportunities",
+    description: "Machine learning, software engineering, or data science roles"
+  },
+  {
+    title: "Collaboration Projects",
+    description: "Open source contributions, research projects, or startup ideas"
+  },
+  {
+    title: "Learning Opportunities",
+    description: "Mentorship, tech talks, or interesting conversations about AI/ML"
+  }
+];
+
 export default function Contact() {
   return (
     <div className="max-w-2xl mx-auto px-6 pt-32 pb-16">
@@ -63,80 +113,16 @@ export default function Contact() {
         </h2>
         
         <div className="space-y-4">
-          <div className="flex justify-between items-center py-3 border-b border-gray-100 dark:border-gray-800">
-            <div>
-              <h3 className="font-medium text-sm dark:text-white">GitHub</h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Check out my code and projects</p>
-            </div>
-            <a 
-              href="https://github.com/wahyuhiddayat" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-            >
-              @wahyuhiddayat ↗
-            </a>
-          </div>
-
-          <div className="flex justify-between items-center py-3 border-b border-gray-100 dark:border-gray-800">
-            <div>
-              <h3 className="font-medium text-sm dark:text-white">LinkedIn</h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Professional network and experience</p>
-            </div>
-            <a 
-              href="https://www.linkedin.com/in/wahyuuhidayat/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-            >
-              wahyuuhidayat ↗
-            </a>
-          </div>
-
-          <div className="flex justify-between items-center py-3 border-b border-gray-100 dark:border-gray-800">
-            <div>
-              <h3 className="font-medium text-sm dark:text-white">Kaggle</h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Data science competitions and datasets</p>
-            </div>
-            <a 
-              href="https://www.kaggle.com/wahyuuhidaayat" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-            >
-              wahyuuhidaayat ↗
-            </a>
-          </div>
-
-          <div className="flex justify-between items-center py-3 border-b border-gray-100 dark:border-gray-800">
-            <div>
-              <h3 className="font-medium text-sm dark:text-white">Hugging Face</h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">ML models and datasets</p>
-            </div>
-            <a 
-              href="https://huggingface.co/wahyuhidayat" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-            >
-              wahyuhidayat ↗
-            </a>
-          </div>
-
-          <div className="flex justify-between items-center py-3">
-            <div>
-              <h3 className="font-medium text-sm dark:text-white">Instagram</h3>
-              <p className="text-xs text-gray-500 dark:text-gray-400">Personal updates and behind-the-scenes</p>
-            </div>
-            <a 
-              href="https://www.instagram.com/wahyyuhidaayat/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
-            >
-              @wahyyuhidaayat ↗
-            </a>
-          </div>
+          {socialLinksData.map((social, index) => (
+            <SocialLink
+              key={index}
+              name={social.name}
+              description={social.description}
+              url={social.url}
+              username={social.username}
+              isLast={index === socialLinksData.length - 1}
+            />
+          ))}
         </div>
       </section>
 
@@ -147,20 +133,12 @@ export default function Contact() {
         </h2>
         
         <div className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
-          <div>
-            <h3 className="font-medium text-gray-900 dark:text-white mb-1">Internship Opportunities</h3>
-            <p>Machine learning, software engineering, or data science roles</p>
-          </div>
-          
-          <div>
-            <h3 className="font-medium text-gray-900 dark:text-white mb-1">Collaboration Projects</h3>
-            <p>Open source contributions, research projects, or startup ideas</p>
-          </div>
-          
-          <div>
-            <h3 className="font-medium text-gray-900 dark:text-white mb-1">Learning Opportunities</h3>
-            <p>Mentorship, tech talks, or interesting conversations about AI/ML</p>
-          </div>
+          {opportunitiesData.map((opportunity, index) => (
+            <div key={index}>
+              <h3 className="font-medium text-gray-900 dark:text-white mb-1">{opportunity.title}</h3>
+              <p>{opportunity.description}</p>
+            </div>
+          ))}
         </div>
       </section>
     </div>

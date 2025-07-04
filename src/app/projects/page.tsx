@@ -1,6 +1,30 @@
 import Link from 'next/link';
 import ProjectCard from '@/components/ProjectCard';
 
+const projectsData = [
+  {
+    title: "Sokratech Fraud Risk Automation",
+    description: "University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing.",
+    date: "2025",
+    imageUrl: "/images/sokratech.png",
+    skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
+    links: {
+      website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
+    }
+  },
+  {
+    title: "Coming Soon Project",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    date: "2024",
+    imageUrl: "/images/coming_soon.png",
+    skills: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    links: {
+      website: "#",
+      github: "#"
+    }
+  }
+];
+
 export default function Projects() {
   return (
     <div className="max-w-2xl mx-auto px-6 pt-32 pb-8">
@@ -21,28 +45,17 @@ export default function Projects() {
         </h2>
         
         <div className="space-y-12">
-          <ProjectCard
-            title="Sokratech Fraud Risk Automation"
-            description="University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing."
-            date="2025"
-            imageUrl="/images/sokratech.png"
-            skills={['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker']}
-            links={{
-              website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
-            }}
-          />
-
-          <ProjectCard
-            title="Coming Soon Project"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            date="2024"
-            imageUrl="/images/coming_soon.png"
-            skills={["Next.js", "TypeScript", "Supabase", "Tailwind CSS"]}
-            links={{
-              website: "#",
-              github: "#"
-            }}
-          />
+          {projectsData.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              date={project.date}
+              imageUrl={project.imageUrl}
+              skills={project.skills}
+              links={project.links}
+            />
+          ))}
         </div>
 
         {/* Back to Home */}

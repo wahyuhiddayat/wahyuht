@@ -1,6 +1,63 @@
 import Link from "next/link";
 import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
+import ExperienceItem from "@/components/Experience";
+import SkillCategory from "@/components/SkillCategory";
+
+const skillsData = [
+  { title: "Languages", skills: "Python, JavaScript, TypeScript, Java, Go, Dart" },
+  { title: "Machine Learning", skills: "PyTorch, TensorFlow, Scikit-learn, Hugging Face" },
+  { title: "Web & Frameworks", skills: "React, Next.js, Django, Spring Boot, Bun" },
+  { title: "Data & Analytics", skills: "Pandas, NumPy, Matplotlib, Seaborn, PostgreSQL" },
+  { title: "Tools", skills: "Git, Docker, Google Cloud, Jupyter" },
+];
+
+const experienceData = [
+  {
+    position: "Vice President",
+    company: "BEM Fasilkom UI",
+    period: "May 2025–Present"
+  },
+  {
+    position: "Teaching Assistant — Introduction to Computer Organization",
+    company: "Universitas Indonesia",
+    period: "Aug 2024–Jan 2025"
+  },
+  {
+    position: "Deputy of Advocacy and Student Welfare",
+    company: "BEM Fasilkom UI",
+    period: "Mar 2024–Feb 2025"
+  },
+  {
+    position: "Staff of Advocacy and Student Welfare",
+    company: "BEM Fasilkom UI",
+    period: "Apr 2023–Feb 2024"
+  },
+];
+
+const projectsData = [
+  {
+    title: "Sokratech Fraud Risk Automation",
+    description: "University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing.",
+    date: "2025",
+    imageUrl: "/images/sokratech.png",
+    skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
+    links: {
+      website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
+    }
+  },
+  {
+    title: "Coming Soon Project",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    date: "2024",
+    imageUrl: "/images/coming_soon.png",
+    skills: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    links: {
+      website: "#",
+      github: "#"
+    }
+  }
+];
 
 export default function Home() {
   return (
@@ -44,40 +101,13 @@ export default function Home() {
         </h2>
 
         <div className="grid grid-cols-2 gap-x-12 gap-y-6 text-sm">
-          <div>
-            <p className="font-medium mb-1">Languages</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              Python, JavaScript, TypeScript, Java, Go, Dart
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Machine Learning</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              PyTorch, TensorFlow, Scikit-learn, Hugging Face
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Web & Frameworks</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              React, Next.js, Django, Spring Boot, Bun
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Data & Analytics</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              Pandas, NumPy, Matplotlib, Seaborn, PostgreSQL
-            </p>
-          </div>
-
-          <div>
-            <p className="font-medium mb-1">Tools</p>
-            <p className="text-gray-600 dark:text-gray-300">
-              Git, Docker, Google Cloud, Jupyter
-            </p>
-          </div>
+          {skillsData.map((skill, index) => (
+            <SkillCategory
+              key={index}
+              title={skill.title}
+              skills={skill.skills}
+            />
+          ))}
         </div>
       </section>
 
@@ -87,44 +117,14 @@ export default function Home() {
           EXPERIENCE
         </h2>
         <div className="space-y-4 text-sm">
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">Vice President</p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">May 2025–Present</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              BEM Fasilkom UI
-            </p>
-          </div>
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">
-                Teaching Assistant — Introduction to Computer Organization
-              </p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Aug 2024–Jan 2025</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              Universitas Indonesia
-            </p>
-          </div>
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">Deputy of Advocacy and Student Welfare</p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Mar 2024–Feb 2025</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              BEM Fasilkom UI
-            </p>
-          </div>
-          <div>
-            <div className="flex justify-between items-start">
-              <p className="font-medium">Staff of Advocacy and Student Welfare</p>
-              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">Apr 2023–Feb 2024</p>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300">
-              BEM Fasilkom UI
-            </p>
-          </div>
+          {experienceData.map((experience, index) => (
+            <ExperienceItem
+              key={index}
+              position={experience.position}
+              company={experience.company}
+              period={experience.period}
+            />
+          ))}
         </div>
       </section>
 
@@ -150,28 +150,17 @@ export default function Home() {
           FEATURED PROJECTS
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <ProjectCard
-            title="Sokratech Fraud Risk Automation"
-            description="University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing."
-            date="2025"
-            imageUrl="/images/sokratech.png"
-            skills={['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker']}
-            links={{
-              website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
-            }}
-          />
-
-          <ProjectCard
-            title="Coming Soon Project"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            date="2024"
-            imageUrl="/images/coming_soon.png"
-            skills={["Next.js", "TypeScript", "Supabase", "Tailwind CSS"]}
-            links={{
-              website: "#",
-              github: "#"
-            }}
-          />
+          {projectsData.map((project, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              description={project.description}
+              date={project.date}
+              imageUrl={project.imageUrl}
+              skills={project.skills}
+              links={project.links}
+            />
+          ))}
         </div>
         <div className="mt-6 text-right">
           <Link
