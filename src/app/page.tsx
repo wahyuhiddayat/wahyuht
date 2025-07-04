@@ -135,7 +135,7 @@ export default function Home() {
         </h2>
         <div className="text-sm">
           <div className="flex justify-between items-start">
-            <p className="font-medium">Bachelor of Science in Computer Science</p>
+            <p className="font-medium">Bachelor of Computer Science</p>
             <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022–Present</p>
           </div>
           <p className="text-gray-600 dark:text-gray-300">
