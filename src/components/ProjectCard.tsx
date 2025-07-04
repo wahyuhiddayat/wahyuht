@@ -46,7 +46,7 @@ export default function ProjectCard({
         
         <div className="pt-1 space-y-2">
           <p className="text-xs text-gray-400 dark:text-gray-500">
-            {skills.slice(0, 4).join(' • ')}
+            {skills.join(' • ')}
           </p>
           
           {links && (

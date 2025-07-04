@@ -151,49 +151,25 @@ export default function Home() {
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
           <ProjectCard
-            title="ML Sentiment Analyzer"
-            description="A machine learning model built with PyTorch for analyzing sentiment in Indonesian text. Features real-time prediction API and web interface with 89% accuracy on test data."
-            date="2024"
-            imageUrl="/images/project1.webp" 
-            skills={['Python', 'PyTorch', 'FastAPI', 'React', 'Docker']}
+            title="Sokratech Fraud Risk Automation"
+            description="University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing."
+            date="2025"
+            imageUrl="/images/sokratech.png"
+            skills={['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker']}
             links={{
-              github: "https://github.com/wahyuhidayat/sentiment-analyzer",
-              website: "https://sentiment-analyzer-demo.vercel.app"
+              website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
             }}
           />
-          
+
           <ProjectCard
-            title="Academic Dashboard"
-            description="Full-stack web application for university course management with real-time notifications. Built with modern tech stack and used by 500+ students in Faculty of Computer Science."
+            title="Coming Soon Project"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             date="2024"
-            imageUrl="/images/project2.jpg"
-            skills={['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Prisma']}
+            imageUrl="/images/coming_soon.png"
+            skills={["Next.js", "TypeScript", "Supabase", "Tailwind CSS"]}
             links={{
-              github: "https://github.com/wahyuhidayat/academic-dashboard",
-              website: "https://fasilkom-dashboard.vercel.app"
-            }}
-          />
-          
-          <ProjectCard
-            title="AI Code Assistant"
-            description="VS Code extension powered by OpenAI API for intelligent code completion and documentation generation. Supports multiple programming languages with context-aware suggestions."
-            date="2024"
-            imageUrl="/images/project1.webp"
-            skills={['TypeScript', 'VS Code API', 'OpenAI API', 'Node.js']}
-            links={{
-              github: "https://github.com/wahyuhidayat/ai-code-assistant"
-            }}
-          />
-          
-          <ProjectCard
-            title="Data Visualization Tool"
-            description="Interactive data visualization platform for exploring large datasets. Built with D3.js and Python backend, featuring real-time charts and statistical analysis capabilities."
-            date="2023"
-            imageUrl="/images/project2.jpg"
-            skills={['Python', 'Django', 'D3.js', 'PostgreSQL', 'Pandas']}
-            links={{
-              github: "https://github.com/wahyuhidayat/data-viz-tool",
-              website: "https://dataviz-demo.herokuapp.com"
+              website: "#",
+              github: "#"
             }}
           />
         </div>
