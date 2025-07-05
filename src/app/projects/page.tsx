@@ -13,6 +13,17 @@ const projectsData = [
     }
   },
   {
+    title: "Letterbookd",
+    description: "Full-stack web app to connect readers with books and communities. Features personal libraries, book catalog management, reviews, and forums. Includes REST API for Flutter mobile clients and supports multi-role access (guest, reader, librarian, admin).",
+    date: "2024",
+    imageUrl: "/images/letterbookd_web.png",
+    skills: [
+      "Django", "Django REST Framework", "Python", "PostgreSQL", "Bootstrap", "jQuery", "Docker", "Heroku"],
+    links: {
+      github: "https://github.com/letterbookd/letterbookd"
+    }
+  },
+  {
     title: "Coming Soon Project",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     date: "2024",
