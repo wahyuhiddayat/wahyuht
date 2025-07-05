@@ -47,16 +47,15 @@ const projectsData = [
     }
   },
   {
-    title: "Coming Soon Project",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    date: "2024",
-    imageUrl: "/images/coming_soon.png",
-    skills: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    title: "wahyuht",
+    description: "Personal portfolio website showcasing my projects and experiments. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion. Features responsive design, dark mode, and automated testing setup.",
+    date: "2025",
+    imageUrl: "/images/wahyuht.png",
+    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
     links: {
-      website: "#",
-      github: "#"
+      website: "https://wahyuht.com"
     }
-  }
+  },
 ];
 
 export default function Home() {

@@ -13,6 +13,16 @@ const projectsData = [
     }
   },
   {
+    title: "wahyuht",
+    description: "Personal portfolio website showcasing my projects and experiments. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion. Features responsive design, dark mode, and automated testing setup.",
+    date: "2025",
+    imageUrl: "/images/wahyuht.png",
+    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
+    links: {
+      website: "https://wahyuht.com"
+    }
+  },
+  {
     title: "Letterbookd",
     description: "Full-stack web app to connect readers with books and communities. Features personal libraries, book catalog management, reviews, and forums. Includes REST API for Flutter mobile clients and supports multi-role access (guest, reader, librarian, admin).",
     date: "2023",
