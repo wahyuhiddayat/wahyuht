@@ -33,6 +33,7 @@ const projectsData = [
       github: "https://github.com/letterbookd/letterbookd"
     }
   },
+  /*
   {
     title: "Coming Soon Project",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -43,7 +44,8 @@ const projectsData = [
       website: "#",
       github: "#"
     }
-  }
+  },
+  */
 ];
 
 export default function Projects() {
