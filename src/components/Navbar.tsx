@@ -10,9 +10,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between gap-8">
           <Link href="/" className="text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors text-sm font-medium">Home</Link>
           <Link href="/projects" className="text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors text-sm font-medium">Projects</Link>
-          <Link href="/blog" className="text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors text-sm font-medium">Blog</Link>
           <Link href="/contact" className="text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors text-sm font-medium">Contact</Link>
-          
           <ThemeSwitcher />
         </div>
       </div>

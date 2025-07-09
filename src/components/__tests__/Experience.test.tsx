@@ -3,79 +3,52 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ExperienceItem from '../Experience';
 
-// Mock the Image component from next/image
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (props: any) => {
-    // Convert the fill prop to a string to avoid React warnings
-    const modifiedProps = { ...props };
-    if (props.fill) {
-      modifiedProps.fill = 'true';
-    }
-    return <img {...modifiedProps} />;
-  }
-}));
-
 describe('ExperienceItem', () => {
   const mockProps = {
-    company: 'Test Company',
     position: 'Software Engineer',
-    period: '2022 - Present',
-    description: 'Working on exciting projects and technologies.',
-    skills: ['React', 'Next.js', 'TDD']
+    company: 'Test Company',
+    period: '2022 - Present'
   };
 
   it('renders the experience item with provided props', () => {
     render(<ExperienceItem {...mockProps} />);
     
-    expect(screen.getByText('Test Company')).toBeInTheDocument();
     expect(screen.getByText('Software Engineer')).toBeInTheDocument();
-    expect(screen.getAllByText('2022 - Present').length).toBe(2); // Two period elements with the same text
-    expect(screen.getByText('Working on exciting projects and technologies.')).toBeInTheDocument();
-    
-    // Check for skills
-    expect(screen.getByText('React')).toBeInTheDocument();
-    expect(screen.getByText('Next.js')).toBeInTheDocument();
-    expect(screen.getByText('TDD')).toBeInTheDocument();
+    expect(screen.getByText('Test Company')).toBeInTheDocument();
+    expect(screen.getByText('2022 - Present')).toBeInTheDocument();
   });
 
-  it('does not render the logo when logoUrl is not provided', () => {
+  it('renders position with proper styling', () => {
     render(<ExperienceItem {...mockProps} />);
     
-    // There should be no image element
-    const images = document.querySelectorAll('img');
-    expect(images.length).toBe(0);
+    const positionElement = screen.getByText('Software Engineer');
+    expect(positionElement).toHaveClass('font-medium');
   });
 
-  it('renders the logo when logoUrl is provided', () => {
-    const propsWithLogo = {
-      ...mockProps,
-      logoUrl: '/test-logo.png'
-    };
+  it('renders company with proper styling', () => {
+    render(<ExperienceItem {...mockProps} />);
     
-    render(<ExperienceItem {...propsWithLogo} />);
-    
-    // There should be one image element
-    const image = document.querySelector('img');
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', '/test-logo.png');
-    expect(image).toHaveAttribute('alt', 'Test Company logo');
+    const companyElement = screen.getByText('Test Company');
+    expect(companyElement).toHaveClass('text-gray-600', 'dark:text-gray-300');
   });
 
-  it('renders correctly without skills', () => {
-    const propsWithoutSkills = {
-      company: 'Test Company',
-      position: 'Software Engineer',
-      period: '2022 - Present',
-      description: 'Working on exciting projects and technologies.'
-    };
+  it('renders period with proper styling', () => {
+    render(<ExperienceItem {...mockProps} />);
     
-    render(<ExperienceItem {...propsWithoutSkills} />);
+    const periodElement = screen.getByText('2022 - Present');
+    expect(periodElement).toHaveClass('text-gray-500', 'dark:text-gray-400', 'text-right', 'shrink-0');
+  });
+
+  it('renders with correct layout structure', () => {
+    const { container } = render(<ExperienceItem {...mockProps} />);
     
-    expect(screen.getByText('Test Company')).toBeInTheDocument();
+    const flexContainer = container.querySelector('.flex.justify-between.items-start');
+    expect(flexContainer).toBeInTheDocument();
     
-    // There should be no skill tags
-    const skillTags = document.querySelectorAll('.bg-gray-100');
-    expect(skillTags.length).toBe(0);
+    const positionElement = flexContainer?.querySelector('.font-medium');
+    const periodElement = flexContainer?.querySelector('.text-right');
+    
+    expect(positionElement).toBeInTheDocument();
+    expect(periodElement).toBeInTheDocument();
   });
 }); 

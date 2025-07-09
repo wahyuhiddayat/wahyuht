@@ -1,150 +1,192 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ThemeSwitcher from '../ThemeSwitcher';
 
-// Mock the console.log to prevent noise in test output
-beforeAll(() => {
-  jest.spyOn(console, 'log').mockImplementation(() => {});
+const mockLocalStorage = {
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn()
+};
+
+const mockMatchMedia = {
+  matches: false,
+  media: '',
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+  addEventListener: jest.fn(),
+  removeEventListener: jest.fn(),
+  dispatchEvent: jest.fn()
+};
+
+const mockClassList = {
+  add: jest.fn(),
+  remove: jest.fn(),
+  contains: jest.fn()
+};
+
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.spyOn(console, 'warn').mockImplementation(() => {});
+  
+  Object.defineProperty(window, 'localStorage', {
+    value: mockLocalStorage,
+    writable: true
+  });
+  
+  Object.defineProperty(window, 'matchMedia', {
+    value: jest.fn(() => mockMatchMedia),
+    writable: true
+  });
+  
+  Object.defineProperty(document.documentElement, 'classList', {
+    value: mockClassList,
+    writable: true
+  });
+  
+  global.requestAnimationFrame = jest.fn((cb: FrameRequestCallback) => {
+    cb(0);
+    return 0;
+  });
 });
 
-afterAll(() => {
-  jest.spyOn(console, 'log').mockRestore();
+afterEach(() => {
+  jest.restoreAllMocks();
 });
 
 describe('ThemeSwitcher', () => {
-  // Setup mocks for each test
-  beforeEach(() => {
-    // Mock localStorage
-    const localStorageMock = {
-      getItem: jest.fn(() => null),
-      setItem: jest.fn(),
-      removeItem: jest.fn()
-    };
-    
-    Object.defineProperty(window, 'localStorage', {
-      value: localStorageMock,
-      writable: true
-    });
-
-    // Mock matchMedia - required for system preference detection
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn().mockImplementation(query => ({
-        matches: false, // Default to light mode system preference
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      })),
-      writable: true,
-    });
-
-    // Mock classList methods as jest.fn()
-    const mockAdd = jest.fn();
-    const mockRemove = jest.fn();
-    const mockContains = jest.fn(() => false);
-
-    // Apply mocks to documentElement.classList
-    Object.defineProperty(document.documentElement, 'classList', {
-      value: {
-        add: mockAdd,
-        remove: mockRemove,
-        contains: mockContains
-      },
-      writable: true
-    });
-
-    // Mock document.body.style
-    Object.defineProperty(document.body.style, 'backgroundColor', {
-      value: '',
-      writable: true
-    });
-
-    Object.defineProperty(document.body.style, 'color', {
-      value: '',
-      writable: true
-    });
-  });
-
-  it('renders correctly with no saved preference', () => {
+  it('shows loading skeleton initially', () => {
     render(<ThemeSwitcher />);
     
-    // Default to light mode when no preference is saved and system is light
-    expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
-    
-    // Check button exists
-    const button = screen.getByRole('button', { name: /toggle dark mode/i });
-    expect(button).toBeInTheDocument();
-    
-    // Should have the moon icon (light mode)
-    expect(button.querySelector('svg')).toBeInTheDocument();
-    expect(button.innerHTML).toContain('17.293 13.293A8 8 0 016.707 2.707');
+    const skeleton = document.querySelector('.p-1\\.5.rounded-full.bg-gray-200');
+    expect(skeleton).toBeInTheDocument();
   });
 
-  it('toggles to dark mode when clicked', () => {
+  it('renders button after loading with light mode default', async () => {
+    mockLocalStorage.getItem.mockReturnValue(null);
+    mockMatchMedia.matches = false;
+    
     render(<ThemeSwitcher />);
     
-    // Get the button
-    const button = screen.getByRole('button', { name: /toggle dark mode/i });
-    
-    // Initial render setup complete, clear mocks to track new calls
-    jest.clearAllMocks();
-    
-    // Click to toggle to dark mode
-    fireEvent.click(button);
-    
-    // Should add dark class and store preference
-    expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
-    expect(window.localStorage.setItem).toHaveBeenCalledWith('darkMode', 'true');
+    await waitFor(() => {
+      const button = screen.getByRole('button');
+      expect(button).toBeInTheDocument();
+      expect(button).toHaveAttribute('aria-label', 'Switch to dark mode');
+    });
   });
 
-  it('toggles back to light mode from dark mode', () => {
-    // Mock initial state as dark mode
-    window.localStorage.getItem = jest.fn().mockReturnValue('true');
-    document.documentElement.classList.contains = jest.fn().mockReturnValue(true);
+  it('loads saved dark mode preference', async () => {
+    mockLocalStorage.getItem.mockReturnValue('true');
     
-    const { rerender } = render(<ThemeSwitcher />);
+    render(<ThemeSwitcher />);
     
-    // Get the button
-    const button = screen.getByRole('button', { name: /toggle dark mode/i });
-    
-    // Clear mocks to only track the click
-    jest.clearAllMocks();
-    
-    // Click to toggle back to light mode
-    fireEvent.click(button);
-    
-    // Should remove dark class and store false in localStorage
-    expect(document.documentElement.classList.remove).toHaveBeenCalledWith('dark');
-    expect(window.localStorage.setItem).toHaveBeenCalledWith('darkMode', 'false');
+    await waitFor(() => {
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-label', 'Switch to light mode');
+    });
   });
-  
-  it('respects system preference for dark mode', () => {
-    // Mock system preference for dark mode
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn().mockImplementation(query => ({
-        matches: true, // System prefers dark mode
-        media: query,
-        onchange: null,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-      })),
-      writable: true,
+
+  it('loads saved light mode preference', async () => {
+    mockLocalStorage.getItem.mockReturnValue('false');
+    
+    render(<ThemeSwitcher />);
+    
+    await waitFor(() => {
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-label', 'Switch to dark mode');
+    });
+  });
+
+  it('respects system dark mode preference when no saved preference', async () => {
+    mockLocalStorage.getItem.mockReturnValue(null);
+    mockMatchMedia.matches = true;
+    
+    render(<ThemeSwitcher />);
+    
+    await waitFor(() => {
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-label', 'Switch to light mode');
+    });
+  });
+
+  it('toggles from light to dark mode', async () => {
+    mockLocalStorage.getItem.mockReturnValue('false');
+    
+    render(<ThemeSwitcher />);
+    
+    await waitFor(() => {
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+      
+      expect(mockClassList.add).toHaveBeenCalledWith('dark');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('darkMode', 'true');
+    });
+  });
+
+  it('toggles from dark to light mode', async () => {
+    mockLocalStorage.getItem.mockReturnValue('true');
+    
+    render(<ThemeSwitcher />);
+    
+    await waitFor(() => {
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+      
+      expect(mockClassList.remove).toHaveBeenCalledWith('dark');
+      expect(mockLocalStorage.setItem).toHaveBeenCalledWith('darkMode', 'false');
+    });
+  });
+
+  it('handles localStorage errors gracefully on load', async () => {
+    mockLocalStorage.getItem.mockImplementation(() => {
+      throw new Error('localStorage error');
+    });
+    mockMatchMedia.matches = true;
+    
+    render(<ThemeSwitcher />);
+    
+    await waitFor(() => {
+      expect(console.warn).toHaveBeenCalledWith('Failed to access localStorage, using system preference');
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-label', 'Switch to light mode');
+    });
+  });
+
+  it('handles localStorage errors gracefully on save', async () => {
+    mockLocalStorage.getItem.mockReturnValue('false');
+    mockLocalStorage.setItem.mockImplementation(() => {
+      throw new Error('localStorage error');
     });
     
     render(<ThemeSwitcher />);
     
-    // Should detect system preference and add dark class
-    expect(document.documentElement.classList.add).toHaveBeenCalledWith('dark');
+    await waitFor(() => {
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+      
+      expect(console.warn).toHaveBeenCalledWith('Failed to save theme preference to localStorage');
+    });
+  });
+
+  it('listens for system theme changes', async () => {
+    mockLocalStorage.getItem.mockReturnValue(null);
     
-    // Button should show sun icon (dark mode active)
-    const button = screen.getByRole('button', { name: /toggle dark mode/i });
-    expect(button.innerHTML).toContain('clip-rule="evenodd"');
+    render(<ThemeSwitcher />);
+    
+    await waitFor(() => {
+      expect(mockMatchMedia.addEventListener).toHaveBeenCalledWith('change', expect.any(Function));
+    });
+  });
+
+  it('cleans up event listener on unmount', async () => {
+    mockLocalStorage.getItem.mockReturnValue(null);
+    
+    const { unmount } = render(<ThemeSwitcher />);
+    
+    await waitFor(() => {
+      unmount();
+      expect(mockMatchMedia.removeEventListener).toHaveBeenCalledWith('change', expect.any(Function));
+    });
   });
 }); 
