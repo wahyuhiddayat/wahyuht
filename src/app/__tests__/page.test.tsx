@@ -20,52 +20,54 @@ describe('Portfolio Home Page', () => {
     
     // Check heading and intro
     expect(screen.getByRole('heading', { name: /Wahyu Hidayat/i })).toBeInTheDocument();
-    expect(screen.getByText(/Computer Science student at Universitas Indonesia/i)).toBeInTheDocument();
-    expect(screen.getByText(/My journey started with web development/i)).toBeInTheDocument();
+    expect(screen.getByText(/Building intelligent solutions through machine learning/i)).toBeInTheDocument();
+    expect(screen.getByText(/When I'm not coding/i)).toBeInTheDocument();
   });
   
   it('renders all main sections', () => {
     render(<RootPage />);
     
     // Check section headings
+    expect(screen.getByRole('heading', { name: /Background/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Skills/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Experience/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Education/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Skills/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Projects/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Featured Projects/i })).toBeInTheDocument();
   });
 
   it('displays experience items correctly', () => {
     render(<RootPage />);
     
-    expect(screen.getByText('Software Engineering Intern')).toBeInTheDocument();
-    expect(screen.getByText('Teaching Assistant — Introduction to Computer Organization')).toBeInTheDocument();
+    expect(screen.getByText('Vice President')).toBeInTheDocument();
+    expect(screen.getByText('Teaching Assistant')).toBeInTheDocument();
     expect(screen.getByText('Deputy of Advocacy and Student Welfare')).toBeInTheDocument();
     expect(screen.getByText('Staff of Advocacy and Student Welfare')).toBeInTheDocument();
     
     // Check date formats
-    expect(screen.getByText('Feb 2025–Present')).toBeInTheDocument();
-    expect(screen.getByText('Aug 2024–Jan 2025')).toBeInTheDocument();
+    expect(screen.getByText('May 2025 – Present')).toBeInTheDocument();
+    expect(screen.getByText('Aug 2024 – Jan 2025')).toBeInTheDocument();
   });
 
   it('displays education information correctly', () => {
     render(<RootPage />);
     
-    expect(screen.getByText('Bachelor of Science in Computer Science')).toBeInTheDocument();
-    expect(screen.getByText('Universitas Indonesia')).toBeInTheDocument();
-    expect(screen.getByText('2022–Present')).toBeInTheDocument();
+    expect(screen.getByText('Bachelor of Computer Science')).toBeInTheDocument();
+    expect(screen.getAllByText('Universitas Indonesia')).toHaveLength(2);
+    expect(screen.getByText('2022 – Present')).toBeInTheDocument();
   });
 
   it('displays skills categories correctly', () => {
     render(<RootPage />);
     
     expect(screen.getByText('Languages')).toBeInTheDocument();
-    expect(screen.getByText('Web')).toBeInTheDocument();
-    expect(screen.getByText('ML & Data')).toBeInTheDocument();
+    expect(screen.getByText('Machine Learning')).toBeInTheDocument();
+    expect(screen.getByText('Web & Frameworks')).toBeInTheDocument();
+    expect(screen.getByText('Data & Analytics')).toBeInTheDocument();
     expect(screen.getByText('Tools')).toBeInTheDocument();
     
     // Check some specific skills
-    expect(screen.getByText(/JavaScript, TypeScript, Python, Java/i)).toBeInTheDocument();
-    expect(screen.getByText(/PyTorch, Scikit-learn, Pandas/i)).toBeInTheDocument();
+    expect(screen.getByText(/Python, JavaScript, TypeScript, Java/i)).toBeInTheDocument();
+    expect(screen.getByText(/PyTorch, TensorFlow, Scikit-learn/i)).toBeInTheDocument();
   });
 
   it('has a working "View all" link for projects', () => {
@@ -74,6 +76,6 @@ describe('Portfolio Home Page', () => {
     const projectsLink = screen.getByTestId('link-to-/projects');
     expect(projectsLink).toBeInTheDocument();
     expect(projectsLink).toHaveAttribute('href', '/projects');
-    expect(projectsLink).toHaveTextContent('View all');
+    expect(projectsLink).toHaveTextContent('See all projects →');
   });
 }); 
