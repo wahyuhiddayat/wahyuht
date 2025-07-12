@@ -49,10 +49,12 @@ describe('SkillCategory', () => {
       skills: ''
     };
     
-    render(<SkillCategory {...emptySkillsProps} />);
-    
+    const { container } = render(<SkillCategory {...emptySkillsProps} />);
     expect(screen.getByText('Backend')).toBeInTheDocument();
-    expect(screen.getByText('')).toBeInTheDocument();
+    
+    const skillsElement = container.querySelector('.text-gray-600.dark\\:text-gray-300');
+    expect(skillsElement).toBeInTheDocument();
+    expect(skillsElement).toHaveTextContent('');
   });
 
   it('handles long skill lists', () => {
