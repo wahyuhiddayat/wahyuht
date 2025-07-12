@@ -63,42 +63,37 @@ describe('Projects page', () => {
     render(<Projects />);
     
     // Check that all project cards are rendered
-    expect(screen.getByTestId('project-card-project-one')).toBeInTheDocument();
-    expect(screen.getByTestId('project-card-project-two')).toBeInTheDocument();
-    expect(screen.getByTestId('project-card-project-three')).toBeInTheDocument();
-    expect(screen.getByTestId('project-card-project-four')).toBeInTheDocument();
+    expect(screen.getByTestId('project-card-sokratech-fraud-risk-automation')).toBeInTheDocument();
+    expect(screen.getByTestId('project-card-wahyuht')).toBeInTheDocument();
+    expect(screen.getByTestId('project-card-letterbookd')).toBeInTheDocument();
     
     // Check titles
-    expect(screen.getByText('Project One')).toBeInTheDocument();
-    expect(screen.getByText('Project Two')).toBeInTheDocument();
-    expect(screen.getByText('Project Three')).toBeInTheDocument();
-    expect(screen.getByText('Project Four')).toBeInTheDocument();
+    expect(screen.getByText('Sokratech Fraud Risk Automation')).toBeInTheDocument();
+    expect(screen.getByText('wahyuht')).toBeInTheDocument();
+    expect(screen.getByText('Letterbookd')).toBeInTheDocument();
     
-    // Check dates - use getAll for 2022 since it appears multiple times
+    // Check dates
+    expect(screen.getAllByText('Date: 2025')).toHaveLength(2);
     expect(screen.getByText('Date: 2023')).toBeInTheDocument();
-    expect(screen.getAllByText('Date: 2022')).toHaveLength(2);
-    expect(screen.getByText('Date: 2021')).toBeInTheDocument();
     
     // Check each project has appropriate skills
-    const projectOne = screen.getByTestId('project-card-project-one');
-    const projectTwo = screen.getByTestId('project-card-project-two');
-    const projectThree = screen.getByTestId('project-card-project-three');
-    const projectFour = screen.getByTestId('project-card-project-four');
+    const sokratechProject = screen.getByTestId('project-card-sokratech-fraud-risk-automation');
+    const wahyuhtProject = screen.getByTestId('project-card-wahyuht');
+    const letterbookdProject = screen.getByTestId('project-card-letterbookd');
     
-    // Project One skills
-    expect(projectOne).toHaveTextContent('React');
-    expect(projectOne).toHaveTextContent('MongoDB');
+    // Sokratech project skills
+    expect(sokratechProject).toHaveTextContent('Next.js');
+    expect(sokratechProject).toHaveTextContent('TypeScript');
+    expect(sokratechProject).toHaveTextContent('FastAPI');
     
-    // Project Two skills
-    expect(projectTwo).toHaveTextContent('Next.js');
-    expect(projectTwo).toHaveTextContent('Tailwind CSS');
+    // wahyuht project skills
+    expect(wahyuhtProject).toHaveTextContent('Next.js');
+    expect(wahyuhtProject).toHaveTextContent('React');
+    expect(wahyuhtProject).toHaveTextContent('TypeScript');
     
-    // Project Three skills
-    expect(projectThree).toHaveTextContent('Firebase');
-    expect(projectThree).toHaveTextContent('Redux');
-    
-    // Project Four skills
-    expect(projectFour).toHaveTextContent('HTML/CSS');
-    expect(projectFour).toHaveTextContent('GSAP');
+    // Letterbookd project skills
+    expect(letterbookdProject).toHaveTextContent('Django');
+    expect(letterbookdProject).toHaveTextContent('Python');
+    expect(letterbookdProject).toHaveTextContent('PostgreSQL');
   });
 }); 
