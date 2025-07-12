@@ -16,22 +16,22 @@ const experienceData = [
   {
     position: "Vice President",
     company: "BEM Fasilkom UI",
-    period: "May 2025–Present"
+    period: "May 2025 – Present"
   },
   {
-    position: "Teaching Assistant — Introduction to Computer Organization",
+    position: "Teaching Assistant",
     company: "Universitas Indonesia",
-    period: "Aug 2024–Jan 2025"
+    period: "Aug 2024 – Jan 2025"
   },
   {
     position: "Deputy of Advocacy and Student Welfare",
     company: "BEM Fasilkom UI",
-    period: "Mar 2024–Feb 2025"
+    period: "Mar 2024 – Feb 2025"
   },
   {
     position: "Staff of Advocacy and Student Welfare",
     company: "BEM Fasilkom UI",
-    period: "Apr 2023–Feb 2024"
+    period: "Apr 2023 – Feb 2024"
   },
 ];
 
@@ -135,7 +135,7 @@ export default function Home() {
         <div className="text-sm">
           <div className="flex justify-between items-start">
             <p className="font-medium">Bachelor of Computer Science</p>
-            <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022–Present</p>
+            <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022 – Present</p>
           </div>
           <p className="text-gray-600 dark:text-gray-300">
             Universitas Indonesia
