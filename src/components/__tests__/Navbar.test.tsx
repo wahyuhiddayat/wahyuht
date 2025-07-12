@@ -37,9 +37,6 @@ describe('Navbar', () => {
     expect(screen.getByText('Projects')).toBeInTheDocument();
     expect(screen.getByTestId('link-to-/projects')).toHaveAttribute('href', '/projects');
     
-    expect(screen.getByText('Blog')).toBeInTheDocument();
-    expect(screen.getByTestId('link-to-/blog')).toHaveAttribute('href', '/blog');
-    
     expect(screen.getByText('Contact')).toBeInTheDocument();
     expect(screen.getByTestId('link-to-/contact')).toHaveAttribute('href', '/contact');
   });

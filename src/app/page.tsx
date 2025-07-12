@@ -16,22 +16,22 @@ const experienceData = [
   {
     position: "Vice President",
     company: "BEM Fasilkom UI",
-    period: "May 2025–Present"
+    period: "May 2025 – Present"
   },
   {
-    position: "Teaching Assistant — Introduction to Computer Organization",
+    position: "Teaching Assistant",
     company: "Universitas Indonesia",
-    period: "Aug 2024–Jan 2025"
+    period: "Aug 2024 – Jan 2025"
   },
   {
     position: "Deputy of Advocacy and Student Welfare",
     company: "BEM Fasilkom UI",
-    period: "Mar 2024–Feb 2025"
+    period: "Mar 2024 – Feb 2025"
   },
   {
     position: "Staff of Advocacy and Student Welfare",
     company: "BEM Fasilkom UI",
-    period: "Apr 2023–Feb 2024"
+    period: "Apr 2023 – Feb 2024"
   },
 ];
 
@@ -85,8 +85,8 @@ export default function Home() {
 
       {/* Background Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
-          BACKGROUND
+        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          Background
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-300">
           I'm a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
@@ -95,8 +95,8 @@ export default function Home() {
 
       {/* Skills Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
-          SKILLS
+        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          Skills
         </h2>
 
         <div className="grid grid-cols-2 gap-x-12 gap-y-6 text-sm">
@@ -112,8 +112,8 @@ export default function Home() {
 
       {/* Experience Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
-          EXPERIENCE
+        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          Experience
         </h2>
         <div className="space-y-4 text-sm">
           {experienceData.map((experience, index) => (
@@ -129,13 +129,13 @@ export default function Home() {
 
       {/* Education Section */}
       <section className="mb-16">
-        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
-          EDUCATION
+        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          Education
         </h2>
         <div className="text-sm">
           <div className="flex justify-between items-start">
             <p className="font-medium">Bachelor of Computer Science</p>
-            <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022–Present</p>
+            <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022 – Present</p>
           </div>
           <p className="text-gray-600 dark:text-gray-300">
             Universitas Indonesia
@@ -145,8 +145,8 @@ export default function Home() {
 
       {/* Projects Section */}
       <section className="mb-4">
-        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-4">
-          FEATURED PROJECTS
+        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          Featured Projects
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
           {projectsData.map((project, index) => (

@@ -63,8 +63,8 @@ export default function Projects() {
 
       {/* Projects Section */}
       <section>
-        <h2 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-6">
-          ALL PROJECTS
+        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          All Projects
         </h2>
         
         <div className="space-y-12">
