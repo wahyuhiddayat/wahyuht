@@ -135,7 +135,7 @@ export default function Contact() {
         <div className="space-y-6">
           {opportunitiesData.map((opportunity, index) => (
             <div key={index}>
-              <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1">
+              <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-1">
                 {opportunity.title}
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-300">

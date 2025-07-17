@@ -24,12 +24,12 @@ export default function ProjectCard({
   return (
     <div className="group space-y-4 pb-8">
       {imageUrl && (
-        <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+        <div className="relative w-full aspect-video rounded-lg overflow-hidden">
           <Image
             src={imageUrl}
             alt={title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-contain group-hover:opacity-80 transition-opacity duration-200"
           />
         </div>
       )}
@@ -40,9 +40,14 @@ export default function ProjectCard({
           <span className="text-xs text-gray-400 dark:text-gray-500">{date}</span>
         </div>
         
-        <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-          {description}
-        </p>
+        <div className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+          {description.split('\n').map((line, index) => (
+            <div key={index} className="flex items-start gap-2">
+              <span className="text-gray-400 dark:text-gray-500 mt-0.5">•</span>
+              <span className="flex-1">{line}</span>
+            </div>
+          ))}
+        </div>
         
         <div className="pt-1 space-y-2">
           <p className="text-xs text-gray-400 dark:text-gray-500">

@@ -4,7 +4,7 @@ import ProjectCard from '@/components/ProjectCard';
 const projectsData = [
   {
     title: "Sokratech Fraud Risk Automation",
-    description: "University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing.",
+    description: "University capstone project collaborating with Sokratech, a fintech startup, to build a comprehensive no-code fraud detection platform\nEnables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and intuitive drag-and-drop interface\nBuilt with microservices architecture for scalable processing and deployed on Google Cloud Platform",
     date: "2025",
     imageUrl: "/images/sokratech.png",
     skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
@@ -14,7 +14,7 @@ const projectsData = [
   },
   {
     title: "wahyuht",
-    description: "Personal portfolio website showcasing my projects and experiments. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion. Features responsive design, dark mode, and automated testing setup.",
+    description: "Personal portfolio website showcasing my projects, experiments, and professional journey in software development\nBuilt with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion for smooth animations and transitions\nFeatures responsive design, dark mode support, and comprehensive automated testing setup with Jest and React Testing Library",
     date: "2025",
     imageUrl: "/images/wahyuht.png",
     skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
@@ -24,7 +24,7 @@ const projectsData = [
   },
   {
     title: "Letterbookd",
-    description: "Full-stack web app to connect readers with books and communities. Features personal libraries, book catalog management, reviews, and forums. Includes REST API for Flutter mobile clients and supports multi-role access (guest, reader, librarian, admin).",
+    description: "Full-stack web application designed to connect readers with books and build literary communities\nFeatures personal libraries, comprehensive book catalog management, user reviews, discussion forums, and social interaction capabilities\nIncludes REST API for Flutter mobile clients and supports multi-role access control (guest, reader, librarian, admin)",
     date: "2023",
     imageUrl: "/images/letterbookd_web.png",
     skills: [
