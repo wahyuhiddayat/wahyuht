@@ -53,7 +53,8 @@ const featuredProjectsData = [
     imageUrl: "/images/wahyuht.png",
     skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
     links: {
-      website: "https://wahyuht.com"
+      website: "https://wahyuht.com",
+      github: 'https://github.com/wahyuhiddayat/wahyuht'
     }
   },
 ];

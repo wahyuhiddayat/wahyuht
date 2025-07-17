@@ -26,6 +26,12 @@ const socialLinksData = [
     username: "wahyuhidayat"
   },
   {
+    name: "Spotify",
+    description: "Music tastes and playlists",
+    url: "https://open.spotify.com/user/wahyuuhidaayat",
+    username: "wahyuuhidaayat"
+  },
+  {
     name: "Instagram",
     description: "Personal updates and behind-the-scenes",
     url: "https://www.instagram.com/wahyyuhidaayat/",
