@@ -24,12 +24,12 @@ export default function ProjectCard({
   return (
     <div className="group space-y-4 pb-8">
       {imageUrl && (
-        <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
+        <div className="relative w-full aspect-video rounded-lg overflow-hidden">
           <Image
             src={imageUrl}
             alt={title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="object-contain group-hover:scale-105 transition-transform duration-300"
           />
         </div>
       )}
