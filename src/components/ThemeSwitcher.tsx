@@ -74,14 +74,14 @@ export default function ThemeSwitcher() {
   // Show minimal skeleton while loading to prevent layout shift
   if (!isLoaded) {
     return (
-      <div className="p-1.5 rounded-full bg-gray-200 dark:bg-gray-800 w-7 h-7" />
+      <div className="p-1.5 rounded-full w-7 h-7" />
     );
   }
 
   return (
     <button 
       onClick={toggleDarkMode}
-      className="p-1.5 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-800 dark:text-white transition-all duration-200 ease-in-out hover:scale-110 active:scale-95"
+      className="p-1.5 rounded-full text-gray-800 dark:text-white transition-all duration-200 ease-in-out hover:scale-110 active:scale-95"
       aria-label={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
       title={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
     >
