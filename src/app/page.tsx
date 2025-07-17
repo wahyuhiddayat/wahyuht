@@ -35,10 +35,10 @@ const experienceData = [
   },
 ];
 
-const projectsData = [
+const featuredProjectsData = [
   {
     title: "Sokratech Fraud Risk Automation",
-    description: "University capstone project collaborating with Sokratech, a fintech startup, to build a no-code fraud detection platform. Enables non-technical users to create and deploy real-time fraud rules through ML-powered recommendations using AutoWoE, comprehensive analytics dashboard, and drag-and-drop interface. Built with microservices architecture for scalable processing.",
+    description: "University capstone project building a no-code fraud detection platform for fintech startup Sokratech\nFeatures ML-powered recommendations, real-time rule deployment, and comprehensive analytics dashboard",
     date: "2025",
     imageUrl: "/images/sokratech.png",
     skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
@@ -48,7 +48,7 @@ const projectsData = [
   },
   {
     title: "wahyuht",
-    description: "Personal portfolio website showcasing my projects and experiments. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion. Features responsive design, dark mode, and automated testing setup.",
+    description: "Personal portfolio website showcasing my projects and experiments\nBuilt with modern web technologies including Next.js 14, TypeScript, and Tailwind CSS with automated testing setup",
     date: "2025",
     imageUrl: "/images/wahyuht.png",
     skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
@@ -149,7 +149,7 @@ export default function Home() {
           Featured Projects
         </h2>
         <div className="grid md:grid-cols-2 gap-4">
-          {projectsData.map((project, index) => (
+          {featuredProjectsData.map((project, index) => (
             <ProjectCard
               key={index}
               title={project.title}

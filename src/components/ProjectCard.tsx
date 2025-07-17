@@ -40,9 +40,14 @@ export default function ProjectCard({
           <span className="text-xs text-gray-400 dark:text-gray-500">{date}</span>
         </div>
         
-        <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
-          {description}
-        </p>
+        <div className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+          {description.split('\n').map((line, index) => (
+            <div key={index} className="flex items-start gap-2">
+              <span className="text-gray-400 dark:text-gray-500 mt-0.5">•</span>
+              <span className="flex-1">{line}</span>
+            </div>
+          ))}
+        </div>
         
         <div className="pt-1 space-y-2">
           <p className="text-xs text-gray-400 dark:text-gray-500">
