@@ -29,7 +29,7 @@ export default function ProjectCard({
             src={imageUrl}
             alt={title}
             fill
-            className="object-contain group-hover:scale-105 transition-transform duration-300"
+            className="object-contain group-hover:opacity-80 transition-opacity duration-200"
           />
         </div>
       )}
