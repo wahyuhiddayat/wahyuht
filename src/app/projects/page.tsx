@@ -24,12 +24,22 @@ const projectsData = [
     }
   },
   {
+    title: "Anomaly Detection in Customer Purchasing Patterns",
+    description: "ta mining project implementing CRISP-DM methodology to analyze customer purchasing behaviors in online retail\nFeatures RFM-based customer segmentation, FP-Growth association rule mining, and hybrid anomaly detection using Isolation Forest and Local Outlier Factor algorithms\nIncludes interactive Streamlit dashboard with real-time analytics, comprehensive visualizations, and published research paper analyzing 541,909 transactions",
+    date: "2025",
+    imageUrl: "/images/anomaly_detection_datmin.png",
+    skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "CRISP-DM", "Machine Learning", "Data Mining", "FP-Growth", "K-Means Clustering"],
+    links: {
+      website: "https://outlier-data.streamlit.app/",
+      github: "https://github.com/wahyuhiddayat/anomaly-detection-in-customer-purchasing-pattern"
+    }
+  },
+  {
     title: "Letterbookd",
     description: "Full-stack web application designed to connect readers with books and build literary communities\nFeatures personal libraries, comprehensive book catalog management, user reviews, discussion forums, and social interaction capabilities\nIncludes REST API for Flutter mobile clients and supports multi-role access control (guest, reader, librarian, admin)",
     date: "2023",
     imageUrl: "/images/letterbookd_web.png",
-    skills: [
-      "Django", "Django REST Framework", "Python", "PostgreSQL", "Bootstrap", "jQuery", "Docker", "Heroku"],
+    skills: ["Django", "Django REST Framework", "Python", "PostgreSQL", "Bootstrap", "jQuery", "Docker", "Heroku"],
     links: {
       github: "https://github.com/letterbookd/letterbookd"
     }

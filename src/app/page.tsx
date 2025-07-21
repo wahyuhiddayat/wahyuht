@@ -37,13 +37,14 @@ const experienceData = [
 
 const featuredProjectsData = [
   {
-    title: "Sokratech Fraud Risk Automation",
-    description: "University capstone project building a no-code fraud detection platform for fintech startup Sokratech\nFeatures ML-powered recommendations, real-time rule deployment, and comprehensive analytics dashboard",
+    title: "Anomaly Detection in Customer Purchasing Patterns",
+    description: "Data mining project implementing CRISP-DM methodology to analyze customer purchasing behaviors in online retail\nFeatures RFM-based customer segmentation, FP-Growth association rule mining, hybrid anomaly detection using Isolation Forest and Local Outlier Factor algorithms, and interactive Streamlit dashboard with published research paper analyzing 541,909 transactions",
     date: "2025",
-    imageUrl: "/images/sokratech.png",
-    skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
+    imageUrl: "/images/anomaly_detection_datmin.png",
+    skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "CRISP-DM", "Machine Learning", "Data Mining", "FP-Growth", "K-Means Clustering"],
     links: {
-      website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
+      website: "https://wahyuht.com",
+      github: 'https://github.com/wahyuhiddayat/wahyuht'
     }
   },
   {
