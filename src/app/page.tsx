@@ -3,6 +3,7 @@ import Image from "next/image";
 import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/Experience";
 import SkillCategory from "@/components/SkillCategory";
+import TypingAnimation from "@/components/TypingAnimation";
 
 const skillsData = [
   { title: "Languages", skills: "Python, JavaScript, TypeScript, Java, Go, Dart" },
@@ -75,13 +76,24 @@ export default function Home() {
           />
         </div>
         <h1 className="text-3xl font-bold mb-2 tracking-tight">
-          Hi, I’m Wahyu Hidayat 👋
+          Hi, I'm Wahyu Hidayat 👋
         </h1>
         <p className="text-gray-600 dark:text-gray-300 mb-4">
-          Building intelligent solutions through machine learning and thoughtful software engineering.
+          Building intelligent solutions as an aspiring{" "}
+          <TypingAnimation 
+            words={[
+              "Data Scientist",
+              "Machine Learning Engineer", 
+              "Data Engineer",
+              "Software Engineer",
+              "Business Intelligence Analyst",
+              "Product Manager"
+            ]}
+            className="text-blue-600 dark:text-blue-400 font-medium"
+          />
         </p>
         <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-          When I'm not coding, I’m probably at a coffee shop or exploring new tech.
+          When I'm not coding, I'm probably at a coffee shop or exploring new tech.
         </p>
       </header>
 
