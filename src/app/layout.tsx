@@ -52,8 +52,8 @@ export default function RootLayout({
           `}
         </Script>
         <Navbar />
-        <main className="max-w-2xl mx-auto px-4 py-8 min-h-screen">{children}</main>
-        <footer className="max-w-2xl mx-auto px-4 py-8 border-t border-gray-200 dark:border-gray-800 mt-12">
+        <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">{children}</main>
+        <footer className="max-w-5xl mx-auto px-4 py-8 border-t border-gray-200 dark:border-gray-800 mt-12">
           <div className="flex justify-center gap-6 mb-4">
             <a 
               href="mailto:wahyuuhidaayat@gmail.com" 
