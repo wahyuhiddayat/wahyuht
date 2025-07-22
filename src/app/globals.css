@@ -19,19 +19,23 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  font-weight: 400;
 }
 
 @layer components {
   h1 {
-    @apply text-3xl lg:text-4xl font-bold;
+    @apply text-3xl lg:text-4xl;
+    font-weight: 600;
   }
 
   h2 {
-    @apply text-xl lg:text-2xl font-semibold mt-8 mb-4;
+    @apply text-xl lg:text-2xl mt-8 mb-4;
+    font-weight: 500;
   }
 
   h3 {
-    @apply text-lg lg:text-xl font-medium mt-6 mb-3;
+    @apply text-lg lg:text-xl mt-6 mb-3;
+    font-weight: 500;
   }
 
   p {
@@ -60,5 +64,9 @@ body {
 
   .timeline-date {
     @apply text-sm text-gray-500 md:text-right;
+  }
+
+  .typing-text {
+    font-weight: 500;
   }
 }

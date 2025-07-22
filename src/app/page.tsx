@@ -89,7 +89,7 @@ export default function Home() {
               "Business Intelligence Analyst",
               "Product Manager"
             ]}
-            className="text-primary font-medium"
+            className="text-primary typing-text"
           />
         </p>
         <p className="text-sm text-gray-500 dark:text-gray-400 italic">

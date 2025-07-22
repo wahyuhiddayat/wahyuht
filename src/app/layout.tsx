@@ -4,7 +4,10 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  weight: ["400", "500", "600"]
+});
 
 export const metadata: Metadata = {
   title: "Wahyu Hidayat",
