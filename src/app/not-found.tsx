@@ -18,7 +18,7 @@ export default function NotFound() {
 
       {/* Navigation Section */}
       <section className="mb-16">
-        <h3 className="text-xs font-semibold text-blue-600 dark:text-blue-400 tracking-wider mb-6">
+        <h3 className="text-xs font-semibold text-primary tracking-wider mb-6">
           WHERE TO GO
         </h3>
         
@@ -30,7 +30,7 @@ export default function NotFound() {
             </div>
             <Link 
               href="/"
-              className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              className="text-sm text-primary hover:text-primary-hover transition-colors"
             >
               Go Home ↗
             </Link>
@@ -43,7 +43,7 @@ export default function NotFound() {
             </div>
             <Link 
               href="/projects"
-              className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              className="text-sm text-primary hover:text-primary-hover transition-colors"
             >
               View Projects ↗
             </Link>
@@ -56,7 +56,7 @@ export default function NotFound() {
             </div>
             <Link 
               href="/blog"
-              className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              className="text-sm text-primary hover:text-primary-hover transition-colors"
             >
               Read Blog ↗
             </Link>
@@ -69,7 +69,7 @@ export default function NotFound() {
             </div>
             <Link 
               href="/contact"
-              className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              className="text-sm text-primary hover:text-primary-hover transition-colors"
             >
               Contact Me ↗
             </Link>
@@ -84,7 +84,7 @@ export default function NotFound() {
         </p>
         <a 
           href="mailto:wahyuuhidaayat@gmail.com"
-          className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          className="text-sm text-primary hover:text-primary-hover transition-colors"
         >
           Send me an email ↗
         </a>

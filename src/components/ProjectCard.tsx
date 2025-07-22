@@ -61,7 +61,7 @@ export default function ProjectCard({
                   href={links.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                  className="text-xs text-primary hover:text-primary-hover transition-colors"
                 >
                   Live Demo ↗
                 </Link>

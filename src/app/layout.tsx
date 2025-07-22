@@ -54,7 +54,7 @@ export default function RootLayout({
           <div className="flex justify-center gap-6 mb-4">
             <a 
               href="mailto:wahyuuhidaayat@gmail.com" 
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
             >
               Email
             </a>
@@ -62,7 +62,7 @@ export default function RootLayout({
               href="https://github.com/wahyuhiddayat" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
             >
               GitHub
             </a>
@@ -70,7 +70,7 @@ export default function RootLayout({
               href="https://www.linkedin.com/in/wahyuuhidayat/" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
             >
               LinkedIn
             </a>

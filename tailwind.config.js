@@ -25,6 +25,12 @@ module.exports = {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      colors: {
+        primary: {
+          DEFAULT: 'rgb(var(--primary-color) / <alpha-value>)',
+          hover: 'rgb(var(--primary-color-hover) / <alpha-value>)'
+        },
+      },
     },
   },
   plugins: [],

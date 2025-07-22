@@ -79,7 +79,7 @@ export default function Contact() {
             <h3 className="font-medium text-sm mb-2 dark:text-white">Email</h3>
             <a 
               href="mailto:wahyuuhidaayat@gmail.com"
-              className="text-sm text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-sm text-gray-600 dark:text-gray-300 hover:text-primary-hover transition-colors"
             >
               wahyuuhidaayat@gmail.com
             </a>

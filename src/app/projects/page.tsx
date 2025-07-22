@@ -96,7 +96,7 @@ export default function Projects() {
         <div className="mt-12 text-center">
           <Link
             href="/"
-            className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+            className="text-sm text-primary hover:text-primary-hover transition-colors"
           >
             ← Back to Home
           </Link>

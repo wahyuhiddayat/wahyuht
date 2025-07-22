@@ -40,7 +40,7 @@ describe('SocialLink', () => {
     expect(linkElement).toHaveAttribute('href', 'https://github.com/johndoe');
     expect(linkElement).toHaveAttribute('target', '_blank');
     expect(linkElement).toHaveAttribute('rel', 'noopener noreferrer');
-    expect(linkElement).toHaveClass('text-sm', 'text-blue-600', 'hover:text-blue-700', 'dark:text-blue-400', 'dark:hover:text-blue-300', 'transition-colors');
+    expect(linkElement).toHaveClass('text-sm', 'text-primary', 'hover:text-primary-hover', 'transition-colors');
   });
 
   it('renders with border when isLast is false', () => {

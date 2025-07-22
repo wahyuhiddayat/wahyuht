@@ -89,7 +89,7 @@ export default function Home() {
               "Business Intelligence Analyst",
               "Product Manager"
             ]}
-            className="text-blue-600 dark:text-blue-400 font-medium"
+            className="text-primary font-medium"
           />
         </p>
         <p className="text-sm text-gray-500 dark:text-gray-400 italic">
@@ -178,7 +178,7 @@ export default function Home() {
         <div className="mt-6 text-right">
           <Link
             href="/projects"
-            className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+            className="text-sm text-primary hover:underline"
           >
             See all projects →
           </Link>

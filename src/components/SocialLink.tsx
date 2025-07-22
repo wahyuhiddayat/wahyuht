@@ -23,7 +23,7 @@ export default function SocialLink({
         href={url}
         target="_blank" 
         rel="noopener noreferrer"
-        className="text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+        className="text-sm text-primary hover:text-primary-hover transition-colors"
       >
         {username} ↗
       </a>
