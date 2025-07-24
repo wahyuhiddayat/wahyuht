@@ -97,10 +97,10 @@ export default function Home() {
         </p>
       </header>
 
-      {/* Background Section */}
+      {/* About Section */}
       <section className="mb-16">
         <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-          Background
+          About
         </h2>
         <p className="text-sm text-gray-600 dark:text-gray-300">
           I'm a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
