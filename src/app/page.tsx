@@ -4,6 +4,8 @@ import ProjectCard from "@/components/ProjectCard";
 import ExperienceItem from "@/components/Experience";
 import SkillCategory from "@/components/SkillCategory";
 import TypingAnimation from "@/components/TypingAnimation";
+import ScrollReveal from "@/components/ScrollReveal";
+import FadeIn from "@/components/FadeIn";
 
 const skillsData = [
   { title: "Languages", skills: "Python, JavaScript, TypeScript, Java, Go, Dart" },
@@ -65,125 +67,139 @@ export default function Home() {
   return (
     <div className="max-w-2xl mx-auto px-6 pt-32 pb-8">
       {/* Hero Section */}
-      <header className="mb-16 text-center">
-        <div className="relative w-32 h-32 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 mx-auto mb-6">
-          <Image
-            src="/images/profile.jpg"
-            alt="Wahyu Hidayat"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <h1 className="text-3xl font-bold mb-2 tracking-tight">
-          Hi, I'm Wahyu Hidayat 👋
-        </h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
-          Building intelligent solutions as an aspiring{" "}
-          <TypingAnimation 
-            words={[
-              "Data Scientist",
-              "Machine Learning Engineer", 
-              "Data Engineer",
-              "Software Engineer",
-              "Business Intelligence Analyst",
-              "Product Manager"
-            ]}
-            className="text-primary typing-text"
-          />
-        </p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-          When I'm not coding, I'm probably at a coffee shop or exploring new tech.
-        </p>
-      </header>
+      <FadeIn>
+        <header className="mb-16 text-center">
+          <ScrollReveal delay={0.1}>
+            <div className="relative w-32 h-32 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800 mx-auto mb-6">
+              <Image
+                src="/images/profile.jpg"
+                alt="Wahyu Hidayat"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </ScrollReveal>
+          <h1 className="text-3xl font-bold mb-2 tracking-tight">
+            Hi, I'm Wahyu Hidayat 👋
+          </h1>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            Building intelligent solutions as an aspiring{" "}
+            <TypingAnimation 
+              words={[
+                "Data Scientist",
+                "Machine Learning Engineer", 
+                "Data Engineer",
+                "Software Engineer",
+                "Business Intelligence Analyst",
+                "Product Manager"
+              ]}
+              className="text-primary typing-text"
+            />
+          </p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+            When I'm not coding, I'm probably at a coffee shop or exploring new tech.
+          </p>
+        </header>
+      </FadeIn>
 
       {/* About Section */}
-      <section className="mb-16">
-        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-          About
-        </h2>
-        <p className="text-sm text-gray-600 dark:text-gray-300">
-          I'm a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
-        </p>
-      </section>
+      <ScrollReveal>
+        <section className="mb-16">
+          <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+            About
+          </h2>
+          <p className="text-sm text-gray-600 dark:text-gray-300">
+            I'm a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
+          </p>
+        </section>
+      </ScrollReveal>
 
       {/* Skills Section */}
-      <section className="mb-16">
-        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-          Skills
-        </h2>
+      <ScrollReveal>
+        <section className="mb-16">
+          <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+            Skills
+          </h2>
 
-        <div className="grid grid-cols-2 gap-x-12 gap-y-6 text-sm">
-          {skillsData.map((skill, index) => (
-            <SkillCategory
-              key={index}
-              title={skill.title}
-              skills={skill.skills}
-            />
-          ))}
-        </div>
-      </section>
+          <div className="grid grid-cols-2 gap-x-12 gap-y-6 text-sm">
+            {skillsData.map((skill, index) => (
+              <SkillCategory
+                key={index}
+                title={skill.title}
+                skills={skill.skills}
+              />
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Experience Section */}
-      <section className="mb-16">
-        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-          Experience
-        </h2>
-        <div className="space-y-4 text-sm">
-          {experienceData.map((experience, index) => (
-            <ExperienceItem
-              key={index}
-              position={experience.position}
-              company={experience.company}
-              period={experience.period}
-            />
-          ))}
-        </div>
-      </section>
+      <ScrollReveal>
+        <section className="mb-16">
+          <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+            Experience
+          </h2>
+          <div className="space-y-4 text-sm">
+            {experienceData.map((experience, index) => (
+              <ExperienceItem
+                key={index}
+                position={experience.position}
+                company={experience.company}
+                period={experience.period}
+              />
+            ))}
+          </div>
+        </section>
+      </ScrollReveal>
 
       {/* Education Section */}
-      <section className="mb-16">
-        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-          Education
-        </h2>
-        <div className="text-sm">
-          <div className="flex justify-between items-start">
-            <p className="font-medium">Bachelor of Computer Science</p>
-            <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022 – Present</p>
+      <ScrollReveal>
+        <section className="mb-16">
+          <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+            Education
+          </h2>
+          <div className="text-sm">
+            <div className="flex justify-between items-start">
+              <p className="font-medium">Bachelor of Computer Science</p>
+              <p className="text-gray-500 dark:text-gray-400 text-right shrink-0">2022 – Present</p>
+            </div>
+            <p className="text-gray-600 dark:text-gray-300">
+              Universitas Indonesia
+            </p>
           </div>
-          <p className="text-gray-600 dark:text-gray-300">
-            Universitas Indonesia
-          </p>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* Projects Section */}
-      <section className="mb-4">
-        <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
-          Featured Projects
-        </h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {featuredProjectsData.map((project, index) => (
-            <ProjectCard
-              key={index}
-              title={project.title}
-              description={project.description}
-              date={project.date}
-              imageUrl={project.imageUrl}
-              skills={project.skills}
-              links={project.links}
-            />
-          ))}
-        </div>
-        <div className="mt-6 text-right">
-          <Link
-            href="/projects"
-            className="text-sm text-primary hover:underline"
-          >
-            See all projects →
-          </Link>
-        </div>
-      </section>
+      <ScrollReveal>
+        <section className="mb-4">
+          <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+            Featured Projects
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {featuredProjectsData.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                description={project.description}
+                date={project.date}
+                imageUrl={project.imageUrl}
+                skills={project.skills}
+                links={project.links}
+              />
+            ))}
+          </div>
+          <div className="mt-6 text-right">
+            <Link
+              href="/projects"
+              className="text-sm text-primary hover:underline"
+            >
+              See all projects →
+            </Link>
+          </div>
+        </section>
+      </ScrollReveal>
     </div>
   );
 }
