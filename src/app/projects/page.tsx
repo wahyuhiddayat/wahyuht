@@ -25,7 +25,7 @@ const projectsData = [
   },
   {
     title: "Anomaly Detection in Customer Purchasing Patterns",
-    description: "ta mining project implementing CRISP-DM methodology to analyze customer purchasing behaviors in online retail\nFeatures RFM-based customer segmentation, FP-Growth association rule mining, and hybrid anomaly detection using Isolation Forest and Local Outlier Factor algorithms\nIncludes interactive Streamlit dashboard with real-time analytics, comprehensive visualizations, and published research paper analyzing 541,909 transactions",
+    description: "Data mining project implementing CRISP-DM methodology to analyze customer purchasing behaviors in online retail\nFeatures RFM-based customer segmentation, FP-Growth association rule mining, and hybrid anomaly detection using Isolation Forest and Local Outlier Factor algorithms\nIncludes interactive Streamlit dashboard with real-time analytics, comprehensive visualizations, and published research paper analyzing 541,909 transactions",
     date: "2025",
     imageUrl: "/images/anomaly_detection_datmin.png",
     skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "CRISP-DM", "Machine Learning", "Data Mining", "FP-Growth", "K-Means Clustering"],
