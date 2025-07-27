@@ -110,7 +110,7 @@ export default function Home() {
             About
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-300">
-            I'm a final-year Computer Science student at Universitas Indonesia with a focus on artificial intelligence, machine learning, and deep learning. I enjoy designing data-driven applications and building scalable software that brings ideas to life.
+            I'm a final-year Computer Science student at Universitas Indonesia with a strong focus on data science and machine learning. I love working with real-world data by transforming raw information into insights, predictive models, and intelligent tools. My interests lie in solving practical problems with clean code, solid reasoning, and a touch of curiosity.
           </p>
         </section>
       </ScrollReveal>
