@@ -6,6 +6,7 @@ import SkillCategory from "@/components/SkillCategory";
 import TypingAnimation from "@/components/TypingAnimation";
 import ScrollReveal from "@/components/ScrollReveal";
 import FadeIn from "@/components/FadeIn";
+import { getFeaturedProjects } from "@/data/projects";
 
 const skillsData = [
   { title: "Languages", skills: "Python, JavaScript, TypeScript, Java, Go, Dart" },
@@ -38,32 +39,9 @@ const experienceData = [
   },
 ];
 
-const featuredProjectsData = [
-  {
-    title: "Anomaly Detection in Customer Purchasing Patterns",
-    description: "Data mining project implementing CRISP-DM methodology to analyze customer purchasing behaviors in online retail\nFeatures RFM-based customer segmentation, FP-Growth association rule mining, hybrid anomaly detection using Isolation Forest and Local Outlier Factor algorithms, and interactive Streamlit dashboard with published research paper analyzing 541,909 transactions",
-    date: "2025",
-    imageUrl: "/images/anomaly_detection_datmin.png",
-    skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "CRISP-DM", "Machine Learning", "Data Mining", "FP-Growth", "K-Means Clustering"],
-    links: {
-      website: "https://wahyuht.com",
-      github: 'https://github.com/wahyuhiddayat/wahyuht'
-    }
-  },
-  {
-    title: "wahyuht",
-    description: "Personal portfolio website showcasing my projects and experiments\nBuilt with modern web technologies including Next.js 14, TypeScript, and Tailwind CSS with automated testing setup",
-    date: "2025",
-    imageUrl: "/images/wahyuht.png",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
-    links: {
-      website: "https://wahyuht.com",
-      github: 'https://github.com/wahyuhiddayat/wahyuht'
-    }
-  },
-];
 
 export default function Home() {
+  const featuredProjects = getFeaturedProjects();
   return (
     <div className="max-w-2xl mx-auto px-6 pt-32 pb-8">
       {/* Hero Section */}
@@ -178,7 +156,7 @@ export default function Home() {
             Featured Projects
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
-            {featuredProjectsData.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <ProjectCard
                 key={index}
                 title={project.title}
@@ -186,6 +164,7 @@ export default function Home() {
                 date={project.date}
                 imageUrl={project.imageUrl}
                 skills={project.skills}
+                slug={project.slug}
                 links={project.links}
               />
             ))}
