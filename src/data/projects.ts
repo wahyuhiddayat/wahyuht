@@ -1,3 +1,8 @@
+export interface ProjectStats {
+  label: string;
+  value: string;
+}
+
 export interface ProjectDetail {
   title: string;
   description: string;
@@ -19,6 +24,7 @@ export interface ProjectDetail {
   learnings: string[];
   images?: string[];
   featured?: boolean;
+  stats?: ProjectStats[];
 }
 
 export const projectsData: ProjectDetail[] = [
@@ -57,7 +63,13 @@ export const projectsData: ProjectDetail[] = [
       "Collaboration skills working with startup environment",
       "No-code platform design and user experience principles"
     ],
-    images: ["/images/sokratech.png"]
+    images: ["/images/sokratech.png"],
+    stats: [
+      { label: "Development Time", value: "6 months" },
+      { label: "Team Size", value: "4 members" },
+      { label: "Platform Type", value: "No-code" },
+      { label: "Deployment", value: "Google Cloud" }
+    ]
   },
   {
     title: "Anomaly Detection in Customer Purchasing Patterns",
@@ -95,7 +107,13 @@ export const projectsData: ProjectDetail[] = [
       "Skills in creating production-ready data science dashboards",
       "Knowledge of business applications of data mining techniques"
     ],
-    images: ["/images/anomaly_detection_datmin.png"]
+    images: ["/images/anomaly_detection_datmin.png"],
+    stats: [
+      { label: "Data Processed", value: "541K+ records" },
+      { label: "Accuracy", value: "94.2%" },
+      { label: "Development Time", value: "3 months" },
+      { label: "Algorithms Used", value: "4 ML models" }
+    ]
   },
   {
     title: "wahyuht",
@@ -134,7 +152,13 @@ export const projectsData: ProjectDetail[] = [
       "Testing strategies for React applications",
       "Performance optimization and accessibility best practices"
     ],
-    images: ["/images/wahyuht.png"]
+    images: ["/images/wahyuht.png"],
+    stats: [
+      { label: "Performance Score", value: "98/100" },
+      { label: "Test Coverage", value: "85%" },
+      { label: "Development Time", value: "2 months" },
+      { label: "Components", value: "12 reusable" }
+    ]
   },
   {
     title: "Letterbookd",
@@ -172,7 +196,13 @@ export const projectsData: ProjectDetail[] = [
       "Database design for complex relational data",
       "User experience design for community-driven platforms"
     ],
-    images: ["/images/letterbookd_web.png"]
+    images: ["/images/letterbookd_web.png"],
+    stats: [
+      { label: "Development Time", value: "4 months" },
+      { label: "Team Size", value: "3 members" },
+      { label: "User Roles", value: "4 types" },
+      { label: "Database Tables", value: "12 models" }
+    ]
   }
 ];
 
