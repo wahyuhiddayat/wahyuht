@@ -164,7 +164,6 @@ export default function Home() {
                 date={project.date}
                 imageUrl={project.imageUrl}
                 skills={project.skills}
-                slug={project.slug}
                 links={project.links}
               />
             ))}

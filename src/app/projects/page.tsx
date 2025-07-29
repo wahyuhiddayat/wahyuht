@@ -29,14 +29,13 @@ export default function Projects() {
           
           <div className="space-y-12">
             {projects.map((project, index) => (
-              <ScrollReveal key={project.slug} delay={index * 0.1}>
+              <ScrollReveal key={index} delay={index * 0.1}>
                 <ProjectCard
                   title={project.title}
                   description={project.description}
                   date={project.date}
                   imageUrl={project.imageUrl}
                   skills={project.skills}
-                  slug={project.slug}
                   links={project.links}
                 />
               </ScrollReveal>
