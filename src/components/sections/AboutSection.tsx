@@ -19,26 +19,25 @@ export default function AboutSection() {
             </div>
 
             {/* Quick Facts */}
-            <div className="lg:col-span-4 lg:pt-0 lg:pl-8 lg:border-l lg:border-gray-200 dark:border-gray-700">
-              
-              <div className="space-y-4">
-                <div className="text-sm">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">Location</span>
+            <div className="lg:col-span-4 pt-8 lg:pt-0 lg:pl-8 lg:border-l lg:border-gray-200 dark:border-gray-700">
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-4 lg:space-y-0">
+                <div className="text-sm lg:mb-4">
+                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Location</span>
                   <p className="text-gray-700 dark:text-gray-300 font-medium">Jakarta, Indonesia</p>
                 </div>
                 
-                <div className="text-sm">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">Education</span>
+                <div className="text-sm lg:mb-4">
+                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Education</span>
                   <p className="text-gray-700 dark:text-gray-300 font-medium">Computer Science, UI</p>
                 </div>
                 
-                <div className="text-sm">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">Status</span>
+                <div className="text-sm lg:mb-4">
+                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Status</span>
                   <p className="text-gray-700 dark:text-gray-300 font-medium">Available Jan 2026</p>
                 </div>
                 
                 <div className="text-sm">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide">Interests</span>
+                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Interests</span>
                   <p className="text-gray-700 dark:text-gray-300 font-medium">Coffee & Tech exploring</p>
                 </div>
               </div>
