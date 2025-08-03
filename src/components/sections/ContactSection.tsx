@@ -59,8 +59,8 @@ const opportunitiesData = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-16">
-      <div className="max-w-2xl mx-auto px-6">
+    <section id="contact" className="py-8">
+      <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
         <ScrollReveal>
           <header className="mb-16 text-center">
