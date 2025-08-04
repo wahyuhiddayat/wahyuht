@@ -96,16 +96,16 @@ function EducationItem({ degree, institution, period, logo }: {
 
 export default function ExperienceEducationSection() {
   return (
-    <section id="experience" className="py-16">
+    <section id="experience" className="py-6">
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Experience */}
             <div>
-              <h2 className="text-2xl font-semibold text-black dark:text-white mb-8">
+              <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
                 Experience
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {experienceData.map((experience, index) => (
                   <ExperienceItem
                     key={index}
@@ -120,10 +120,10 @@ export default function ExperienceEducationSection() {
 
             {/* Education */}
             <div>
-              <h2 className="text-2xl font-semibold text-black dark:text-white mb-8">
+              <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
                 Education
               </h2>
-              <div className="mb-8">
+              <div className="mb-6">
                 <EducationItem
                   degree="Bachelor of Computer Science"
                   institution="Universitas Indonesia"

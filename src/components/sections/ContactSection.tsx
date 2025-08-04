@@ -59,12 +59,12 @@ const opportunitiesData = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-8">
+    <section id="contact" className="py-6">
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
         <ScrollReveal>
-          <header className="mb-16 text-center">
-            <h1 className="text-3xl font-bold mb-4 tracking-tight dark:text-white">
+          <header className="mb-12 text-center">
+            <h1 className="text-3xl font-bold mb-3 tracking-tight dark:text-white">
               Let's Connect
             </h1>
             <p className="text-gray-600 dark:text-gray-300">
@@ -75,12 +75,12 @@ export default function ContactSection() {
 
         {/* Contact Methods */}
         <ScrollReveal>
-          <div className="mb-16">
-            <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          <div className="mb-12">
+            <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
               Get in Touch
             </h2>
             
-            <div className="space-y-6">
+            <div className="space-y-4">
               {/* Email */}
               <div className="group">
                 <h3 className="font-medium text-sm mb-2 dark:text-white">Email</h3>
@@ -122,8 +122,8 @@ export default function ContactSection() {
 
         {/* Social Links */}
         <ScrollReveal>
-          <div className="mb-16">
-            <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+          <div className="mb-12">
+            <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
               Find Me Online
             </h2>
             
@@ -146,11 +146,11 @@ export default function ContactSection() {
        {/* What I'm Looking For */}
         <ScrollReveal>
           <div>
-            <h2 className="text-xl font-semibold text-black dark:text-white mb-6">
+            <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
               What I'm Looking For
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {opportunitiesData.map((opportunity, index) => (
                 <ScrollReveal key={index} delay={index * 0.1}>
                   <div>

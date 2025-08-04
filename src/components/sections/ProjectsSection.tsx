@@ -11,11 +11,11 @@ export default function ProjectsSection() {
   const allProjects = getAllProjects();
 
   return (
-    <section id="projects" className="py-8">
+    <section id="projects" className="py-6">
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div>
-            <h2 className="text-xl font-semibold text-black dark:text-white mb-4">
+            <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
               {showAll ? 'All Projects' : 'Featured Projects'}
             </h2>
             
@@ -34,7 +34,7 @@ export default function ProjectsSection() {
                     />
                   ))}
                 </div>
-                <div className="mt-6 text-right">
+                <div className="mt-4 text-right">
                   <button
                     onClick={() => setShowAll(true)}
                     className="text-sm text-primary hover:underline"
@@ -45,7 +45,7 @@ export default function ProjectsSection() {
               </>
             ) : (
               <>
-                <div className="space-y-12">
+                <div className="space-y-8">
                   {allProjects.map((project, index) => (
                     <ScrollReveal key={index} delay={index * 0.1}>
                       <ProjectCard
@@ -60,7 +60,7 @@ export default function ProjectsSection() {
                   ))}
                 </div>
                 <ScrollReveal delay={0.2}>
-                  <div className="mt-12 text-center">
+                  <div className="mt-8 text-center">
                     <button
                       onClick={() => setShowAll(false)}
                       className="text-sm text-primary hover:underline"

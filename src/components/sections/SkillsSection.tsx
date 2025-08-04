@@ -13,14 +13,14 @@ const skillsData = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-16">
+    <section id="skills" className="py-6">
       <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div>
-            <h2 className="text-2xl font-semibold text-black dark:text-white mb-8">
+            <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
               Skills
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-4 text-sm">
               {skillsData.map((skill, index) => (
                 <SkillCategory
                   key={index}

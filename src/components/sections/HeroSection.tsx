@@ -7,17 +7,17 @@ import FadeIn from "@/components/FadeIn";
 
 export default function HeroSection() {
   return (
-    <section id="home" className="pt-32 pb-8">
+    <section id="home" className="pt-20 pb-4">
       <div className="max-w-4xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-9">
             <FadeIn>
               <header>
-                <h1 className="text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold mb-3 tracking-tight">
                   Hi, I'm Wahyu Hidayat 👋
                 </h1>
                 
-                <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                   Building intelligent solutions as an aspiring{" "}
                   <span className="block mt-1">
                     <TypingAnimation 
@@ -34,7 +34,7 @@ export default function HeroSection() {
                   </span>
                 </p>
                 
-                <p className="text-gray-500 dark:text-gray-400 italic mb-8 leading-relaxed">
+                <p className="text-gray-500 dark:text-gray-400 italic mb-6 leading-relaxed">
                   When I'm not coding, I'm probably at a coffee shop or exploring new tech.
                 </p>
 
