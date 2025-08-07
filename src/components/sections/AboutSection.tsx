@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 export default function AboutSection() {
   return (
     <section id="about" className="py-6">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Main Bio */}
@@ -13,9 +13,11 @@ export default function AboutSection() {
               <h2 className="text-2xl font-semibold text-black dark:text-white mb-4">
                 About
               </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                I'm a final-year Computer Science student at Universitas Indonesia with a strong focus on data science and machine learning. I love working with real-world data by transforming raw information into insights, predictive models, and intelligent tools. My interests lie in solving practical problems with clean code, solid reasoning, and a touch of curiosity.
-              </p>
+              <div>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                  I'm a final-year Computer Science student at Universitas Indonesia with a strong focus on data science and machine learning. I love working with real-world data by transforming raw information into insights, predictive models, and intelligent tools. My interests lie in solving practical problems with clean code, solid reasoning, and a touch of curiosity.
+                </p>
+              </div>
             </div>
 
             {/* Quick Facts */}

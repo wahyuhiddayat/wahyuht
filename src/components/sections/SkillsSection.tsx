@@ -14,7 +14,7 @@ const skillsData = [
 export default function SkillsSection() {
   return (
     <section id="skills" className="py-6">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div>
             <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">

@@ -97,7 +97,7 @@ function EducationItem({ degree, institution, period, logo }: {
 export default function ExperienceEducationSection() {
   return (
     <section id="experience" className="py-6">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Experience */}

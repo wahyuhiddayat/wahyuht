@@ -8,7 +8,7 @@ import FadeIn from "@/components/FadeIn";
 export default function HeroSection() {
   return (
     <section id="home" className="pt-20 pb-4">
-      <div className="max-w-4xl mx-auto px-6 w-full">
+      <div className="max-w-3xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-9">
             <FadeIn>
