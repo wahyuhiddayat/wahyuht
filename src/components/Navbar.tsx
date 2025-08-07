@@ -4,21 +4,28 @@ import { useState, useEffect } from 'react';
 import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+            const sectionId = entry.target.id;
+            if (sectionId === 'home' || sectionId === 'about' || sectionId === 'skills') {
+              setActiveSection('about');
+            } else if (sectionId === 'experience' || sectionId === 'education') {
+              setActiveSection('work');
+            } else if (sectionId === 'projects') {
+              setActiveSection('projects');
+            }
           }
         });
       },
-      { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' }
+      { threshold: 0.3, rootMargin: '-20% 0px -20% 0px' }
     );
 
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll('section[id]:not(#contact)');
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
@@ -30,13 +37,9 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'education', label: 'Education' },
+    { id: 'home', label: 'About' },
+    { id: 'experience', label: 'Work' },
     { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' },
   ];
 
   return (
@@ -48,11 +51,11 @@ export default function Navbar() {
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors text-sm font-medium relative pb-1 ${
-                activeSection === item.id ? 'text-black dark:text-white' : ''
+                activeSection === item.label.toLowerCase() ? 'text-black dark:text-white' : ''
               }`}
             >
               {item.label}
-              {activeSection === item.id && (
+              {activeSection === item.label.toLowerCase() && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-black dark:bg-white rounded-full" />
               )}
             </button>
