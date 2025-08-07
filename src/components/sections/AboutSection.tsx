@@ -2,6 +2,7 @@
 
 import ScrollReveal from "@/components/ScrollReveal";
 
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-6">
@@ -29,23 +30,24 @@ export default function AboutSection() {
                 </div>
                 
                 <div className="text-sm lg:mb-4">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Education</span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Computer Science, UI</p>
-                </div>
-                
-                <div className="text-sm lg:mb-4">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Status</span>
                   <p className="text-gray-700 dark:text-gray-300 font-medium">Available Jan 2026</p>
                 </div>
                 
+                <div className="text-sm lg:mb-4">
+                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Languages</span>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">English, Indonesian</p>
+                </div>
+                
                 <div className="text-sm">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Interests</span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Coffee & Tech exploring</p>
+                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Remote</span>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">Available worldwide</p>
                 </div>
               </div>
             </div>
           </div>
         </ScrollReveal>
+
       </div>
     </section>
   );

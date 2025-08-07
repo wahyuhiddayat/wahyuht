@@ -34,19 +34,9 @@ export default function HeroSection() {
                   </span>
                 </p>
                 
-                <p className="text-gray-500 dark:text-gray-400 italic mb-6 leading-relaxed">
+                <p className="text-gray-500 dark:text-gray-400 italic leading-relaxed">
                   When I'm not coding, I'm probably at a coffee shop or exploring new tech.
                 </p>
-
-                <div className="flex items-center gap-4 text-sm">
-                  <span className="text-gray-600 dark:text-gray-300">Get in touch</span>
-                  <a 
-                    href="mailto:wahyuhidayat@gmail.com" 
-                    className="text-primary hover:underline transition-colors"
-                  >
-                    📧 wahyuhidayat@gmail.com
-                  </a>
-                </div>
               </header>
             </FadeIn>
           </div>
