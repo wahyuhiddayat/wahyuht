@@ -56,12 +56,6 @@ export default function RootLayout({
         <footer className="max-w-5xl mx-auto px-4 py-8 border-t border-gray-200 dark:border-gray-800 mt-12">
           <div className="flex justify-center gap-6 mb-4">
             <a 
-              href="mailto:wahyuuhidaayat@gmail.com" 
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
-            >
-              Email
-            </a>
-            <a 
               href="https://github.com/wahyuhiddayat" 
               target="_blank" 
               rel="noopener noreferrer" 
@@ -76,6 +70,22 @@ export default function RootLayout({
               className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
             >
               LinkedIn
+            </a>
+            <a 
+              href="https://open.spotify.com/user/wahyuuhidaayat" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
+            >
+              Spotify
+            </a>
+            <a 
+              href="https://www.instagram.com/wahyyuhidaayat/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
+            >
+              Instagram
             </a>
           </div>
           <p className="text-center text-xs text-gray-500 dark:text-gray-400">
