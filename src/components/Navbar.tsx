@@ -19,20 +19,29 @@ export default function Navbar() {
     // Intersection observer for active section detection
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.id;
-            if (sectionId === 'home' || sectionId === 'about' || sectionId === 'skills') {
-              setActiveSection('about');
-            } else if (sectionId === 'experience' || sectionId === 'education') {
-              setActiveSection('work');
-            } else if (sectionId === 'projects') {
-              setActiveSection('projects');
-            }
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        
+        if (visibleEntries.length > 0) {
+          const mostVisibleEntry = visibleEntries[0];
+          const sectionId = mostVisibleEntry.target.id;
+          
+          console.log(`Mobile debug - Most visible section: ${sectionId}, ratio: ${mostVisibleEntry.intersectionRatio}`);
+          
+          if (sectionId === 'home' || sectionId === 'about' || sectionId === 'skills') {
+            setActiveSection('about');
+          } else if (sectionId === 'experience' || sectionId === 'education') {
+            setActiveSection('work');
+          } else if (sectionId === 'projects') {
+            setActiveSection('projects');
           }
-        });
+        }
       },
-      { threshold: 0.3, rootMargin: '-20% 0px -20% 0px' }
+      { 
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+        rootMargin: '-10% 0px -10% 0px'
+      }
     );
 
     const sections = document.querySelectorAll('section[id]:not(#contact)');
@@ -47,6 +56,17 @@ export default function Navbar() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
+    
+    // Force update active section immediately for manual clicks
+    setTimeout(() => {
+      if (sectionId === 'home') {
+        setActiveSection('about');
+      } else if (sectionId === 'experience') {
+        setActiveSection('work');
+      } else if (sectionId === 'projects') {
+        setActiveSection('projects');
+      }
+    }, 100);
   };
 
   const navItems = [
