@@ -67,11 +67,13 @@ export default function Navbar() {
         </defs>
       </svg>
 
-      <div className="fixed top-8 left-0 right-0 z-50 flex justify-center">
+      <div className="fixed top-6 left-4 right-4 sm:top-8 sm:left-0 sm:right-0 z-50 flex justify-center">
         <div 
           className={`
-            relative rounded-full px-8 py-4 transition-all duration-300 ease-out overflow-hidden
+            relative rounded-full transition-all duration-300 ease-out overflow-hidden
+            px-4 py-3 sm:px-8 sm:py-4
             border border-gray-200/30 dark:border-gray-600/30
+            max-w-fit mx-auto
             ${isScrolled ? 'glass-nav-scrolled border-gray-200/60 dark:border-gray-600/50' : 'bg-transparent'}
           `}
         >
@@ -99,7 +101,7 @@ export default function Navbar() {
 
           {/* Content layer */}
           <div className="relative z-10">
-            <div className="flex items-center justify-between gap-6">
+            <div className="flex items-center gap-3 sm:gap-6">
               {navItems.map((item) => {
                 const isActive = activeSection === item.label.toLowerCase();
                 return (
@@ -107,7 +109,8 @@ export default function Navbar() {
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
                     className={`
-                      transition-all duration-200 text-sm font-medium relative px-4 py-2 rounded-lg
+                      transition-all duration-200 text-xs sm:text-sm font-medium relative 
+                      px-3 py-2 sm:px-4 sm:py-2 rounded-lg
                       text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white
                       ${isActive
                         ? 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white' 
@@ -119,7 +122,9 @@ export default function Navbar() {
                   </button>
                 );
               })}
-              <ThemeSwitcher />
+              <div className="ml-1 sm:ml-0">
+                <ThemeSwitcher />
+              </div>
             </div>
           </div>
         </div>
