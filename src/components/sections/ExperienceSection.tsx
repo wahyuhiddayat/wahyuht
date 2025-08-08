@@ -37,10 +37,10 @@ function ExperienceItem({ position, company, period, logo }: {
   logo: string;
 }) {
   return (
-    <div className="flex gap-3">
+    <div className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto] gap-2 sm:gap-3 items-start">
       {/* Company Logo */}
       <div className="flex-shrink-0">
-        <div className="relative w-10 h-10 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-1">
+        <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1">
           <Image
             src={logo}
             alt={`${company} logo`}
@@ -51,12 +51,24 @@ function ExperienceItem({ position, company, period, logo }: {
       </div>
       
       {/* Content */}
-      <div className="flex-1 min-w-0">
-        <div className="flex justify-between items-start mb-1">
-          <p className="font-medium text-gray-900 dark:text-gray-100">{position}</p>
-          <p className="text-gray-500 dark:text-gray-400 text-right shrink-0 ml-4 text-sm">{period}</p>
-        </div>
-        <p className="text-gray-600 dark:text-gray-300 text-sm">{company}</p>
+      <div className="min-w-0">
+        <p className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base leading-tight sm:leading-normal" style={{ textWrap: 'balance' } as any}>
+          {position}
+        </p>
+        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mt-0.5">
+          {company}
+        </p>
+        {/* Date on mobile */}
+        <p className="text-gray-500 dark:text-gray-400 text-xs sm:hidden mt-1">
+          {period}
+        </p>
+      </div>
+      
+      {/* Date on larger screens */}
+      <div className="hidden sm:block text-right shrink-0">
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
+          {period}
+        </p>
       </div>
     </div>
   );
