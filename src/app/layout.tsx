@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { SectionRefsProvider } from "@/providers/SectionRefsProvider";
+import { generatePersonSchema, generateWebsiteSchema } from "@/lib/structured-data";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -10,8 +12,68 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Wahyu Hidayat",
-  description: "Computer Science Student | AI Enthusiast | Developer",
+  title: {
+    default: "Wahyu Hidayat | Data Scientist & Machine Learning Engineer",
+    template: "%s | Wahyu Hidayat"
+  },
+  description: "Final-year Computer Science student at Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.",
+  keywords: [
+    "Wahyu Hidayat",
+    "Data Scientist", 
+    "Machine Learning Engineer",
+    "Computer Science",
+    "Universitas Indonesia",
+    "AI",
+    "Data Engineering",
+    "Business Intelligence",
+    "Jakarta",
+    "Indonesia"
+  ],
+  authors: [{ name: "Wahyu Hidayat", url: "https://wahyuht.com" }],
+  creator: "Wahyu Hidayat",
+  publisher: "Wahyu Hidayat",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://wahyuht.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://wahyuht.com',
+    title: 'Wahyu Hidayat | Data Scientist & Machine Learning Engineer',
+    description: 'Final-year Computer Science student at Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.',
+    siteName: 'Wahyu Hidayat Portfolio',
+    images: [
+      {
+        url: '/images/profile.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Wahyu Hidayat - Data Scientist & Machine Learning Engineer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wahyu Hidayat | Data Scientist & Machine Learning Engineer',
+    description: 'Final-year Computer Science student at Universitas Indonesia specializing in Data Science, Machine Learning, and AI.',
+    images: ['/images/profile.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -21,6 +83,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generatePersonSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateWebsiteSchema()),
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -28,8 +104,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <Navbar />
-          <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">{children}</main>
+          <SectionRefsProvider>
+            <Navbar />
+            <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">{children}</main>
+          </SectionRefsProvider>
           <footer className="max-w-5xl mx-auto px-4 py-8 border-t border-gray-200 dark:border-gray-800 mt-12">
             <div className="flex justify-center gap-6 mb-4">
               <a 
