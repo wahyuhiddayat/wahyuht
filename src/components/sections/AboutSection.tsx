@@ -1,6 +1,5 @@
-'use client';
-
 import ScrollReveal from "@/components/ScrollReveal";
+import { personalData } from "@/data/personal";
 
 
 export default function AboutSection() {
@@ -16,7 +15,7 @@ export default function AboutSection() {
               </h2>
               <div>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  I'm a final-year Computer Science student at Universitas Indonesia with a strong focus on data science and machine learning. I love working with real-world data by transforming raw information into insights, predictive models, and intelligent tools. My interests lie in solving practical problems with clean code, solid reasoning, and a touch of curiosity.
+                  {personalData.bio}
                 </p>
               </div>
             </div>
@@ -26,22 +25,22 @@ export default function AboutSection() {
               <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-3 lg:space-y-0">
                 <div className="text-sm lg:mb-4">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Location</span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Jakarta, Indonesia</p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">{personalData.location}</p>
                 </div>
                 
                 <div className="text-sm lg:mb-4">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Status</span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Available Jan 2026</p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">{personalData.status}</p>
                 </div>
                 
                 <div className="text-sm lg:mb-4">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Languages</span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">English, Indonesian</p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">{personalData.languages}</p>
                 </div>
                 
                 <div className="text-sm">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">Remote</span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">Available worldwide</p>
+                  <p className="text-gray-700 dark:text-gray-300 font-medium">{personalData.remote}</p>
                 </div>
               </div>
             </div>

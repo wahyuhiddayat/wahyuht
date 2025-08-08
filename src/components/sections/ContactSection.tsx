@@ -1,8 +1,5 @@
-'use client';
-
 import ScrollReveal from '@/components/ScrollReveal';
-
-
+import { personalData } from '@/data/personal';
 
 export default function ContactSection() {
   return (
@@ -11,20 +8,20 @@ export default function ContactSection() {
         <ScrollReveal>
           <div className="text-center">
             <h1 className="text-3xl font-bold mb-8 tracking-tight dark:text-white">
-              Let's Connect
+              {personalData.contact.greeting}
             </h1>
             
             <div className="mb-4">
               <a 
-                href="mailto:wahyuuhidaayat@gmail.com"
+                href={`mailto:${personalData.email}`}
                 className="text-lg text-primary hover:text-primary-hover transition-colors font-medium"
               >
-                📫 wahyuuhidaayat@gmail.com
+                📫 {personalData.email}
               </a>
             </div>
             
             <p className="text-gray-600 dark:text-gray-300">
-              Open to exciting projects, collaborations, or a quick hello.
+              {personalData.contact.description}
             </p>
           </div>
         </ScrollReveal>

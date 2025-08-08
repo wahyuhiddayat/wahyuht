@@ -1,14 +1,8 @@
-'use client';
-
 import ScrollReveal from "@/components/ScrollReveal";
 import Image from "next/image";
+import { educationData, type Education } from "@/data/education";
 
-function EducationItem({ degree, institution, period, logo }: {
-  degree: string;
-  institution: string;
-  period: string;
-  logo: string;
-}) {
+function EducationItem({ degree, institution, period, logo }: Education) {
   return (
     <div className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto] gap-2 sm:gap-3 items-start">
       {/* Logo */}
@@ -57,12 +51,15 @@ export default function EducationSection() {
               Education
             </h2>
             <div className="space-y-4">
-              <EducationItem
-                degree="Bachelor of Computer Science"
-                institution="Universitas Indonesia"
-                period="2022 – Present"
-                logo="/images/makara_fasilkom.png"
-              />
+              {educationData.map((education, index) => (
+                <EducationItem
+                  key={index}
+                  degree={education.degree}
+                  institution={education.institution}
+                  period={education.period}
+                  logo={education.logo}
+                />
+              ))}
             </div>
           </div>
         </ScrollReveal>
