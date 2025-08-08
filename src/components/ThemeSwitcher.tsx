@@ -1,125 +1,42 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 export default function ThemeSwitcher() {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
-    try {
-      // Disable transitions during initial load
-      document.documentElement.style.setProperty('--theme-transition', 'none');
-      
-      // Check localStorage first
-      const savedDarkMode = localStorage.getItem('darkMode');
-      
-      if (savedDarkMode !== null) {
-        // User has a saved preference
-        const isDark = savedDarkMode === 'true';
-        setDarkMode(isDark);
-        if (isDark) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      } else {
-        // No saved preference, check system preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setDarkMode(prefersDark);
-        if (prefersDark) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      }
-      
-      // Re-enable transitions after initial setup
-      requestAnimationFrame(() => {
-        document.documentElement.style.setProperty('--theme-transition', '0.3s ease-in-out');
-      });
-    } catch (error) {
-      // Fallback if localStorage fails
-      console.warn('Failed to access localStorage, using system preference');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setDarkMode(prefersDark);
-      if (prefersDark) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    }
-    
-    setIsLoaded(true);
+    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      // Only update if user hasn't set a manual preference
-      if (localStorage.getItem('darkMode') === null) {
-        setDarkMode(e.matches);
-        applyTheme(e.matches);
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  const applyTheme = (isDark: boolean) => {
-    // Force immediate transition for mobile compatibility
-    document.documentElement.style.setProperty('--theme-transition', 'none');
-    
-    // Apply theme immediately
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    
-    // Re-enable transitions after theme is applied
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        document.documentElement.style.setProperty('--theme-transition', '0.3s ease-in-out');
-      });
-    });
-  };
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    applyTheme(newDarkMode);
-    
-    // Save the user's choice
-    try {
-      localStorage.setItem('darkMode', newDarkMode.toString());
-    } catch (error) {
-      console.warn('Failed to save theme preference to localStorage');
-    }
-  };
-  
-  // Show minimal skeleton while loading to prevent layout shift
-  if (!isLoaded) {
+  // Prevent hydration mismatch by showing skeleton until mounted
+  if (!mounted) {
     return (
       <div className="p-1.5 rounded-full w-7 h-7" />
     );
   }
 
+  const isDark = resolvedTheme === 'dark';
+
+  const toggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
+
   return (
     <button 
-      onClick={toggleDarkMode}
+      onClick={toggleTheme}
       className="p-1.5 rounded-full text-gray-800 dark:text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-95"
-      aria-label={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
-      title={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+      title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       <div className="relative w-4 h-4">
         {/* Sun icon */}
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           className={`absolute inset-0 h-4 w-4 transition-all duration-200 ease-in-out ${
-            darkMode ? 'opacity-0 rotate-180 scale-50' : 'opacity-100 rotate-0 scale-100'
+            isDark ? 'opacity-0 rotate-180 scale-50' : 'opacity-100 rotate-0 scale-100'
           }`}
           viewBox="0 0 20 20" 
           fill="currentColor"
@@ -131,7 +48,7 @@ export default function ThemeSwitcher() {
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
           className={`absolute inset-0 h-4 w-4 transition-all duration-200 ease-in-out ${
-            darkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-180 scale-50'
+            isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-180 scale-50'
           }`}
           viewBox="0 0 20 20" 
           fill="currentColor"
