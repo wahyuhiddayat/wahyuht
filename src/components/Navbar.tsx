@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSectionRefs } from '@/providers/SectionRefsProvider';
 import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState('about');
+  const { activeSection } = useSectionRefs();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -15,58 +16,12 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    // Intersection observer for active section detection
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        
-        if (visibleEntries.length > 0) {
-          const mostVisibleEntry = visibleEntries[0];
-          const sectionId = mostVisibleEntry.target.id;
-          
-          console.log(`Mobile debug - Most visible section: ${sectionId}, ratio: ${mostVisibleEntry.intersectionRatio}`);
-          
-          if (sectionId === 'home' || sectionId === 'about' || sectionId === 'skills') {
-            setActiveSection('about');
-          } else if (sectionId === 'experience' || sectionId === 'education') {
-            setActiveSection('work');
-          } else if (sectionId === 'projects') {
-            setActiveSection('projects');
-          }
-        }
-      },
-      { 
-        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
-        rootMargin: '-10% 0px -10% 0px'
-      }
-    );
-
-    const sections = document.querySelectorAll('section[id]:not(#contact)');
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
-    
-    // Force update active section immediately for manual clicks
-    setTimeout(() => {
-      if (sectionId === 'home') {
-        setActiveSection('about');
-      } else if (sectionId === 'experience') {
-        setActiveSection('work');
-      } else if (sectionId === 'projects') {
-        setActiveSection('projects');
-      }
-    }, 100);
   };
 
   const navItems = [
