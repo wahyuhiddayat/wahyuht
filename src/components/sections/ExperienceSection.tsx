@@ -12,6 +12,7 @@ function ExperienceItem({ position, company, period, logo }: Experience) {
             src={logo}
             alt={`${company} logo`}
             fill
+            sizes="(max-width: 640px) 32px, 40px"
             className="object-contain"
           />
         </div>

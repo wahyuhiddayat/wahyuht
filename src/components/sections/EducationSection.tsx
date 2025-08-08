@@ -12,6 +12,7 @@ function EducationItem({ degree, institution, period, logo }: Education) {
             src={logo}
             alt={`${institution} logo`}
             fill
+            sizes="(max-width: 640px) 32px, 40px"
             className="object-contain"
           />
         </div>

@@ -23,6 +23,7 @@ export default function HeroSection() {
                       src={personalData.profileImage}
                       alt={personalData.name}
                       fill
+                      sizes="(max-width: 1024px) 96px, 128px"
                       className="object-cover"
                       priority
                     />
