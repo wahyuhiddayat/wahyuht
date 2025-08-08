@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import { SectionRefsProvider } from "@/providers/SectionRefsProvider";
 import { generatePersonSchema, generateWebsiteSchema } from "@/lib/structured-data";
 
 const inter = Inter({ 
@@ -104,10 +103,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <SectionRefsProvider>
-            <Navbar />
-            <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">{children}</main>
-          </SectionRefsProvider>
+          <Navbar />
+          <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">{children}</main>
           <footer className="max-w-5xl mx-auto px-4 py-8 border-t border-gray-200 dark:border-gray-800 mt-12">
             <div className="flex justify-center gap-6 mb-4">
               <a 

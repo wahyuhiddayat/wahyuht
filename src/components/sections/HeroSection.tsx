@@ -5,13 +5,10 @@ import TypingAnimation from "@/components/TypingAnimation";
 import ScrollReveal from "@/components/ScrollReveal";
 import FadeIn from "@/components/FadeIn";
 import { personalData } from "@/data/personal";
-import { useSectionRefs } from "@/providers/SectionRefsProvider";
 
 export default function HeroSection() {
-  const { refs } = useSectionRefs();
-  
   return (
-    <section id="home" ref={refs.homeRef} className="pt-20 pb-4">
+    <section id="home" className="pt-20 pb-4">
       <div className="max-w-3xl mx-auto px-6 w-full">
         <div className="space-y-4">
           <FadeIn>

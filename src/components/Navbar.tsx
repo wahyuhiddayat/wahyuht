@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSectionRefs } from '@/providers/SectionRefsProvider';
+import { useActiveSection } from '@/hooks/useActiveSection';
 import ThemeSwitcher from './ThemeSwitcher';
 
 export default function Navbar() {
-  const { activeSection } = useSectionRefs();
+  const { activeSection } = useActiveSection();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
