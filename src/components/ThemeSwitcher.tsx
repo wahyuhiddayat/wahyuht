@@ -8,6 +8,9 @@ export default function ThemeSwitcher() {
 
   useEffect(() => {
     try {
+      // Disable transitions during initial load
+      document.documentElement.style.setProperty('--theme-transition', 'none');
+      
       // Check localStorage first
       const savedDarkMode = localStorage.getItem('darkMode');
       
@@ -15,16 +18,36 @@ export default function ThemeSwitcher() {
         // User has a saved preference
         const isDark = savedDarkMode === 'true';
         setDarkMode(isDark);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
       } else {
         // No saved preference, check system preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         setDarkMode(prefersDark);
+        if (prefersDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
       }
+      
+      // Re-enable transitions after initial setup
+      requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--theme-transition', '0.3s ease-in-out');
+      });
     } catch (error) {
       // Fallback if localStorage fails
       console.warn('Failed to access localStorage, using system preference');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       setDarkMode(prefersDark);
+      if (prefersDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
     
     setIsLoaded(true);
@@ -46,15 +69,21 @@ export default function ThemeSwitcher() {
   }, []);
 
   const applyTheme = (isDark: boolean) => {
-    // Transition
-    document.documentElement.style.setProperty('--theme-transition', '0.25s ease-in-out');
+    // Force immediate transition for mobile compatibility
+    document.documentElement.style.setProperty('--theme-transition', 'none');
     
+    // Apply theme immediately
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    
+    // Re-enable transitions after theme is applied
     requestAnimationFrame(() => {
-      if (isDark) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--theme-transition', '0.3s ease-in-out');
+      });
     });
   };
 

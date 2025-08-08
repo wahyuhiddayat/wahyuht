@@ -14,7 +14,7 @@ export default function HeroSection() {
           <FadeIn>
             <header>
               <div className="flex items-center justify-between mb-3">
-                <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold tracking-tight transition-colors duration-300 ease-in-out">
                   {personalData.greeting}
                 </h1>
                 <ScrollReveal delay={0.2}>

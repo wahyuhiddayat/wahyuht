@@ -7,6 +7,7 @@
   --background-rgb: 255, 255, 255;
   --primary-color: 37 99 235;
   --primary-color-hover: 29 78 216;
+  --theme-transition: 0.3s ease-in-out;
 }
 
 .dark {
@@ -20,18 +21,20 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-weight: 400;
-  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+  transition: 
+    color var(--theme-transition),
+    background-color var(--theme-transition);
 }
 
 *,
 *::before,
 *::after {
   transition: 
-    color 0.2s ease-in-out,
+    color var(--theme-transition),
     background-color 0.2s ease-in-out,
     border-color 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out,
-    fill 0.2s ease-in-out;
+    fill var(--theme-transition);
 }
 
 @media (prefers-reduced-motion: reduce) {
