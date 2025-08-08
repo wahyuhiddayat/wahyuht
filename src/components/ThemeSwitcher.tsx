@@ -6,7 +6,6 @@ export default function ThemeSwitcher() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Initialize on component mount
   useEffect(() => {
     try {
       // Check localStorage first
@@ -31,7 +30,6 @@ export default function ThemeSwitcher() {
     setIsLoaded(true);
   }, []);
 
-  // Listen for system theme changes
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     
@@ -48,7 +46,9 @@ export default function ThemeSwitcher() {
   }, []);
 
   const applyTheme = (isDark: boolean) => {
-    // Use requestAnimationFrame for smoother transitions
+    // Transition
+    document.documentElement.style.setProperty('--theme-transition', '0.25s ease-in-out');
+    
     requestAnimationFrame(() => {
       if (isDark) {
         document.documentElement.classList.add('dark');
@@ -81,7 +81,7 @@ export default function ThemeSwitcher() {
   return (
     <button 
       onClick={toggleDarkMode}
-      className="p-1.5 rounded-full text-gray-800 dark:text-white transition-all duration-200 ease-in-out hover:scale-110 active:scale-95"
+      className="p-1.5 rounded-full text-gray-800 dark:text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-95"
       aria-label={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
       title={`Switch to ${darkMode ? 'light' : 'dark'} mode`}
     >
@@ -89,8 +89,8 @@ export default function ThemeSwitcher() {
         {/* Sun icon */}
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
-          className={`absolute inset-0 h-4 w-4 transition-all duration-300 ease-in-out ${
-            darkMode ? 'opacity-0 rotate-90 scale-75' : 'opacity-100 rotate-0 scale-100'
+          className={`absolute inset-0 h-4 w-4 transition-all duration-200 ease-in-out ${
+            darkMode ? 'opacity-0 rotate-180 scale-50' : 'opacity-100 rotate-0 scale-100'
           }`}
           viewBox="0 0 20 20" 
           fill="currentColor"
@@ -101,8 +101,8 @@ export default function ThemeSwitcher() {
         {/* Moon icon */}
         <svg 
           xmlns="http://www.w3.org/2000/svg" 
-          className={`absolute inset-0 h-4 w-4 transition-all duration-300 ease-in-out ${
-            darkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-75'
+          className={`absolute inset-0 h-4 w-4 transition-all duration-200 ease-in-out ${
+            darkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-180 scale-50'
           }`}
           viewBox="0 0 20 20" 
           fill="currentColor"
