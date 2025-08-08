@@ -57,7 +57,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* SVG Filter for Glass Distortion */}
+      {/* SVG filter for glass distortion */}
       <svg className="hidden">
         <defs>
           <filter id="glass-distortion">
@@ -72,70 +72,51 @@ export default function Navbar() {
           className={`
             relative rounded-full px-8 py-4 transition-all duration-300 ease-out overflow-hidden
             border border-gray-200/30 dark:border-gray-600/30
-            ${isScrolled ? 'glass-nav-active border-gray-200/60 dark:border-gray-600/50' : 'bg-transparent'}
+            ${isScrolled ? 'glass-nav-scrolled border-gray-200/60 dark:border-gray-600/50' : 'bg-transparent'}
           `}
-          style={{
-            '--bg-color': 'rgba(255, 255, 255, 0.25)',
-            '--bg-color-dark': 'rgba(0, 0, 0, 0.25)', 
-            '--highlight': 'rgba(255, 255, 255, 0.75)',
-            '--highlight-dark': 'rgba(255, 255, 255, 0.15)',
-          } as React.CSSProperties}
         >
-          {/* Glass Filter Layer */}
+          {/* Glass layers when scrolled */}
           {isScrolled && (
-            <div 
-              className="absolute inset-0 rounded-full"
-              style={{
-                zIndex: 1,
-                backdropFilter: 'blur(8px)',
-                filter: 'url(#glass-distortion) saturate(110%) brightness(1.05)',
-              }}
-            />
-          )}
-          
-          {/* Glass Overlay Layer */}
-          {isScrolled && (
-            <div 
-              className="absolute inset-0 rounded-full bg-white/40 dark:bg-black/40"
-              style={{ zIndex: 2 }}
-            />
-          )}
-          
-          {/* Glass Specular Highlight */}
-          {isScrolled && (
-            <div 
-              className="absolute inset-0 rounded-full glass-specular"
-              style={{ zIndex: 3 }}
-            />
+            <>
+              <div 
+                className="absolute inset-0 rounded-full"
+                style={{
+                  zIndex: 1,
+                  backdropFilter: 'blur(8px)',
+                  filter: 'url(#glass-distortion) saturate(110%) brightness(1.05)',
+                }}
+              />
+              <div 
+                className="absolute inset-0 rounded-full bg-white/40 dark:bg-black/40"
+                style={{ zIndex: 2 }}
+              />
+              <div 
+                className="absolute inset-0 rounded-full glass-specular"
+                style={{ zIndex: 3 }}
+              />
+            </>
           )}
 
-          {/* Content Layer */}
+          {/* Content layer */}
           <div className="relative z-10">
             <div className="flex items-center justify-between gap-6">
               {navItems.map((item) => {
                 const isActive = activeSection === item.label.toLowerCase();
                 return (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`
-                    transition-all duration-200 text-sm font-medium relative px-4 py-2 rounded-lg
-                    ${isScrolled 
-                      ? `text-gray-800 dark:text-gray-100 hover:text-black dark:hover:text-white font-semibold
-                         ${isActive
-                           ? 'bg-white/50 dark:bg-white/20 text-black dark:text-white shadow-sm backdrop-blur-sm' 
-                           : 'hover:bg-white/30 dark:hover:bg-white/10'
-                         }`
-                      : `text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white
-                         ${isActive
-                           ? 'bg-gray-100 dark:bg-gray-800/80 text-black dark:text-white' 
-                           : 'hover:bg-gray-50 dark:hover:bg-gray-800/50'
-                         }`
-                    }
-                  `}
-                >
-                  {item.label}
-                </button>
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`
+                      transition-all duration-200 text-sm font-medium relative px-4 py-2 rounded-lg
+                      text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white
+                      ${isActive
+                        ? 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white' 
+                        : 'hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                      }
+                    `}
+                  >
+                    {item.label}
+                  </button>
                 );
               })}
               <ThemeSwitcher />
