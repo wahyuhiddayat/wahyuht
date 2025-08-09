@@ -12,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Wahyu Hidayat | Data Scientist & Machine Learning Engineer",
+    default: "Wahyu Hidayat",
     template: "%s | Wahyu Hidayat"
   },
   description: "Final-year Computer Science student at Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.",
@@ -132,7 +132,7 @@ export default function RootLayout({
                 Spotify
               </a>
               <a 
-                href="https://www.instagram.com/wahyyuhidaayat/" 
+                href="https://www.instagram.com/wahyyuht/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary-hover transition-colors"
