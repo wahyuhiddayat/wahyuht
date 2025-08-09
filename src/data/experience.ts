@@ -14,7 +14,7 @@ export const experienceData: Experience[] = [
   },
   {
     position: "Teaching Assistant",
-    company: "Universitas Indonesia",
+    company: "Faculty of Computer Science, Universitas Indonesia",
     period: "Aug 2024 – Jan 2025",
     logo: "/images/makara_fasilkom.png"
   },
