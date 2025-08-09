@@ -10,6 +10,6 @@ export const educationData: Education[] = [
     degree: "Bachelor of Computer Science",
     institution: "Universitas Indonesia",
     period: "2022 – Present",
-    logo: "/images/makara_fasilkom.png"
+    logo: "/images/makara_ui.png"
   },
 ];
