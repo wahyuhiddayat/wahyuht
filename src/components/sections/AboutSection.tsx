@@ -49,10 +49,10 @@ export default function AboutSection() {
 
                 <div className="text-sm space-y-1">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">
-                    Status
+                    Personality
                   </span>
                   <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {personalData.availability}
+                    {personalData.personality}
                   </p>
                 </div>
               </div>

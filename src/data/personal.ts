@@ -14,6 +14,7 @@ export const personalData = {
   casualNote: "When I'm not coding, I'm probably at a coffee shop or exploring new tech.",
   location: "Jakarta, Indonesia",
   languages: "English, Indonesian",
+  personality: "ESFJ-T",
   availability: "Open for opportunities",
   profileImage: "/images/profile.jpg",
   email: "wahyuuhidaayat@gmail.com",
