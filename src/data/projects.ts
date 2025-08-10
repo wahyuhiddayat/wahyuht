@@ -8,7 +8,6 @@ export interface ProjectDetail {
     website?: string;
     github?: string;
   };
-  featured?: boolean;
 }
 
 export const projectsData: ProjectDetail[] = [
@@ -18,7 +17,6 @@ export const projectsData: ProjectDetail[] = [
     date: "2025",
     imageUrl: "/images/sokratech.png",
     skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
-    featured: false,
     links: {
       website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
     }
@@ -29,7 +27,6 @@ export const projectsData: ProjectDetail[] = [
     date: "2025",
     imageUrl: "/images/anomaly_detection_datmin.png",
     skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "CRISP-DM", "Machine Learning", "Data Mining", "FP-Growth", "K-Means Clustering"],
-    featured: true,
     links: {
       website: "https://outlier-data.streamlit.app/",
       github: "https://github.com/wahyuhiddayat/anomaly-detection-in-customer-purchasing-pattern"
@@ -41,7 +38,6 @@ export const projectsData: ProjectDetail[] = [
     date: "2025",
     imageUrl: "/images/wahyuht.png",
     skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
-    featured: true,
     links: {
       website: "https://wahyuht.com",
       github: "https://github.com/wahyuhiddayat/wahyuht"
@@ -53,12 +49,10 @@ export const projectsData: ProjectDetail[] = [
     date: "2023",
     imageUrl: "/images/letterbookd_web.png",
     skills: ["Django", "Django REST Framework", "Python", "PostgreSQL", "Bootstrap", "jQuery", "Docker", "Heroku"],
-    featured: false,
     links: {
       github: "https://github.com/letterbookd/letterbookd"
     }
   }
 ];
 
-export const getFeaturedProjects = () => projectsData.filter(project => project.featured);
 export const getAllProjects = () => projectsData;
