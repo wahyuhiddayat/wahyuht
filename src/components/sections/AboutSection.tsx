@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import RealTimeClock from "@/components/RealTimeClock";
 import { personalData } from "@/data/personal";
 
 export default function AboutSection() {
@@ -32,11 +33,9 @@ export default function AboutSection() {
 
                 <div className="text-sm space-y-1">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">
-                    Timezone
+                    Local Time
                   </span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {personalData.timezone}
-                  </p>
+                  <RealTimeClock />
                 </div>
 
                 <div className="text-sm space-y-1">

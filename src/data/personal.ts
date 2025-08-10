@@ -13,7 +13,6 @@ export const personalData = {
   bio: "I'm a final-year Computer Science student at Universitas Indonesia with a strong focus on data science and machine learning. I love working with real-world data by transforming raw information into insights, predictive models, and intelligent tools. My interests lie in solving practical problems with clean code, solid reasoning, and a touch of curiosity.",
   casualNote: "When I'm not coding, I'm probably at a coffee shop or exploring new tech.",
   location: "Jakarta, Indonesia",
-  timezone: "GMT+7 (WIB)",
   languages: "English, Indonesian",
   availability: "Open for opportunities",
   profileImage: "/images/profile.jpg",
