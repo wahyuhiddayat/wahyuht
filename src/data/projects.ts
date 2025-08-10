@@ -13,20 +13,20 @@ export interface ProjectDetail {
 export const projectsData: ProjectDetail[] = [
   {
     title: "Sokratech Fraud Risk Automation",
-    description: "University capstone project collaborating with Sokratech to build a comprehensive no-code fraud detection platform for fintech applications.",
+    description: "Collaborated with fintech startup Sokratech to migrate and rebuild a real-time fraud detection dashboard using Next.js and Bun, integrating FastAPI-based risk modeling with Weight of Evidence methodology.",
     date: "2025",
     imageUrl: "/images/sokratech.png",
-    skills: ['Next.js', 'TypeScript', 'Bun', 'Hono', 'Supabase', 'Drizzle ORM', 'FastAPI', 'AutoWoE', 'Docker'],
+    skills: ["Next.js", "Bun", "FastAPI", "Supabase", "Docker", "Prometheus", "Grafana", "Docker", "Weight of Evidence (WoE)"],
     links: {
       website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
     }
   },
   {
     title: "Anomaly Detection in Customer Purchasing Patterns",
-    description: "Advanced data mining project analyzing 541,909 customer transactions using machine learning algorithms to detect purchasing anomalies and segment customers.",
+    description: "Designed a multi-step data mining pipeline on 541K+ retail transactions for customer segmentation, association rule mining, and anomaly detection.",
     date: "2025",
     imageUrl: "/images/anomaly_detection_datmin.png",
-    skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "NumPy", "CRISP-DM", "Machine Learning", "Data Mining", "FP-Growth", "K-Means Clustering"],
+    skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "K-Means Clustering", "FP-Growth", "Isolation Forest", "CRISP-DM"],
     links: {
       website: "https://outlier-data.streamlit.app/",
       github: "https://github.com/wahyuhiddayat/anomaly-detection-in-customer-purchasing-pattern"
@@ -34,10 +34,10 @@ export const projectsData: ProjectDetail[] = [
   },
   {
     title: "wahyuht",
-    description: "Modern portfolio website built with Next.js 14, featuring responsive design, dark mode, smooth animations, and comprehensive testing suite.",
+    description: "Modern, fully responsive portfolio website built with Next.js 14 and TypeScript, featuring dark/light mode and smooth animations with Framer Motion.",
     date: "2025",
     imageUrl: "/images/wahyuht.png",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Jest", "React Testing Library"],
+    skills: ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     links: {
       website: "https://wahyuht.com",
       github: "https://github.com/wahyuhiddayat/wahyuht"
@@ -45,10 +45,10 @@ export const projectsData: ProjectDetail[] = [
   },
   {
     title: "Letterbookd",
-    description: "Full-stack web application designed to connect readers with books and build literary communities through personal libraries and social features.",
+    description: "Full-stack social platform for book enthusiasts with a Django web app and Flutter mobile app, enabling profile management, search, and real-time data sync.",
     date: "2023",
     imageUrl: "/images/letterbookd_web.png",
-    skills: ["Django", "Django REST Framework", "Python", "PostgreSQL", "Bootstrap", "jQuery", "Docker", "Heroku"],
+    skills: ["Django", "Flutter", "Dart", "Bootstrap", "SQL", "REST API"],
     links: {
       github: "https://github.com/letterbookd/letterbookd"
     }
