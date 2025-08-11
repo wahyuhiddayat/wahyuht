@@ -101,7 +101,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={false}
+          disableTransitionOnChange={true}
         >
           <Navbar />
           <main className="max-w-5xl mx-auto px-4 py-8 min-h-screen">{children}</main>
