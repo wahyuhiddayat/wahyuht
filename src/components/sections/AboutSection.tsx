@@ -19,9 +19,8 @@ export default function AboutSection() {
             </div>
 
             {/* Quick Facts */}
-            <div className="lg:col-span-4 pt-6 lg:pt-0 lg:pl-8 lg:border-l lg:border-gray-200 dark:lg:border-gray-700">
-              {/* gunakan gap-y buat kontrol jarak vertikal antar item */}
-              <div className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-5">
+            <div className="lg:col-span-4 pt-6 lg:pt-0 lg:pl-8 lg:border-l lg:border-gray-200 dark:lg:border-gray-700 lg:flex lg:items-center">
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-5 w-full">
                 <div className="text-sm space-y-1">
                   <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">
                     Location
