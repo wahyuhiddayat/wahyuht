@@ -45,7 +45,7 @@ function EducationItem({ degree, institution, period, logo }: Education) {
 
 export default function EducationSection() {
   return (
-    <section id="education" className="py-6">
+  <section id="education" className="pt-5 md:pt-4 pb-5 md:pb-1 lg:pb-0">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div>

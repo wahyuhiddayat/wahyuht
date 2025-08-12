@@ -4,7 +4,7 @@ import { personalData } from "@/data/personal";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-6">
+  <section id="about" className="pt-5 md:pt-4 pb-5 md:pb-1 lg:pb-0">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

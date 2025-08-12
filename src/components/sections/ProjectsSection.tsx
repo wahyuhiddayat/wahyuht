@@ -6,7 +6,7 @@ export default function ProjectsSection() {
   const allProjects = getAllProjects();
 
   return (
-    <section id="projects" className="py-10">
+  <section id="projects" className="py-6 md:py-4 lg:py-3">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div>

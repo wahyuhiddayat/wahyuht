@@ -165,7 +165,7 @@ function ExperienceItem({ position, company, period, logo, details }: Experience
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-6">
+  <section id="experience" className="py-5 md:py-3 lg:py-2">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div>

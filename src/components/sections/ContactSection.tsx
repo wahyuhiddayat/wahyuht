@@ -3,7 +3,7 @@ import { personalData } from '@/data/personal';
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20">
+  <section id="contact" className="pt-12 pb-12 md:pt-8 md:pb-8 lg:pt-7 lg:pb-7">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center">

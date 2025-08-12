@@ -4,7 +4,7 @@ import { skillsData } from "@/data/skills";
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-6">
+  <section id="skills" className="py-5 md:py-3 lg:py-2">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollReveal>
           <div>
