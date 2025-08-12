@@ -5,8 +5,8 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
-  --primary-color: 37 99 235;
-  --primary-color-hover: 29 78 216;
+  --primary-color: 1 112 254;
+  --primary-color-hover: 1 96 218;
   --theme-transition: 0.3s ease-in-out;
 }
 
