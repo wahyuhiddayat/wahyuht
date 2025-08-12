@@ -15,10 +15,23 @@ function ExperienceItem({ position, company, period, logo, details }: Experience
         isExpanded ? "rounded-lg pb-3 mb-1" : "rounded-lg"
       }`}
     >
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
         aria-expanded={isExpanded}
-        onClick={() => details && setIsExpanded(!isExpanded)}
+        onKeyDown={(e) => {
+          if (!details) return;
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setIsExpanded((v) => !v);
+          }
+        }}
+        onClick={() => {
+          if (!details) return;
+          const sel = typeof window !== "undefined" ? window.getSelection?.() : null;
+          if (sel && sel.toString()) return; // don't toggle when user is selecting text
+          setIsExpanded((v) => !v);
+        }}
         className={`group w-full grid grid-cols-[auto_1fr_auto] items-start gap-3 ${
           isExpanded ? "py-2" : "py-1.5"
         } px-1 text-left ${
@@ -43,17 +56,17 @@ function ExperienceItem({ position, company, period, logo, details }: Experience
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-1">
             <p
-              className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base leading-tight sm:leading-normal"
+              className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base leading-tight sm:leading-normal select-text"
               style={{ textWrap: "balance" } as any}
             >
               {position}
             </p>
           </div>
-          <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mt-0.5">
+          <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mt-0.5 select-text">
             {company}
           </p>
           {/* Date on mobile */}
-          <p className="text-gray-500 dark:text-gray-400 text-xs sm:hidden mt-1">
+          <p className="text-gray-500 dark:text-gray-400 text-xs sm:hidden mt-1 select-text">
             {period}
           </p>
         </div>
@@ -87,7 +100,7 @@ function ExperienceItem({ position, company, period, logo, details }: Experience
             </svg>
           </motion.span>
         </div>
-      </button>
+  </div>
 
       {/* Expandable */}
       <AnimatePresence>

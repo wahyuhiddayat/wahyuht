@@ -32,11 +32,12 @@ function EducationItem({ degree, institution, period, logo }: Education) {
         </p>
       </div>
       
-      {/* Date on larger screens */}
-      <div className="hidden sm:block text-right shrink-0">
+      {/* Right rail */}
+      <div className="hidden sm:flex items-center gap-2 shrink-0">
         <p className="text-gray-500 dark:text-gray-400 text-sm">
           {period}
         </p>
+        <span className="w-5 h-5" aria-hidden></span>
       </div>
     </div>
   );
