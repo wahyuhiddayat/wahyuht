@@ -3,32 +3,38 @@
 import { useState, useEffect } from 'react';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import ThemeSwitcher from './ThemeSwitcher';
+import {User2, Code2, BriefcaseBusiness, GraduationCap, FolderGit2, Mail} from 'lucide-react';
+
+type NavItem = {
+  id: string;
+  label: string;
+  Icon: React.ComponentType<{ className?: string }>;
+};
+
+const NAV_ITEMS: NavItem[] = [
+  { id: 'about', label: 'About', Icon: User2 },
+  { id: 'skills', label: 'Skills', Icon: Code2 },
+  { id: 'experience', label: 'Experience', Icon: BriefcaseBusiness },
+  { id: 'education', label: 'Education', Icon: GraduationCap },
+  { id: 'projects', label: 'Projects', Icon: FolderGit2 },
+  { id: 'contact', label: 'Contact', Icon: Mail },
+];
 
 export default function Navbar() {
   const { activeSection } = useActiveSection();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // Scroll detection for glass effect
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 12);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(sectionId);
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   };
-
-  const navItems = [
-    { id: 'home', label: 'About' },
-    { id: 'experience', label: 'Work' },
-    { id: 'projects', label: 'Projects' },
-  ];
 
   return (
     <>
@@ -43,19 +49,19 @@ export default function Navbar() {
       </svg>
 
       <div className="fixed top-6 left-4 right-4 sm:top-8 sm:left-0 sm:right-0 z-50 flex justify-center">
-        <div 
+        <div
           className={`
             relative rounded-full transition-all duration-300 ease-out overflow-hidden
-            px-4 py-3 sm:px-8 sm:py-4
+            px-3 py-2 sm:px-5 sm:py-3
             border border-gray-200/30 dark:border-gray-600/30
             max-w-fit mx-auto
             ${isScrolled ? 'glass-nav-scrolled border-gray-200/60 dark:border-gray-600/50' : 'bg-transparent'}
           `}
         >
-          {/* Glass layers when scrolled */}
+          {/* glass layers when scrolled */}
           {isScrolled && (
             <>
-              <div 
+              <div
                 className="absolute inset-0 rounded-full"
                 style={{
                   zIndex: 1,
@@ -63,44 +69,58 @@ export default function Navbar() {
                   filter: 'url(#glass-distortion) saturate(110%) brightness(1.05)',
                 }}
               />
-              <div 
-                className="absolute inset-0 rounded-full bg-white/40 dark:bg-black/40"
-                style={{ zIndex: 2 }}
-              />
-              <div 
-                className="absolute inset-0 rounded-full glass-specular"
-                style={{ zIndex: 3 }}
-              />
+              <div className="absolute inset-0 rounded-full bg-white/40 dark:bg-black/40" style={{ zIndex: 2 }} />
+              <div className="absolute inset-0 rounded-full glass-specular" style={{ zIndex: 3 }} />
             </>
           )}
 
-          {/* Content layer */}
+          {/* content */}
           <div className="relative z-10">
-            <div className="flex items-center gap-3 sm:gap-6">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.label.toLowerCase();
+            <nav className="flex items-center gap-1.5 sm:gap-2" aria-label="Primary">
+              {NAV_ITEMS.map(({ id, label, Icon }) => {
+                const isActive = activeSection === id;
                 return (
                   <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
+                    key={id}
+                    type="button"
+                    onClick={() => scrollToSection(id)}
+                    aria-label={label}
+                    aria-current={isActive ? 'page' : undefined}
                     className={`
-                      transition-all duration-200 text-xs sm:text-sm font-medium relative 
-                      px-3 py-2 sm:px-4 sm:py-2 rounded-lg
+                      outline-none
+                      transition-all duration-200 text-xs sm:text-sm font-medium
+                      flex items-center gap-1.5 whitespace-nowrap
+                      px-2.5 py-2 sm:px-3 sm:py-2 rounded-xl
                       text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white
                       ${isActive
-                        ? 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white' 
+                        ? 'bg-gray-100/90 dark:bg-gray-800/90 text-black dark:text-white shadow-sm'
                         : 'hover:bg-gray-50 dark:hover:bg-gray-700/50'
                       }
+                      focus-visible:ring-2 focus-visible:ring-black/10 dark:focus-visible:ring-white/20
                     `}
                   >
-                    {item.label}
+                    <Icon className="h-4 w-4 shrink-0" />
+                    {/* expand label only when active */}
+                    <span
+                      className={`
+                        hidden sm:inline text-xs font-medium
+                        transition-[max-width,opacity,transform] duration-200 ease-out
+                        ${isActive ? 'max-w-[160px] opacity-100 translate-x-0' : 'max-w-0 opacity-0 -translate-x-1'}
+                        overflow-hidden
+                      `}
+                    >
+                      {label}
+                    </span>
+                    {/* screen-reader text for non-active */}
+                    <span className="sr-only">{label}</span>
                   </button>
                 );
               })}
-              <div className="ml-1 sm:ml-0">
+
+              <div className="ml-1 sm:ml-2">
                 <ThemeSwitcher />
               </div>
-            </div>
+            </nav>
           </div>
         </div>
       </div>

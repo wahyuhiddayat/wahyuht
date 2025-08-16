@@ -7,7 +7,7 @@ export function useActiveSection() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'experience', 'education', 'projects'];
+  const sections = ['home', 'about', 'skills', 'experience', 'education', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 100; // Offset for navbar
 
       for (const sectionId of sections) {
@@ -16,14 +16,7 @@ export function useActiveSection() {
           const { offsetTop, offsetHeight } = element;
           
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            // Map sections to nav categories
-            if (['home', 'about', 'skills'].includes(sectionId)) {
-              setActiveSection('about');
-            } else if (['experience', 'education'].includes(sectionId)) {
-              setActiveSection('work');
-            } else if (sectionId === 'projects') {
-              setActiveSection('projects');
-            }
+            setActiveSection(sectionId === 'home' ? 'about' : sectionId);
             break;
           }
         }
