@@ -3,6 +3,7 @@ export interface Experience {
   company: string;
   period: string;
   logo: string;
+  url?: string;
   details?: {
     description: string;
     achievements: string[];
@@ -16,6 +17,7 @@ export const experienceData: Experience[] = [
     company: "Universitas Indonesia Center for Legal Informatics (Lexin)",
     period: "Aug 2025 – Present",
     logo: "/images/lexin.png",
+    url: "https://lexin.cs.ui.ac.id",
     details: {
       description: "Researching and developing AI solutions for legal informatics, focusing on retrieval systems and generative AI for legal question answering.",
       achievements: [
@@ -31,6 +33,7 @@ export const experienceData: Experience[] = [
     company: "BEM Fasilkom UI",
     period: "May 2025 – Present",
     logo: "/images/bem_fasilkom.png",
+    url: "https://bem.cs.ui.ac.id",
     details: {
       description: "Co-leading the student executive board, overseeing strategic initiatives and representing 2000+ Computer Science students in faculty governance.",
       achievements: [
@@ -46,6 +49,7 @@ export const experienceData: Experience[] = [
     company: "Faculty of Computer Science, Universitas Indonesia",
     period: "Aug 2024 – Jan 2025",
     logo: "/images/makara_fasilkom.png",
+    url: "https://cs.ui.ac.id",
     details: {
       description: "Assisted in teaching Introduction to Computer Organization, supporting student learning in MIPS and AVR Assembly.",
       achievements: [
@@ -61,6 +65,7 @@ export const experienceData: Experience[] = [
     company: "BEM Fasilkom UI",
     period: "Mar 2024 – Feb 2025",
     logo: "/images/bem_fasilkom.png",
+    url: "https://bem.cs.ui.ac.id",
     details: {
       description: "Led a 9-member team to deliver 7 programs enhancing student welfare and advocacy.",
       achievements: [
@@ -76,6 +81,7 @@ export const experienceData: Experience[] = [
     company: "BEM Fasilkom UI",
     period: "Apr 2023 – Feb 2024",
     logo: "/images/bem_fasilkom.png",
+    url: "https://bem.cs.ui.ac.id",
     details: {
       description: "Managed department social media to promote welfare programs and engage the student community.",
       achievements: [

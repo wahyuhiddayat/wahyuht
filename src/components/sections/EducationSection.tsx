@@ -2,20 +2,40 @@ import ScrollReveal from "@/components/ScrollReveal";
 import Image from "next/image";
 import { educationData, type Education } from "@/data/education";
 
-function EducationItem({ degree, institution, period, logo }: Education) {
+function EducationItem({ degree, institution, period, logo, url }: Education) {
   return (
     <div className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto] gap-2 sm:gap-3 items-start">
       {/* Logo */}
       <div className="flex-shrink-0">
-        <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1">
-          <Image
-            src={logo}
-            alt={`${institution} logo`}
-            fill
-            sizes="(max-width: 640px) 32px, 40px"
-            className="object-contain"
-          />
-        </div>
+        {url ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit ${institution} website`}
+            className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10 dark:focus-visible:ring-white/20 rounded-full"
+          >
+            <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1 transition-transform duration-150 hover:scale-[1.03]">
+              <Image
+                src={logo}
+                alt={`${institution} logo`}
+                fill
+                sizes="(max-width: 640px) 32px, 40px"
+                className="object-contain"
+              />
+            </div>
+          </a>
+        ) : (
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1">
+            <Image
+              src={logo}
+              alt={`${institution} logo`}
+              fill
+              sizes="(max-width: 640px) 32px, 40px"
+              className="object-contain"
+            />
+          </div>
+        )}
       </div>
       
       {/* Content */}
@@ -60,6 +80,7 @@ export default function EducationSection() {
                   institution={education.institution}
                   period={education.period}
                   logo={education.logo}
+                  url={education.url}
                 />
               ))}
             </div>

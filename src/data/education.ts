@@ -3,6 +3,7 @@ export interface Education {
   institution: string;
   period: string;
   logo: string;
+  url?: string;
 }
 
 export const educationData: Education[] = [
@@ -10,6 +11,7 @@ export const educationData: Education[] = [
     degree: "Bachelor of Computer Science",
     institution: "Universitas Indonesia",
     period: "2022 – Present",
-    logo: "/images/makara_ui.png"
+    logo: "/images/makara_ui.png",
+    url: "https://cs.ui.ac.id"
   },
 ];
