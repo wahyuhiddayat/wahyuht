@@ -13,7 +13,7 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
-    position: "AI Research & Development Intern",
+    position: "Machine Learning Engineer and Researcher Intern",
     company: "Universitas Indonesia Center for Legal Informatics (Lexin)",
     period: "Aug 2025 – Present",
     logo: "/images/lexin.png",
