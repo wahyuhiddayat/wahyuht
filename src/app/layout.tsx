@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: "Wahyu Hidayat",
     template: "%s | Wahyu Hidayat"
   },
-  description: "Final-year Computer Science student at Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.",
+  description: "Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.",
   keywords: [
     "Wahyu Hidayat",
     "Data Scientist", 
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://wahyuht.com',
     title: 'Wahyu Hidayat | Data Scientist & Machine Learning Engineer',
-    description: 'Final-year Computer Science student at Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.',
+    description: 'Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.',
     siteName: 'Wahyu Hidayat Portfolio',
     images: [
       {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Wahyu Hidayat | Data Scientist & Machine Learning Engineer',
-    description: 'Final-year Computer Science student at Universitas Indonesia specializing in Data Science, Machine Learning, and AI.',
+    description: 'Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI.',
     images: ['/images/profile.jpg'],
   },
   robots: {
