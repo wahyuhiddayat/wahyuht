@@ -15,7 +15,7 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
             aria-label={`Visit ${institution} website`}
             className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10 dark:focus-visible:ring-white/20 rounded-full"
           >
-            <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1 transition-transform duration-150 hover:scale-[1.03]">
+            <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1 transition-transform duration-150 hover:scale-[1.03]">
               <Image
                 src={logo}
                 alt={`${institution} logo`}
@@ -26,7 +26,7 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
             </div>
           </a>
         ) : (
-          <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1">
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1">
             <Image
               src={logo}
               alt={`${institution} logo`}
