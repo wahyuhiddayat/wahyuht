@@ -74,13 +74,13 @@ export const experienceData: Experience[] = [
     }
   },
   {
-    position: "Teaching Assistant",
+    position: "Teaching Assistant, Introduction to Computer Organization",
     company: "Faculty of Computer Science, Universitas Indonesia",
     period: "Aug 2024 – Jan 2025",
     logo: "/images/makara_fasilkom.png",
     url: "https://cs.ui.ac.id",
     details: {
-      description: "Assisted in teaching Introduction to Computer Organization, supporting student learning in MIPS and AVR Assembly.",
+      description: "Supported student learning in MIPS and AVR Assembly through labs, tutorials, and exam reviews.",
       achievements: [
         "Guided and evaluated 46 students through labs and tutorials",
         "Collaborated with 3 TAs and the professor to meet course goals",
