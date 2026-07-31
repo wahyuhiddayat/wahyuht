@@ -8,6 +8,8 @@ export default function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
+    // Mount flag avoids hydration mismatch; not derived state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
