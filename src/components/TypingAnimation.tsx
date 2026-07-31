@@ -35,6 +35,8 @@ export default function TypingAnimation({ words, className = "" }: TypingAnimati
         }, 50);
         return () => clearTimeout(timeout);
       } else {
+        // Timer-driven typewriter state machine, not derived state.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
         setIsTyping(true);
       }

@@ -7,8 +7,10 @@ export default function RealTimeClock() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Mount flag avoids hydration mismatch; not derived state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    
+
     const updateTime = () => {
       const now = new Date();
       const jakartaTime = new Intl.DateTimeFormat('en-US', {
