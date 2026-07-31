@@ -2,12 +2,13 @@ export const personalData = {
   name: "Wahyu Hidayat",
   greeting: "Hi, I'm Wahyu Hidayat 👋",
   roles: [
+    "AI Engineer",
     "Data Scientist",
-    "Machine Learning Engineer", 
+    "Data Analyst",
+    "Machine Learning Engineer",
     "Data Engineer",
     "Software Engineer",
-    "Business Intelligence Analyst",
-    "Product Manager"
+    "Business Intelligence Analyst"
   ],
   tagline: "Building intelligent solutions as an aspiring",
   bio: "I'm a Computer Science graduate from Universitas Indonesia with a strong focus on data science and machine learning. I love working with real-world data by transforming raw information into insights, predictive models, and intelligent tools. My interests lie in solving practical problems with clean code, solid reasoning, and a touch of curiosity.",

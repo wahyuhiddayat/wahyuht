@@ -27,7 +27,7 @@ export default function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="text-muted hover:text-ink transition-colors"
+      className="min-w-11 min-h-11 inline-flex items-center justify-center text-muted hover:text-ink transition-colors outline-none focus-visible:ring-1 focus-visible:ring-accent"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >

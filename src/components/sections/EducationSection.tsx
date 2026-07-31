@@ -1,23 +1,15 @@
 import ScrollReveal from "@/components/ScrollReveal";
-import StationLabel from "@/components/StationLabel";
-import Image from "next/image";
+import SectionHeading from "@/components/SectionHeading";
+import OrganizationLogo from "@/components/OrganizationLogo";
 import { educationData, type Education } from "@/data/education";
 
 function EducationItem({ degree, institution, period, logo, url }: Education) {
   return (
     <div className="log-row">
-      <div className="font-mono text-muted text-xs sm:text-sm whitespace-nowrap">{period}</div>
+      <div className="self-center font-mono text-muted text-xs sm:text-sm whitespace-nowrap">{period}</div>
 
-      <div className="flex items-center gap-2.5">
-        <div className="relative w-8 h-8 shrink-0 border border-hairline overflow-hidden bg-paper">
-          <Image
-            src={logo}
-            alt={`${institution} logo`}
-            fill
-            sizes="32px"
-            className="object-contain"
-          />
-        </div>
+      <div className="flex items-center gap-3">
+        <OrganizationLogo src={logo} alt={`${institution} logo`} />
         <div className="min-w-0">
           <p className="font-semibold text-ink text-sm sm:text-base" style={{ textWrap: 'balance' } as any}>
             {degree}
@@ -42,9 +34,9 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
 
 export default function EducationSection() {
   return (
-    <section id="education" className="py-10 border-b border-hairline">
+    <section id="education" className="py-14 lg:py-20 border-b border-hairline scroll-mt-16">
       <ScrollReveal>
-        <StationLabel number="05">Education</StationLabel>
+        <SectionHeading>Education</SectionHeading>
         <div>
           {educationData.map((education, index) => (
             <EducationItem

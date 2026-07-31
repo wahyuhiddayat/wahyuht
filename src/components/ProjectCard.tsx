@@ -12,6 +12,7 @@ type ProjectCardProps = {
     website?: string;
     github?: string;
   };
+  featured?: boolean;
 };
 
 export default function ProjectCard({
@@ -22,33 +23,36 @@ export default function ProjectCard({
   skills,
   metric,
   links,
+  featured = false,
 }: ProjectCardProps) {
   return (
-    <div className="h-full flex flex-col">
+    <article className={featured ? "grid lg:grid-cols-[1.35fr_1fr] gap-6 lg:gap-10 items-start" : "h-full flex flex-col"}>
       {imageUrl && (
-        <div className="relative w-full aspect-video border border-hairline overflow-hidden mb-3 bg-paper">
+        <div className={`relative w-full aspect-video border border-hairline overflow-hidden bg-paper ${featured ? "" : "mb-4"}`}>
           <Image
             src={imageUrl}
             alt={title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes={featured ? "(max-width: 1024px) 100vw, 60vw" : "(max-width: 768px) 100vw, 50vw"}
             className="object-contain"
           />
         </div>
       )}
 
-      <div className="flex flex-col flex-1">
-        <div className="flex justify-between items-baseline gap-2 mb-1.5">
-          <h3 className="font-semibold text-sm text-ink">{title}</h3>
+      <div className={`flex flex-col flex-1 ${featured ? "lg:pt-2" : ""}`}>
+        <div className="flex justify-between items-baseline gap-3 mb-2">
+          <h3 className={`font-semibold text-ink text-balance ${featured ? "text-2xl sm:text-3xl tracking-tight" : "text-lg"}`}>
+            {title}
+          </h3>
           <span className="font-mono text-xs text-muted shrink-0">{date}</span>
         </div>
 
-        <p className="text-xs text-muted leading-relaxed mb-2">
+        <p className={`text-muted leading-relaxed ${featured ? "text-base mb-5" : "text-sm mb-3"}`}>
           {description}
         </p>
 
         {metric && (
-          <p className="reading text-xs mb-3">
+          <p className={`reading mb-4 ${featured ? "text-sm" : "text-xs"}`}>
             {metric.includes('→') ? (
               <>
                 {metric.split('→')[0]}
@@ -77,7 +81,7 @@ export default function ProjectCard({
                   href={links.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-accent hover:opacity-75 transition-opacity"
+                  className="inline-flex min-h-11 items-center text-sm text-accent hover:underline underline-offset-4"
                 >
                   Live Demo &#8599;
                 </Link>
@@ -87,7 +91,7 @@ export default function ProjectCard({
                   href={links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-muted hover:text-ink transition-colors"
+                  className="inline-flex min-h-11 items-center text-sm text-muted hover:text-ink transition-colors"
                 >
                   Source Code
                 </Link>
@@ -96,6 +100,6 @@ export default function ProjectCard({
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }

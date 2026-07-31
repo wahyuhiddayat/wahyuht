@@ -1,16 +1,16 @@
 import ScrollReveal from '@/components/ScrollReveal';
-import StationLabel from '@/components/StationLabel';
+import SectionHeading from '@/components/SectionHeading';
 import { personalData } from '@/data/personal';
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-10">
+    <section id="contact" className="py-24 lg:py-36 scroll-mt-16">
       <ScrollReveal>
-        <StationLabel number="07">Contact</StationLabel>
+        <SectionHeading>Contact</SectionHeading>
 
-        <h2 className="text-2xl font-semibold tracking-tight text-ink mb-3">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-ink mb-5 text-balance">
           {personalData.contact.greeting}
-        </h2>
+        </h3>
 
         <p className="text-muted mb-4 max-w-[60ch]">
           {personalData.contact.description}
@@ -18,7 +18,7 @@ export default function ContactSection() {
 
         <a
           href={`mailto:${personalData.email}`}
-          className="font-mono text-accent hover:opacity-75 transition-opacity"
+          className="inline-flex min-h-11 items-center text-lg sm:text-xl font-medium text-accent underline underline-offset-4 decoration-hairline hover:decoration-accent transition-colors"
         >
           {personalData.email}
         </a>

@@ -11,10 +11,10 @@ export default function Home() {
     <div>
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
       <ExperienceSection />
-      <EducationSection />
       <ProjectsSection />
+      <SkillsSection />
+      <EducationSection />
       <ContactSection />
     </div>
   );

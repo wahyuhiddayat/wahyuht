@@ -1,13 +1,13 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import SkillCategory from "@/components/SkillCategory";
-import StationLabel from "@/components/StationLabel";
+import SectionHeading from "@/components/SectionHeading";
 import { skillsData } from "@/data/skills";
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-10 border-b border-hairline">
+    <section id="skills" className="py-16 lg:py-24 border-b border-hairline scroll-mt-16">
       <ScrollReveal>
-        <StationLabel number="03">Skills</StationLabel>
+        <SectionHeading>Capabilities</SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
           {skillsData.map((skill, index) => (
             <SkillCategory

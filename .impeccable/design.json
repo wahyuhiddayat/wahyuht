@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-30T00:00:00.000Z",
+  "generatedAt": "2026-07-31T00:00:00.000Z",
   "title": "Design System: Wahyu Hidayat Portfolio",
   "extensions": {
     "colorMeta": {
@@ -18,7 +18,7 @@
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero name/role line only." },
       "body": { "displayName": "Body", "purpose": "All prose: bio, descriptions, achievement text." },
-      "label": { "displayName": "Label", "purpose": "Station numbers, dates, meta lines (JetBrains Mono)." },
+      "label": { "displayName": "Label", "purpose": "Dates, location, time, and compact metadata (JetBrains Mono)." },
       "reading": { "displayName": "Reading", "purpose": "Quantified before-to-after measurements (JetBrains Mono, one step larger than Label)." }
     },
     "shadows": [],
@@ -34,12 +34,12 @@
   },
   "components": [
     {
-      "name": "Station Label",
+      "name": "Section Heading",
       "kind": "custom",
-      "refersTo": "station-label",
-      "description": "Monospace station number in Signal Blue followed by a plain Ink heading; replaces every section header.",
-      "html": "<div class=\"ds-station\"><span class=\"ds-station-num\">STA 02</span><h2 class=\"ds-station-title\">About</h2></div>",
-      "css": ".ds-station { display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; } .ds-station-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: #2563EB; } .ds-station-title { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: #18181B; margin: 0; }"
+      "refersTo": "section-heading",
+      "description": "Plain editorial heading followed by a flexible hairline; creates continuity without numbering.",
+      "html": "<div class=\"ds-section-heading\"><h2>Experience</h2><span></span></div>",
+      "css": ".ds-section-heading { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; } .ds-section-heading h2 { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; color: #18181B; margin: 0; white-space: nowrap; } .ds-section-heading span { display: block; height: 1px; flex: 1; background: #E4E4E7; }"
     },
     {
       "name": "Reading Line",
@@ -67,38 +67,41 @@
     {
       "name": "Nav Link",
       "kind": "nav",
-      "description": "Plain text nav link; active state turns Signal Blue, no pill or background.",
+      "description": "Name-led sticky navigation; active links use an underline and mobile opens a text-led section index.",
       "html": "<a class=\"ds-nav-link ds-nav-link--active\" href=\"#about\">About</a>",
-      "css": ".ds-nav-link { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #71717A; text-decoration: none; transition: color 0.2s; } .ds-nav-link:hover { color: #18181B; } .ds-nav-link--active { color: #2563EB; }"
+      "css": ".ds-nav-link { position: relative; display: inline-flex; min-height: 44px; align-items: center; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #71717A; text-decoration: none; } .ds-nav-link:hover, .ds-nav-link--active { color: #18181B; } .ds-nav-link--active { text-decoration: underline; text-decoration-color: #2563EB; text-underline-offset: 8px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Field Measurement Log",
-    "overview": "Wahyu's actual craft is measurement: turning chaotic, real-world systems into precise, recorded numbers — a RAG chatbot's response time, a fraud model's transaction volume, a retail dataset's row count. The site takes that literally. It reads like a field surveyor's measurement log, not a portfolio built from the same Inter-and-blue-links template every minimalist developer site already runs. Section headers become station numbers (\"STA 01\"). Quantified outcomes are set as readings — a plain \"before → after\" in monospace, never a fake progress bar or sparkline standing in for a number that doesn't exist. Everything else stays exactly as restrained as the brief asked: plain white ground, black ink, one accent color, no cards, no shadows, no glass.\n\nThe palette is almost monochrome on purpose: white/near-black carries the page, and Signal Blue appears only where something is actively being measured or acted on. Depth doesn't exist here; separation comes from thin hairline rules and generous whitespace. Dark mode is a plain, honest inversion, not a second themed world.",
+    "northStar": "The Living Work Index",
+    "overview": "The portfolio is a personal editorial index: one continuous record of Wahyu as a person, the roles he is growing into, and the work that proves his range. Authentic photographs create the opening human impression. Experience and selected work then provide the evidence, followed by capabilities and education as supporting context.\n\nThe design stays calm and almost monochrome. Scale, composition, changing section density, and generous whitespace create emphasis instead of decorative effects. The dynamic role line intentionally represents real breadth across AI, data, analytics, software engineering, and business intelligence.",
     "keyCharacteristics": [
-      "Station-number labels (\"STA 01\", \"STA 02\"...) replace section headers, in monospace, colored with the one accent",
+      "Editorial section headings connect to flexible hairline rules without numbering",
       "Real quantified outcomes are set as plain-text \"before → after\" readings, never as a decorative stat widget",
       "One accent (Signal Blue) used only for labels, links, and active states — never a background fill",
       "Inter for all prose and headings; JetBrains Mono for every number, date, coordinate, and reading",
       "Flat by design: hairline rules and whitespace do the separating work that cards and shadows do elsewhere",
       "Plain white ground — no background texture",
-      "A wider two-column log-row layout (label column + content column) replaces the old narrow single centered column"
+      "One featured project creates the primary work-focused peak in the page"
     ],
     "rules": [
-      { "name": "The One-Mark Rule", "body": "Signal Blue marks exactly one thing at a time — the station label of the section currently in view, an active link, a reading's arrow. It never fills a background or repeats decoratively.", "section": "colors" },
+      { "name": "The One-Mark Rule", "body": "Signal Blue identifies the current action or a meaningful measurement. It is never a decorative wash.", "section": "colors" },
       { "name": "The Measurement-Only-Mono Rule", "body": "JetBrains Mono appears only where the content is a real measurement, date, or coordinate — never as a \"technical\" costume on ordinary prose.", "section": "typography" },
       { "name": "The No-Shadow Rule", "body": "Nothing in this system casts a shadow. If a boundary is needed, it is a 1px hairline rule; if separation is needed, it is whitespace.", "section": "elevation" }
     ],
     "dos": [
-      "Do mark exactly one thing at a time with Signal Blue — a label, a link, a reading arrow.",
+      "Do let authentic photography establish personality before work evidence takes over.",
+      "Do preserve the dynamic role line because it represents real professional breadth.",
+      "Do use changing scale and whitespace to create rhythm between sections.",
       "Do keep JetBrains Mono reserved for genuine measurements, dates, and coordinates.",
       "Do separate every section and entry with a hairline rule and whitespace, never a card or shadow.",
       "Do render a real quantified outcome as a plain before → after reading; omit it entirely where no real number exists.",
-      "Do keep the station-label device as the one recurring signature element across every section.",
       "Do keep the page background plain white — no grid, no texture."
     ],
     "donts": [
-      "Don't add a card, border-box, or shadow anywhere — this system has none.",
+      "Don't reintroduce station numbers or numbered section labels.",
+      "Don't copy the composition of a reference portfolio; borrow only principles such as pacing, hierarchy, and authentic imagery.",
+      "Don't add card-heavy scaffolding, shadows, gradients, or glass effects.",
       "Don't invent a stat bar, progress ring, or sparkline to represent a number — set the real number as text or don't show one.",
       "Don't introduce a second accent color; the system has exactly one.",
       "Don't round anything beyond the one pill-chip exception — no rounded cards, no circular badges."

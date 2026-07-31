@@ -1,8 +1,8 @@
 'use client';
 
 import ScrollReveal from "@/components/ScrollReveal";
-import StationLabel from "@/components/StationLabel";
-import Image from "next/image";
+import SectionHeading from "@/components/SectionHeading";
+import OrganizationLogo from "@/components/OrganizationLogo";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { experienceData, type Experience } from "@/data/experience";
@@ -21,27 +21,27 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
 
   return (
     <div className="log-row">
-      <div className="font-mono text-muted text-xs sm:text-sm whitespace-nowrap">{period}</div>
+      <div className="self-center font-mono text-muted text-xs sm:text-sm whitespace-nowrap">{period}</div>
 
       <div>
-        <button
-          type="button"
-          aria-expanded={isExpanded}
-          aria-controls={panelId}
-          onClick={toggle}
-          onKeyDown={(e) => {
-            if (!details) return;
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              toggle(e);
-            }
-          }}
-          className={`w-full text-left outline-none ${details ? 'cursor-pointer' : 'cursor-default'}`}
-        >
-          <div className="flex items-center gap-2.5">
-            <div className="relative w-8 h-8 shrink-0 border border-hairline overflow-hidden bg-paper">
-              <Image src={logo} alt={`${company} logo`} fill sizes="32px" className="object-contain" />
-            </div>
+        <div className="flex items-center gap-3">
+          <OrganizationLogo src={logo} alt={`${company} logo`} />
+
+          <div className="min-w-0 flex-1">
+            <button
+              type="button"
+              aria-expanded={isExpanded}
+              aria-controls={panelId}
+              onClick={toggle}
+              onKeyDown={(e) => {
+                if (!details) return;
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggle(e);
+                }
+              }}
+              className={`w-full min-h-6 flex items-center gap-3 text-left outline-none focus-visible:underline ${details ? 'cursor-pointer' : 'cursor-default'}`}
+            >
             <p className="font-semibold text-ink text-sm sm:text-base select-text">
               {position}
             </p>
@@ -59,21 +59,22 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
                 <polyline points="6,9 12,15 18,9"></polyline>
               </motion.svg>
             )}
+            </button>
+
+            {url ? (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted text-xs sm:text-sm mt-0.5 select-text hover:text-accent transition-colors inline-block"
+              >
+                {company}
+              </a>
+            ) : (
+              <p className="text-muted text-xs sm:text-sm mt-0.5 select-text">{company}</p>
+            )}
           </div>
-          {url ? (
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="text-muted text-xs sm:text-sm mt-0.5 select-text hover:text-accent transition-colors inline-block"
-            >
-              {company}
-            </a>
-          ) : (
-            <p className="text-muted text-xs sm:text-sm mt-0.5 select-text">{company}</p>
-          )}
-        </button>
+        </div>
 
         <AnimatePresence>
           {isExpanded && details && (
@@ -83,7 +84,7 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2, ease: 'easeInOut' }}
-              className="overflow-hidden"
+              className="overflow-hidden pl-[60px]"
             >
               <div className="pt-3 space-y-3">
                 {details.description && (
@@ -135,9 +136,9 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-10 border-b border-hairline">
+    <section id="experience" className="py-20 lg:py-28 border-b border-hairline scroll-mt-16">
       <ScrollReveal>
-        <StationLabel number="04">Experience</StationLabel>
+        <SectionHeading>Experience</SectionHeading>
         <div>
           {experienceData.map((experience, index) => (
             <ExperienceItem

@@ -7,7 +7,7 @@ export function useActiveSection() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'skills', 'experience', 'education', 'projects', 'contact'];
+      const sections = ['about', 'experience', 'projects', 'skills', 'education', 'contact'];
 
       const scrollY = window.scrollY;
       const viewportH = window.innerHeight || 0;
@@ -32,7 +32,9 @@ export function useActiveSection() {
       const doc = document.documentElement;
       const scrollBottom = scrollY + viewportH;
       const maxScroll = doc.scrollHeight;
-      if (maxScroll - scrollBottom < 140 && document.getElementById('contact')) {
+      if (scrollY < viewportH * 0.2) {
+        bestId = 'home';
+      } else if (maxScroll - scrollBottom < 140 && document.getElementById('contact')) {
         bestId = 'contact';
       }
 

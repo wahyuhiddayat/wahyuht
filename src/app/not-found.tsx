@@ -15,7 +15,7 @@ export default function NotFound() {
     >
       <div className="max-w-lg mx-auto px-6 py-16 text-center">
         <section>
-          <span className="station-num block mb-3">STA 404</span>
+          <span className="font-mono text-sm text-accent block mb-3">404</span>
           <h1 className="text-2xl font-semibold mb-3 text-ink">
             Page not found
           </h1>

@@ -15,21 +15,21 @@ const PHOTOS = [
 
 export default function HeroSection() {
   return (
-    <section id="home" className="pt-6 pb-8 border-b border-hairline">
+    <section id="home" className="pt-10 pb-12 lg:pt-16 lg:pb-20 border-b border-hairline scroll-mt-16">
       <FadeIn>
         <div className="flex items-start justify-between gap-6 mb-4">
-          <span className="station-num">STA 01</span>
+          <span className="font-mono text-xs text-accent">Available for opportunities</span>
           <div className="font-mono text-xs text-muted text-right leading-relaxed">
             <div>{personalData.location}</div>
-            <div>{personalData.availability}</div>
+            <div>GMT+7</div>
           </div>
         </div>
 
-        <h1 className="text-3xl lg:text-4xl font-semibold tracking-tight text-ink mb-3">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.035em] text-ink max-w-4xl mb-5 text-balance">
           {personalData.greeting}
         </h1>
 
-        <p className="text-lg text-muted mb-2 leading-relaxed">
+        <p className="text-xl sm:text-2xl text-muted mb-3 leading-relaxed">
           {personalData.tagline}{" "}
           <span className="block mt-1">
             <TypingAnimation
@@ -39,13 +39,13 @@ export default function HeroSection() {
           </span>
         </p>
 
-        <p className="text-muted italic leading-relaxed mb-6">
+        <p className="text-muted italic leading-relaxed mb-10">
           {personalData.casualNote}
         </p>
       </FadeIn>
 
       <ScrollReveal delay={0.15}>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
           {PHOTOS.map((photo) => (
             <div
               key={photo.src}

@@ -1,17 +1,17 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import RealTimeClock from "@/components/RealTimeClock";
-import StationLabel from "@/components/StationLabel";
+import SectionHeading from "@/components/SectionHeading";
 import { personalData } from "@/data/personal";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-10 border-b border-hairline">
+    <section id="about" className="py-16 lg:py-24 border-b border-hairline scroll-mt-16">
       <ScrollReveal>
-        <StationLabel number="02">About</StationLabel>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <SectionHeading>About</SectionHeading>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
           {/* Main Bio */}
           <div className="lg:col-span-8">
-            <p className="text-muted leading-relaxed max-w-[70ch]">
+            <p className="text-ink text-lg sm:text-xl leading-relaxed max-w-[62ch]">
               {personalData.bio}
             </p>
           </div>
