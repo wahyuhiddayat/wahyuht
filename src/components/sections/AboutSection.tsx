@@ -1,4 +1,3 @@
-import ScrollReveal from "@/components/ScrollReveal";
 import RealTimeClock from "@/components/RealTimeClock";
 import SectionHeading from "@/components/SectionHeading";
 import { personalData } from "@/data/personal";
@@ -6,7 +5,7 @@ import { personalData } from "@/data/personal";
 export default function AboutSection() {
   return (
     <section id="about" className="py-16 lg:py-24 border-b border-hairline scroll-mt-16">
-      <ScrollReveal>
+      <div>
         <SectionHeading>About</SectionHeading>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
           {/* Main Bio */}
@@ -55,7 +54,7 @@ export default function AboutSection() {
             </div>
           </div>
         </div>
-      </ScrollReveal>
+      </div>
     </section>
   );
 }

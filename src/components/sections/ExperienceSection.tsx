@@ -1,6 +1,5 @@
 'use client';
 
-import ScrollReveal from "@/components/ScrollReveal";
 import SectionHeading from "@/components/SectionHeading";
 import OrganizationLogo from "@/components/OrganizationLogo";
 import { useState } from "react";
@@ -91,20 +90,6 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
                   <p className="text-muted text-sm leading-relaxed">{details.description}</p>
                 )}
 
-                {details.metric && (
-                  <p className="reading">
-                    {details.metric.includes('→') ? (
-                      <>
-                        {details.metric.split('→')[0]}
-                        <span className="reading-arrow">&#8594;</span>
-                        {details.metric.split('→')[1]}
-                      </>
-                    ) : (
-                      details.metric
-                    )}
-                  </p>
-                )}
-
                 {details.achievements?.length ? (
                   <ul className="space-y-1">
                     {details.achievements.map((a, i) => (
@@ -137,7 +122,7 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
 export default function ExperienceSection() {
   return (
     <section id="experience" className="py-20 lg:py-28 border-b border-hairline scroll-mt-16">
-      <ScrollReveal>
+      <div>
         <SectionHeading>Experience</SectionHeading>
         <div>
           {experienceData.map((experience, index) => (
@@ -152,7 +137,7 @@ export default function ExperienceSection() {
             />
           ))}
         </div>
-      </ScrollReveal>
+      </div>
     </section>
   );
 }

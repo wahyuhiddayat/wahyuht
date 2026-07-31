@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import TypingAnimation from "@/components/TypingAnimation";
-import ScrollReveal from "@/components/ScrollReveal";
-import FadeIn from "@/components/FadeIn";
 import { personalData } from "@/data/personal";
 
 const PHOTOS = [
@@ -16,7 +14,7 @@ const PHOTOS = [
 export default function HeroSection() {
   return (
     <section id="home" className="pt-10 pb-12 lg:pt-16 lg:pb-20 border-b border-hairline scroll-mt-16">
-      <FadeIn>
+      <div>
         <div className="flex items-start justify-between gap-6 mb-4">
           <span className="font-mono text-xs text-accent">Available for opportunities</span>
           <div className="font-mono text-xs text-muted text-right leading-relaxed">
@@ -42,27 +40,26 @@ export default function HeroSection() {
         <p className="text-muted italic leading-relaxed mb-10">
           {personalData.casualNote}
         </p>
-      </FadeIn>
+      </div>
 
-      <ScrollReveal delay={0.15}>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-          {PHOTOS.map((photo) => (
-            <div
-              key={photo.src}
-              className="relative aspect-[4/3] border border-hairline overflow-hidden bg-hairline/20"
-            >
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                fill
-                sizes="(min-width: 640px) 25vw, 50vw"
-                quality={90}
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </ScrollReveal>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+        {PHOTOS.map((photo) => (
+          <div
+            key={photo.src}
+            className="relative aspect-[4/3] border border-hairline overflow-hidden bg-hairline/20"
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              loading="eager"
+              sizes="(min-width: 640px) 25vw, 50vw"
+              quality={90}
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

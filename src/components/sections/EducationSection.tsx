@@ -1,4 +1,3 @@
-import ScrollReveal from "@/components/ScrollReveal";
 import SectionHeading from "@/components/SectionHeading";
 import OrganizationLogo from "@/components/OrganizationLogo";
 import { educationData, type Education } from "@/data/education";
@@ -35,7 +34,7 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
 export default function EducationSection() {
   return (
     <section id="education" className="py-14 lg:py-20 border-b border-hairline scroll-mt-16">
-      <ScrollReveal>
+      <div>
         <SectionHeading>Education</SectionHeading>
         <div>
           {educationData.map((education, index) => (
@@ -49,7 +48,7 @@ export default function EducationSection() {
             />
           ))}
         </div>
-      </ScrollReveal>
+      </div>
     </section>
   );
 }

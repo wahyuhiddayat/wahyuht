@@ -33,6 +33,7 @@ export default function ProjectCard({
             src={imageUrl}
             alt={title}
             fill
+            loading="eager"
             sizes={featured ? "(max-width: 1024px) 100vw, 60vw" : "(max-width: 768px) 100vw, 50vw"}
             className="object-contain"
           />

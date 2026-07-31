@@ -1,11 +1,10 @@
-import ScrollReveal from '@/components/ScrollReveal';
 import SectionHeading from '@/components/SectionHeading';
 import { personalData } from '@/data/personal';
 
 export default function ContactSection() {
   return (
     <section id="contact" className="py-24 lg:py-36 scroll-mt-16">
-      <ScrollReveal>
+      <div>
         <SectionHeading>Contact</SectionHeading>
 
         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] text-ink mb-5 text-balance">
@@ -22,7 +21,7 @@ export default function ContactSection() {
         >
           {personalData.email}
         </a>
-      </ScrollReveal>
+      </div>
     </section>
   );
 }

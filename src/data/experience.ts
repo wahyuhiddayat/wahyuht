@@ -8,7 +8,6 @@ export interface Experience {
     description: string;
     achievements: string[];
     skills?: string[];
-    metric?: string;
   };
 }
 
@@ -39,8 +38,7 @@ export const experienceData: Experience[] = [
         "Fixed a bug that showed stale study results during rapid filtering by canceling outdated requests, and added a 10-second background refresh so new AI-processed radiology studies appear without manual page reloads.",
         "Audited and hardened role-based access control (RBAC) across the viewer and admin modules, replacing a fragile permission-count check with the authenticated role and fixing denials that returned 502 instead of 403."
       ],
-      skills: ["Python", "React", "Vue.js", "RBAC", "Full-Stack Development"],
-      metric: "502 → 403 (correct denial code)"
+      skills: ["Python", "React", "Vue.js", "RBAC", "Full-Stack Development"]
     }
   },
   {
@@ -56,8 +54,7 @@ export const experienceData: Experience[] = [
         "Added a citation-validation layer that checks every legal reference against Elasticsearch to reduce AI hallucinations, surfacing them as clickable numbered citations in a React/TypeScript interface.",
         "Hardened the FastAPI microservices with split environment configs, RabbitMQ retry limits, and a fallback from Pinecone to Elasticsearch, and expanded the legal corpus with Presidential Regulations."
       ],
-      skills: ["RAG", "FastAPI", "Elasticsearch", "Pinecone", "RabbitMQ", "React", "TypeScript", "LLMs"],
-      metric: "60-120s → 20-30s per query"
+      skills: ["RAG", "FastAPI", "Elasticsearch", "Pinecone", "RabbitMQ", "React", "TypeScript", "LLMs"]
     }
   },
   {
@@ -67,14 +64,13 @@ export const experienceData: Experience[] = [
     logo: "/images/bem_fasilkom.png",
     url: "https://bem.cs.ui.ac.id",
     details: {
-      description: "Co-led the student executive board, overseeing strategic initiatives and representing 2000+ Computer Science students in faculty governance.",
+      description: "Co-led the student executive board, overseeing strategic initiatives and representing the organization in faculty and university forums.",
       achievements: [
         "Co-led a 167-member student executive board alongside the President, overseeing six divisions comprising eleven departments and bureaus.",
         "Reviewed and approved program proposals during the exploration phase, filtering initiatives against organizational priorities before execution.",
         "Represented the organization externally in a company visit to GoTo, a partnership proposal to PwC, inter-university exchanges with HMIF ITB and HIMATIF UNPAD, and university-wide forums on tuition policy."
       ],
-      skills: ["Leadership", "Project Management", "Strategic Planning", "External Relations"],
-      metric: "167-member board · 6 divisions · 11 departments"
+      skills: ["Leadership", "Project Management", "Strategic Planning", "External Relations"]
     }
   },
   {
@@ -86,12 +82,11 @@ export const experienceData: Experience[] = [
     details: {
       description: "Supported student learning in MIPS and AVR Assembly through labs, tutorials, and exam reviews.",
       achievements: [
-        "Guided and evaluated 46 students through labs and tutorials",
-        "Collaborated with 3 TAs and the professor to meet course goals",
-        "Provided one-on-one support on complex computer organization topics"
+        "Designed problem sets and worked solutions for homework, tutorials, and lab modules on MIPS and AVR.",
+        "Facilitated weekly lab and tutorial sessions for 46 students, teaching assembly programming, datapath design, and I/O handling.",
+        "Conducted midterm and final exam review sessions and wrote the accompanying study materials."
       ],
-      skills: ["MIPS", "AVR Assembly", "Teaching", "Computer Organization"],
-      metric: "46 students mentored"
+      skills: ["MIPS", "AVR Assembly", "Teaching", "Computer Organization"]
     }
   },
   {
@@ -107,8 +102,7 @@ export const experienceData: Experience[] = [
         "Acted as liaison between students and faculty administration",
         "Negotiated solutions to address academic and social concerns"
       ],
-      skills: ["Advocacy", "Team Leadership", "Policy Negotiation"],
-      metric: "9-member team · 7 programs delivered"
+      skills: ["Advocacy", "Team Leadership", "Policy Negotiation"]
     }
   },
   {

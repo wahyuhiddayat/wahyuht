@@ -14,21 +14,21 @@ export interface ProjectDetail {
 export const projectsData: ProjectDetail[] = [
   {
     title: "Sokratech Fraud Risk Automation",
-    description: "Collaborated with fintech startup Sokratech to migrate and rebuild a real-time fraud detection dashboard using Next.js and Bun, integrating FastAPI-based risk modeling with Weight of Evidence methodology.",
+    description: "Built a fraud risk platform with a 7-person team for Sokratech, migrating its dashboard from Django to Next.js and Bun and adding FastAPI-based Weight of Evidence scoring.",
     date: "2025",
     imageUrl: "/images/sokratech.png",
-    skills: ["Next.js", "Bun", "FastAPI", "Supabase", "Docker", "Prometheus", "Grafana", "Docker", "Weight of Evidence (WoE)"],
+    skills: ["Next.js", "Bun", "FastAPI", "Supabase", "Docker", "Prometheus", "Grafana", "Weight of Evidence (WoE)"],
     links: {
       website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
     }
   },
   {
     title: "Anomaly Detection in Customer Purchasing Patterns",
-    description: "Designed a multi-step data mining pipeline on 541K+ retail transactions for customer segmentation, association rule mining, and anomaly detection.",
+    description: "Mined association rules across 541,909 retail transactions and helped package a 7-person team's segmentation, rule-mining, and anomaly-detection pipeline into Streamlit.",
     date: "2025",
     imageUrl: "/images/anomaly_detection_datmin.png",
     skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "K-Means Clustering", "FP-Growth", "Isolation Forest", "CRISP-DM"],
-    metric: "541,000+ transactions analyzed",
+    metric: "541,909 transactions analyzed",
     links: {
       website: "https://outlier-data.streamlit.app/",
       github: "https://github.com/wahyuhiddayat/anomaly-detection-in-customer-purchasing-pattern"
@@ -36,10 +36,10 @@ export const projectsData: ProjectDetail[] = [
   },
   {
     title: "wahyuht",
-    description: "Modern, fully responsive portfolio website built with Next.js 14 and TypeScript, featuring dark/light mode and smooth animations with Framer Motion.",
+    description: "Responsive portfolio website built with Next.js and TypeScript, featuring light and dark themes and restrained motion with Framer Motion.",
     date: "2025",
     imageUrl: "/images/wahyuht.png",
-    skills: ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     links: {
       website: "https://wahyuht.com",
       github: "https://github.com/wahyuhiddayat/wahyuht"
