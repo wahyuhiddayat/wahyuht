@@ -1,63 +1,40 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import StationLabel from "@/components/StationLabel";
 import Image from "next/image";
 import { educationData, type Education } from "@/data/education";
 
 function EducationItem({ degree, institution, period, logo, url }: Education) {
   return (
-    <div className="grid grid-cols-[auto_1fr_auto] sm:grid-cols-[auto_1fr_auto] gap-2 sm:gap-3 items-start">
-      {/* Logo */}
-      <div className="flex-shrink-0">
-        {url ? (
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Visit ${institution} website`}
-            className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10 dark:focus-visible:ring-white/20 rounded-full"
-          >
-            <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1 transition-transform duration-150 hover:scale-[1.03]">
-              <Image
-                src={logo}
-                alt={`${institution} logo`}
-                fill
-                sizes="(max-width: 640px) 32px, 40px"
-                className="object-contain"
-              />
-            </div>
-          </a>
-        ) : (
-          <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white border border-gray-200 dark:border-gray-700 p-0.5 sm:p-1">
-            <Image
-              src={logo}
-              alt={`${institution} logo`}
-              fill
-              sizes="(max-width: 640px) 32px, 40px"
-              className="object-contain"
-            />
-          </div>
-        )}
-      </div>
-      
-      {/* Content */}
-      <div className="min-w-0">
-        <p className="font-medium text-gray-900 dark:text-gray-100 text-sm sm:text-base leading-tight sm:leading-normal" style={{ textWrap: 'balance' } as any}>
-          {degree}
-        </p>
-        <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm mt-0.5">
-          {institution}
-        </p>
-        {/* Date on mobile */}
-        <p className="text-gray-500 dark:text-gray-400 text-xs sm:hidden mt-1">
-          {period}
-        </p>
-      </div>
-      
-      {/* Right rail */}
-      <div className="hidden sm:flex items-center gap-2 shrink-0">
-        <p className="text-gray-500 dark:text-gray-400 text-sm">
-          {period}
-        </p>
-        <span className="w-5 h-5" aria-hidden></span>
+    <div className="log-row">
+      <div className="font-mono text-muted text-xs sm:text-sm whitespace-nowrap">{period}</div>
+
+      <div className="flex items-center gap-2.5">
+        <div className="relative w-8 h-8 shrink-0 border border-hairline overflow-hidden bg-paper">
+          <Image
+            src={logo}
+            alt={`${institution} logo`}
+            fill
+            sizes="32px"
+            className="object-contain"
+          />
+        </div>
+        <div className="min-w-0">
+          <p className="font-semibold text-ink text-sm sm:text-base" style={{ textWrap: 'balance' } as any}>
+            {degree}
+          </p>
+          {url ? (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted text-xs sm:text-sm mt-0.5 hover:text-accent transition-colors inline-block"
+            >
+              {institution}
+            </a>
+          ) : (
+            <p className="text-muted text-xs sm:text-sm mt-0.5">{institution}</p>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -65,28 +42,22 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
 
 export default function EducationSection() {
   return (
-  <section id="education" className="pt-5 md:pt-4 pb-5 md:pb-1 lg:pb-0">
-      <div className="max-w-3xl mx-auto px-6">
-        <ScrollReveal>
-          <div>
-            <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">
-              Education
-            </h2>
-            <div className="space-y-4">
-              {educationData.map((education, index) => (
-                <EducationItem
-                  key={index}
-                  degree={education.degree}
-                  institution={education.institution}
-                  period={education.period}
-                  logo={education.logo}
-                  url={education.url}
-                />
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
-      </div>
+    <section id="education" className="py-10 border-b border-hairline">
+      <ScrollReveal>
+        <StationLabel number="05">Education</StationLabel>
+        <div>
+          {educationData.map((education, index) => (
+            <EducationItem
+              key={index}
+              degree={education.degree}
+              institution={education.institution}
+              period={education.period}
+              logo={education.logo}
+              url={education.url}
+            />
+          ))}
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

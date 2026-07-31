@@ -8,6 +8,7 @@ export interface Experience {
     description: string;
     achievements: string[];
     skills?: string[];
+    metric?: string;
   };
 }
 
@@ -38,7 +39,8 @@ export const experienceData: Experience[] = [
         "Fixed a bug that showed stale study results during rapid filtering by canceling outdated requests, and added a 10-second background refresh so new AI-processed radiology studies appear without manual page reloads.",
         "Audited and hardened role-based access control (RBAC) across the viewer and admin modules, replacing a fragile permission-count check with the authenticated role and fixing denials that returned 502 instead of 403."
       ],
-      skills: ["Python", "React", "Vue.js", "RBAC", "Full-Stack Development"]
+      skills: ["Python", "React", "Vue.js", "RBAC", "Full-Stack Development"],
+      metric: "502 → 403 (correct denial code)"
     }
   },
   {
@@ -54,7 +56,8 @@ export const experienceData: Experience[] = [
         "Added a citation-validation layer that checks every legal reference against Elasticsearch to reduce AI hallucinations, surfacing them as clickable numbered citations in a React/TypeScript interface.",
         "Hardened the FastAPI microservices with split environment configs, RabbitMQ retry limits, and a fallback from Pinecone to Elasticsearch, and expanded the legal corpus with Presidential Regulations."
       ],
-      skills: ["RAG", "FastAPI", "Elasticsearch", "Pinecone", "RabbitMQ", "React", "TypeScript", "LLMs"]
+      skills: ["RAG", "FastAPI", "Elasticsearch", "Pinecone", "RabbitMQ", "React", "TypeScript", "LLMs"],
+      metric: "60-120s → 20-30s per query"
     }
   },
   {
@@ -70,7 +73,8 @@ export const experienceData: Experience[] = [
         "Reviewed and approved program proposals during the exploration phase, filtering initiatives against organizational priorities before execution.",
         "Represented the organization externally in a company visit to GoTo, a partnership proposal to PwC, inter-university exchanges with HMIF ITB and HIMATIF UNPAD, and university-wide forums on tuition policy."
       ],
-      skills: ["Leadership", "Project Management", "Strategic Planning", "External Relations"]
+      skills: ["Leadership", "Project Management", "Strategic Planning", "External Relations"],
+      metric: "167-member board · 6 divisions · 11 departments"
     }
   },
   {
@@ -86,7 +90,8 @@ export const experienceData: Experience[] = [
         "Collaborated with 3 TAs and the professor to meet course goals",
         "Provided one-on-one support on complex computer organization topics"
       ],
-      skills: ["MIPS", "AVR Assembly", "Teaching", "Computer Organization"]
+      skills: ["MIPS", "AVR Assembly", "Teaching", "Computer Organization"],
+      metric: "46 students mentored"
     }
   },
   {
@@ -102,7 +107,8 @@ export const experienceData: Experience[] = [
         "Acted as liaison between students and faculty administration",
         "Negotiated solutions to address academic and social concerns"
       ],
-      skills: ["Advocacy", "Team Leadership", "Policy Negotiation"]
+      skills: ["Advocacy", "Team Leadership", "Policy Negotiation"],
+      metric: "9-member team · 7 programs delivered"
     }
   },
   {

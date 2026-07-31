@@ -3,25 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-  --primary-color: 1 112 254;
-  --primary-color-hover: 1 96 218;
-  --theme-transition: 0.3s ease-in-out;
+  --paper: 255 255 255;
+  --ink: 24 24 27;
+  --muted: 113 113 122;
+  --hairline: 228 228 231;
+  --accent: 37 99 235;
+  --theme-transition: 0.2s ease-in-out;
 }
 
 .dark {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 10, 10, 10;
-  --primary-color: 96 165 250;
-  --primary-color-hover: 147 197 253;
+  --paper: 10 10 10;
+  --ink: 244 244 245;
+  --muted: 161 161 170;
+  --hairline: 39 39 42;
+  --accent: 96 165 250;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: rgb(var(--ink));
+  background-color: rgb(var(--paper));
   font-weight: 400;
-  transition: 
+  transition:
     color var(--theme-transition),
     background-color var(--theme-transition);
 }
@@ -29,11 +31,10 @@ body {
 *,
 *::before,
 *::after {
-  transition: 
+  transition:
     color var(--theme-transition),
     background-color 0.2s ease-in-out,
     border-color 0.2s ease-in-out,
-    box-shadow 0.2s ease-in-out,
     fill var(--theme-transition);
 }
 
@@ -47,68 +48,47 @@ body {
 
 @layer components {
   h1 {
-    @apply text-3xl lg:text-4xl;
+    @apply text-3xl lg:text-4xl tracking-tight;
     font-weight: 600;
   }
 
   h2 {
-    @apply text-xl lg:text-2xl mt-8 mb-4;
-    font-weight: 500;
+    @apply text-xl lg:text-2xl font-semibold;
   }
 
   h3 {
-    @apply text-lg lg:text-xl mt-6 mb-3;
-    font-weight: 500;
+    @apply text-base lg:text-lg font-semibold;
   }
 
   p {
-    @apply mb-4 leading-relaxed;
+    @apply leading-relaxed;
   }
 
-  .skill-pill {
-    @apply inline-block px-3 py-1 rounded-full text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 mr-2 mb-2;
+  /* Station label: monospace number + heading, the system's one recurring device */
+  .station-num {
+    @apply font-mono text-accent text-[0.8125rem] font-medium tracking-wide;
   }
 
-  .project-card {
-    @apply border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden transition-all hover:shadow-md;
+  /* Reading: real quantified before -> after measurement */
+  .reading {
+    @apply font-mono text-ink text-[0.9375rem] font-medium;
   }
 
-  .project-card:hover {
-    @apply border-gray-400 dark:border-gray-600;
+  .reading-arrow {
+    @apply text-accent mx-1.5;
   }
 
-  .section-title {
-    @apply text-2xl lg:text-3xl font-bold mb-6 text-center;
+  /* Tag chip: the one rounded shape in the system */
+  .chip {
+    @apply inline-block px-2.5 py-1 rounded-full border border-hairline text-muted text-xs;
   }
 
-  .timeline-item {
-    @apply grid grid-cols-1 md:grid-cols-[1fr_auto] gap-2 mb-6;
+  /* Log row: label + content separated by a hairline rule, no card */
+  .log-row {
+    @apply grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-6 py-5 border-b border-hairline;
   }
 
-  .timeline-date {
-    @apply text-sm text-gray-500 md:text-right;
-  }
-
-  .typing-text {
-    font-weight: 500;
-  }
-
-  /* Liquid Glass Navbar Styles */
-  .glass-nav-active {
-    background: transparent;
-  }
-
-  .glass-nav-active .glass-specular {
-    box-shadow: 
-      inset 1px 1px 2px rgba(255, 255, 255, 0.4),
-      inset -1px -1px 2px rgba(255, 255, 255, 0.05),
-      0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .dark .glass-nav-active .glass-specular {
-    box-shadow: 
-      inset 1px 1px 2px rgba(255, 255, 255, 0.1),
-      inset -1px -1px 2px rgba(0, 0, 0, 0.2),
-      0 2px 8px rgba(0, 0, 0, 0.3);
+  .log-row:last-child {
+    @apply border-b-0;
   }
 }

@@ -7,6 +7,7 @@ type ProjectCardProps = {
   date: string;
   imageUrl?: string;
   skills: string[];
+  metric?: string;
   links?: {
     website?: string;
     github?: string;
@@ -19,44 +20,56 @@ export default function ProjectCard({
   date,
   imageUrl,
   skills,
+  metric,
   links,
 }: ProjectCardProps) {
   return (
-    <div className="group h-full flex flex-col p-4 rounded-lg border border-gray-100 dark:border-gray-800 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-sm dark:hover:shadow-gray-900/20 transition-all duration-200">
+    <div className="h-full flex flex-col">
       {imageUrl && (
-        <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-4">
+        <div className="relative w-full aspect-video border border-hairline overflow-hidden mb-3 bg-paper">
           <Image
             src={imageUrl}
             alt={title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-contain group-hover:opacity-80 transition-opacity duration-200"
+            className="object-contain"
           />
         </div>
       )}
-      
+
       <div className="flex flex-col flex-1">
-        <div className="flex justify-between items-center mb-3">
-          <h3 className="font-medium text-sm dark:text-white">{title}</h3>
-          <span className="text-xs text-gray-400 dark:text-gray-500">{date}</span>
+        <div className="flex justify-between items-baseline gap-2 mb-1.5">
+          <h3 className="font-semibold text-sm text-ink">{title}</h3>
+          <span className="font-mono text-xs text-muted shrink-0">{date}</span>
         </div>
-        
-        <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-3 flex-1">
+
+        <p className="text-xs text-muted leading-relaxed mb-2">
           {description}
         </p>
-        
+
+        {metric && (
+          <p className="reading text-xs mb-3">
+            {metric.includes('→') ? (
+              <>
+                {metric.split('→')[0]}
+                <span className="reading-arrow">&#8594;</span>
+                {metric.split('→')[1]}
+              </>
+            ) : (
+              metric
+            )}
+          </p>
+        )}
+
         <div className="pt-1 space-y-3 mt-auto">
           <div className="flex flex-wrap gap-1.5">
             {skills.map((skill, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full"
-              >
+              <span key={index} className="chip">
                 {skill}
               </span>
             ))}
           </div>
-          
+
           {links && (
             <div className="flex gap-4">
               {links.website && (
@@ -64,9 +77,9 @@ export default function ProjectCard({
                   href={links.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-primary hover:text-primary-hover transition-colors"
+                  className="text-xs text-accent hover:opacity-75 transition-opacity"
                 >
-                  Live Demo ↗
+                  Live Demo &#8599;
                 </Link>
               )}
               {links.github && (
@@ -74,7 +87,7 @@ export default function ProjectCard({
                   href={links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                  className="text-xs text-muted hover:text-ink transition-colors"
                 >
                   Source Code
                 </Link>

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-30T00:00:00.000Z",
+  "title": "Design System: Wahyu Hidayat Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Signal Blue", "canonical": "#2563EB", "tonalRamp": ["#1E1B4B", "#1E3A8A", "#1D4ED8", "#2563EB", "#3B82F6", "#60A5FA", "#93C5FD", "#DBEAFE"] },
+      "accent-dark": { "role": "primary", "displayName": "Signal Blue (dark mode)", "canonical": "#60A5FA" },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#FFFFFF" },
+      "paper-dark": { "role": "neutral", "displayName": "Paper (dark mode)", "canonical": "#0A0A0A" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#18181B" },
+      "ink-dark": { "role": "neutral", "displayName": "Ink (dark mode)", "canonical": "#F4F4F5" },
+      "muted": { "role": "neutral", "displayName": "Muted", "canonical": "#71717A" },
+      "muted-dark": { "role": "neutral", "displayName": "Muted (dark mode)", "canonical": "#A1A1AA" },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#E4E4E7" },
+      "hairline-dark": { "role": "neutral", "displayName": "Hairline (dark mode)", "canonical": "#27272A" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name/role line only." },
+      "body": { "displayName": "Body", "purpose": "All prose: bio, descriptions, achievement text." },
+      "label": { "displayName": "Label", "purpose": "Station numbers, dates, meta lines (JetBrains Mono)." },
+      "reading": { "displayName": "Reading", "purpose": "Quantified before-to-after measurements (JetBrains Mono, one step larger than Label)." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "section-fade", "value": "opacity + 12px directional slide, 0.35s ease-out, once per viewport entry", "purpose": "Restrained entrance for sections and log rows — no bounce, no overshoot." },
+      { "name": "theme-transition", "value": "color/background-color 0.2s ease-in-out", "purpose": "Light/dark toggle crossfade; disabled under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Station Label",
+      "kind": "custom",
+      "refersTo": "station-label",
+      "description": "Monospace station number in Signal Blue followed by a plain Ink heading; replaces every section header.",
+      "html": "<div class=\"ds-station\"><span class=\"ds-station-num\">STA 02</span><h2 class=\"ds-station-title\">About</h2></div>",
+      "css": ".ds-station { display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; } .ds-station-num { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; color: #2563EB; } .ds-station-title { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: #18181B; margin: 0; }"
+    },
+    {
+      "name": "Reading Line",
+      "kind": "custom",
+      "refersTo": "reading-row",
+      "description": "Plain-text before-to-after measurement; the arrow carries Signal Blue, everything else stays Ink.",
+      "html": "<p class=\"ds-reading\">60-120s <span class=\"ds-reading-arrow\">&#8594;</span> 20-30s <span class=\"ds-reading-context\">per query</span></p>",
+      "css": ".ds-reading { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 500; color: #18181B; } .ds-reading-arrow { color: #2563EB; margin: 0 6px; } .ds-reading-context { font-family: 'Inter', sans-serif; font-weight: 400; color: #71717A; font-size: 14px; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Rounded-full pill — the system's one rounding exception, used for skills/tech tags only.",
+      "html": "<span class=\"ds-chip\">Python</span>",
+      "css": ".ds-chip { display: inline-block; padding: 4px 10px; border-radius: 9999px; border: 1px solid #E4E4E7; color: #71717A; font-family: 'Inter', sans-serif; font-size: 13px; }"
+    },
+    {
+      "name": "Log Row",
+      "kind": "custom",
+      "description": "Two-column label + content row separated by a single hairline rule; no card, no shadow.",
+      "html": "<div class=\"ds-row\"><div class=\"ds-row-label\">Aug 2024 &ndash; Jan 2025</div><div class=\"ds-row-content\"><h3>Teaching Assistant</h3><p>Faculty of Computer Science, Universitas Indonesia</p></div></div>",
+      "css": ".ds-row { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid #E4E4E7; } .ds-row-label { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #71717A; } .ds-row-content h3 { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; color: #18181B; margin: 0 0 4px; } .ds-row-content p { font-family: 'Inter', sans-serif; font-size: 14px; color: #71717A; margin: 0; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "description": "Plain text nav link; active state turns Signal Blue, no pill or background.",
+      "html": "<a class=\"ds-nav-link ds-nav-link--active\" href=\"#about\">About</a>",
+      "css": ".ds-nav-link { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; color: #71717A; text-decoration: none; transition: color 0.2s; } .ds-nav-link:hover { color: #18181B; } .ds-nav-link--active { color: #2563EB; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Measurement Log",
+    "overview": "Wahyu's actual craft is measurement: turning chaotic, real-world systems into precise, recorded numbers — a RAG chatbot's response time, a fraud model's transaction volume, a retail dataset's row count. The site takes that literally. It reads like a field surveyor's measurement log, not a portfolio built from the same Inter-and-blue-links template every minimalist developer site already runs. Section headers become station numbers (\"STA 01\"). Quantified outcomes are set as readings — a plain \"before → after\" in monospace, never a fake progress bar or sparkline standing in for a number that doesn't exist. Everything else stays exactly as restrained as the brief asked: plain white ground, black ink, one accent color, no cards, no shadows, no glass.\n\nThe palette is almost monochrome on purpose: white/near-black carries the page, and Signal Blue appears only where something is actively being measured or acted on. Depth doesn't exist here; separation comes from thin hairline rules and generous whitespace. Dark mode is a plain, honest inversion, not a second themed world.",
+    "keyCharacteristics": [
+      "Station-number labels (\"STA 01\", \"STA 02\"...) replace section headers, in monospace, colored with the one accent",
+      "Real quantified outcomes are set as plain-text \"before → after\" readings, never as a decorative stat widget",
+      "One accent (Signal Blue) used only for labels, links, and active states — never a background fill",
+      "Inter for all prose and headings; JetBrains Mono for every number, date, coordinate, and reading",
+      "Flat by design: hairline rules and whitespace do the separating work that cards and shadows do elsewhere",
+      "Plain white ground — no background texture",
+      "A wider two-column log-row layout (label column + content column) replaces the old narrow single centered column"
+    ],
+    "rules": [
+      { "name": "The One-Mark Rule", "body": "Signal Blue marks exactly one thing at a time — the station label of the section currently in view, an active link, a reading's arrow. It never fills a background or repeats decoratively.", "section": "colors" },
+      { "name": "The Measurement-Only-Mono Rule", "body": "JetBrains Mono appears only where the content is a real measurement, date, or coordinate — never as a \"technical\" costume on ordinary prose.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Nothing in this system casts a shadow. If a boundary is needed, it is a 1px hairline rule; if separation is needed, it is whitespace.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do mark exactly one thing at a time with Signal Blue — a label, a link, a reading arrow.",
+      "Do keep JetBrains Mono reserved for genuine measurements, dates, and coordinates.",
+      "Do separate every section and entry with a hairline rule and whitespace, never a card or shadow.",
+      "Do render a real quantified outcome as a plain before → after reading; omit it entirely where no real number exists.",
+      "Do keep the station-label device as the one recurring signature element across every section.",
+      "Do keep the page background plain white — no grid, no texture."
+    ],
+    "donts": [
+      "Don't add a card, border-box, or shadow anywhere — this system has none.",
+      "Don't invent a stat bar, progress ring, or sparkline to represent a number — set the real number as text or don't show one.",
+      "Don't introduce a second accent color; the system has exactly one.",
+      "Don't round anything beyond the one pill-chip exception — no rounded cards, no circular badges."
+    ]
+  }
+}

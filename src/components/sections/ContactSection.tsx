@@ -1,32 +1,28 @@
 import ScrollReveal from '@/components/ScrollReveal';
+import StationLabel from '@/components/StationLabel';
 import { personalData } from '@/data/personal';
 
 export default function ContactSection() {
   return (
-  <section id="contact" className="pt-12 pb-12 md:pt-8 md:pb-8 lg:pt-7 lg:pb-7">
-      <div className="max-w-3xl mx-auto px-6">
-        <ScrollReveal>
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-8 tracking-tight dark:text-white">
-              {personalData.contact.greeting}
-            </h1>
-            
-            <div className="mb-4">
-              <a 
-                href={`mailto:${personalData.email}`}
-                className="text-lg text-primary hover:text-primary-hover transition-colors font-medium"
-              >
-                📫 {personalData.email}
-              </a>
-            </div>
-            
-            <p className="text-gray-600 dark:text-gray-300">
-              {personalData.contact.description}
-            </p>
-          </div>
-        </ScrollReveal>
+    <section id="contact" className="py-10">
+      <ScrollReveal>
+        <StationLabel number="07">Contact</StationLabel>
 
-      </div>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink mb-3">
+          {personalData.contact.greeting}
+        </h2>
+
+        <p className="text-muted mb-4 max-w-[60ch]">
+          {personalData.contact.description}
+        </p>
+
+        <a
+          href={`mailto:${personalData.email}`}
+          className="font-mono text-accent hover:opacity-75 transition-opacity"
+        >
+          {personalData.email}
+        </a>
+      </ScrollReveal>
     </section>
   );
 }
