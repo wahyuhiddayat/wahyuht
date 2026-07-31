@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["var(--font-body)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -26,10 +27,11 @@ module.exports = {
         },
       },
       colors: {
-        primary: {
-          DEFAULT: 'rgb(var(--primary-color) / <alpha-value>)',
-          hover: 'rgb(var(--primary-color-hover) / <alpha-value>)'
-        },
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        paper: 'rgb(var(--paper) / <alpha-value>)',
+        ink: 'rgb(var(--ink) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        hairline: 'rgb(var(--hairline) / <alpha-value>)',
       },
     },
   },

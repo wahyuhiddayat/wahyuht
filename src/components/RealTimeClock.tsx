@@ -31,12 +31,12 @@ export default function RealTimeClock() {
 
   if (!mounted) {
     return (
-      <div className="h-5 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse" />
+      <div className="h-5 w-20 bg-hairline animate-pulse" />
     );
   }
 
   return (
-    <p className="text-gray-700 dark:text-gray-300 font-medium font-mono">
+    <p className="text-ink text-sm font-medium font-mono">
       {time}
     </p>
   );

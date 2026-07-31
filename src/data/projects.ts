@@ -4,6 +4,7 @@ export interface ProjectDetail {
   date: string;
   imageUrl?: string;
   skills: string[];
+  metric?: string;
   links?: {
     website?: string;
     github?: string;
@@ -27,6 +28,7 @@ export const projectsData: ProjectDetail[] = [
     date: "2025",
     imageUrl: "/images/anomaly_detection_datmin.png",
     skills: ["Python", "Streamlit", "Scikit-learn", "Pandas", "K-Means Clustering", "FP-Growth", "Isolation Forest", "CRISP-DM"],
+    metric: "541,000+ transactions analyzed",
     links: {
       website: "https://outlier-data.streamlit.app/",
       github: "https://github.com/wahyuhiddayat/anomaly-detection-in-customer-purchasing-pattern"

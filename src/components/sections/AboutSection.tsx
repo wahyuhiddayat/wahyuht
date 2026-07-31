@@ -1,64 +1,61 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import RealTimeClock from "@/components/RealTimeClock";
+import StationLabel from "@/components/StationLabel";
 import { personalData } from "@/data/personal";
 
 export default function AboutSection() {
   return (
-  <section id="about" className="pt-5 md:pt-4 pb-5 md:pb-1 lg:pb-0">
-      <div className="max-w-3xl mx-auto px-6">
-        <ScrollReveal>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Main Bio */}
-            <div className="lg:col-span-8">
-              <h2 className="text-2xl font-semibold text-black dark:text-white mb-4">
-                About
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                {personalData.bio}
-              </p>
-            </div>
+    <section id="about" className="py-10 border-b border-hairline">
+      <ScrollReveal>
+        <StationLabel number="02">About</StationLabel>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Main Bio */}
+          <div className="lg:col-span-8">
+            <p className="text-muted leading-relaxed max-w-[70ch]">
+              {personalData.bio}
+            </p>
+          </div>
 
-            {/* Quick Facts */}
-            <div className="lg:col-span-4 pt-6 lg:pt-0 lg:pl-8 lg:border-l lg:border-gray-200 dark:lg:border-gray-700 lg:flex lg:items-center">
-              <div className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-5 w-full">
-                <div className="text-sm space-y-1">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">
-                    Location
-                  </span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {personalData.location}
-                  </p>
-                </div>
+          {/* Quick Facts */}
+          <div className="lg:col-span-4 pt-6 lg:pt-0 lg:pl-8 lg:border-l lg:border-hairline lg:flex lg:items-center">
+            <div className="grid grid-cols-2 lg:grid-cols-1 gap-x-4 gap-y-5 w-full">
+              <div className="space-y-1">
+                <span className="font-mono text-muted text-xs uppercase tracking-wide block">
+                  Location
+                </span>
+                <p className="text-ink text-sm font-medium">
+                  {personalData.location}
+                </p>
+              </div>
 
-                <div className="text-sm space-y-1">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">
-                    Local Time
-                  </span>
-                  <RealTimeClock />
-                </div>
+              <div className="space-y-1">
+                <span className="font-mono text-muted text-xs uppercase tracking-wide block">
+                  Local Time
+                </span>
+                <RealTimeClock />
+              </div>
 
-                <div className="text-sm space-y-1">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">
-                    Languages
-                  </span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {personalData.languages}
-                  </p>
-                </div>
+              <div className="space-y-1">
+                <span className="font-mono text-muted text-xs uppercase tracking-wide block">
+                  Languages
+                </span>
+                <p className="text-ink text-sm font-medium">
+                  {personalData.languages}
+                </p>
+              </div>
 
-                <div className="text-sm space-y-1">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs uppercase tracking-wide block">
-                    Personality
-                  </span>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium">
-                    {personalData.personality}
-                  </p>
-                </div>
+              <div className="space-y-1">
+                <span className="font-mono text-muted text-xs uppercase tracking-wide block">
+                  Personality
+                </span>
+                <p className="text-ink text-sm font-medium">
+                  {personalData.personality}
+                </p>
               </div>
             </div>
           </div>
-        </ScrollReveal>
-      </div>
+        </div>
+      </ScrollReveal>
     </section>
   );
 }

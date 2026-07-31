@@ -13,9 +13,7 @@ export default function ThemeSwitcher() {
 
   // Prevent hydration mismatch by showing skeleton until mounted
   if (!mounted) {
-    return (
-      <div className="p-1.5 rounded-full w-7 h-7" />
-    );
+    return <div className="w-4 h-4" />;
   }
 
   const isDark = resolvedTheme === 'dark';
@@ -25,9 +23,9 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <button 
+    <button
       onClick={toggleTheme}
-      className="p-1.5 rounded-full text-gray-800 dark:text-white transition-all duration-200 ease-in-out hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-800 active:scale-95"
+      className="text-muted hover:text-ink transition-colors"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
       title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
