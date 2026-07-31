@@ -49,3 +49,7 @@ next-env.d.ts
 # design system docs
 /DESIGN.md
 /PRODUCT.md
+
+# claude code guidance
+/CLAUDE.md
+/AGENTS.md
