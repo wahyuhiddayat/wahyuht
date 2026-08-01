@@ -1,3 +1,5 @@
+import { personalData } from './personal';
+
 export interface ProjectDetail {
   title: string;
   description: string;
@@ -41,7 +43,7 @@ export const projectsData: ProjectDetail[] = [
     imageUrl: "/images/wahyuht.png",
     skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     links: {
-      website: "https://wahyuht.com",
+      website: personalData.siteUrl,
       github: "https://github.com/wahyuhiddayat/wahyuht"
     }
   },

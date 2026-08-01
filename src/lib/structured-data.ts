@@ -7,8 +7,8 @@ export function generatePersonSchema() {
     "name": personalData.name,
     "alternateName": "Wahyu Hidayat",
     "description": personalData.bio,
-    "url": "https://wahyuht.com",
-    "image": "https://wahyuht.com/images/profile.jpg",
+    "url": personalData.siteUrl,
+    "image": `${personalData.siteUrl}/images/profile.jpg`,
     "email": personalData.email,
     "jobTitle": "Data Scientist & Machine Learning Engineer",
     "worksFor": {
@@ -49,7 +49,7 @@ export function generateWebsiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Wahyu Hidayat Portfolio",
-    "url": "https://wahyuht.com",
+    "url": personalData.siteUrl,
     "description": "Personal portfolio of Wahyu Hidayat - Data Scientist & Machine Learning Engineer",
     "publisher": {
       "@type": "Person",

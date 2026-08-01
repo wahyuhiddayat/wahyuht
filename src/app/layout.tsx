@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { generatePersonSchema, generateWebsiteSchema } from "@/lib/structured-data";
+import { personalData } from "@/data/personal";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     "Jakarta",
     "Indonesia"
   ],
-  authors: [{ name: "Wahyu Hidayat", url: "https://wahyuht.com" }],
+  authors: [{ name: "Wahyu Hidayat", url: personalData.siteUrl }],
   creator: "Wahyu Hidayat",
   publisher: "Wahyu Hidayat",
   formatDetection: {
@@ -43,14 +44,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://wahyuht.com'),
+  metadataBase: new URL(personalData.siteUrl),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://wahyuht.com',
+    url: personalData.siteUrl,
     title: 'Wahyu Hidayat | Data Scientist & Machine Learning Engineer',
     description: 'Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.',
     siteName: 'Wahyu Hidayat Portfolio',

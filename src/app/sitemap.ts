@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
- 
+import { personalData } from '@/data/personal'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://wahyuht.com'
-  
+  const baseUrl = personalData.siteUrl
+
   return [
     {
       url: baseUrl,

@@ -1,5 +1,6 @@
 export const personalData = {
   name: "Wahyu Hidayat",
+  siteUrl: "https://wahyyuht.com",
   greeting: "Hi, I'm Wahyu Hidayat 👋",
   roles: [
     "AI Engineer",
