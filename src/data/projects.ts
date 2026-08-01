@@ -15,6 +15,13 @@ export interface ProjectDetail {
 
 export const projectsData: ProjectDetail[] = [
   {
+    title: "Vectorless vs. Vector Retrieval for Legal Documents",
+    description: "Undergraduate thesis comparing vectorless LLM reasoning against dense vector retrieval on Qdrant for locating provisions across 308 Indonesian regulations, tested with paired randomization tests over 10,000 permutations and Holm-Bonferroni correction.",
+    date: "2026",
+    skills: ["Python", "Qdrant", "Hugging Face", "BM25", "LLM Evaluation"],
+    metric: "MAP@10: 0.88 (vector) vs. 0.95 (vectorless)"
+  },
+  {
     title: "Sokratech Fraud Risk Automation",
     description: "Built a fraud risk platform with a 7-person team for Sokratech, migrating its dashboard from Django to Next.js and Bun and adding FastAPI-based Weight of Evidence scoring.",
     date: "2025",
@@ -23,13 +30,6 @@ export const projectsData: ProjectDetail[] = [
     links: {
       website: "https://monitoring-fe-next-1277451848.us-central1.run.app/"
     }
-  },
-  {
-    title: "Vectorless vs. Vector Retrieval for Legal Documents",
-    description: "Undergraduate thesis comparing vectorless LLM reasoning against dense vector retrieval on Qdrant for locating provisions across 308 Indonesian regulations, tested with paired randomization tests over 10,000 permutations and Holm-Bonferroni correction.",
-    date: "2026",
-    skills: ["Python", "Qdrant", "Hugging Face", "BM25", "LLM Evaluation"],
-    metric: "MAP@10: 0.88 (vector) vs. 0.95 (vectorless)"
   },
   {
     title: "Multimodal Image Search Engine",
