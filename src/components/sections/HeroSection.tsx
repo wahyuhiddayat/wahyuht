@@ -42,7 +42,7 @@ export default function HeroSection() {
         </p>
       </div>
 
-      <div className="flex flex-wrap items-start gap-2 sm:gap-3">
+      <div className="flex items-start gap-2 sm:gap-3 overflow-x-auto pb-1">
         {PHOTOS.map((photo) => (
           <Image
             key={photo.src}
@@ -52,7 +52,7 @@ export default function HeroSection() {
             height={photo.height}
             loading="eager"
             quality={90}
-            className="h-48 sm:h-56 lg:h-64 w-auto border border-hairline bg-hairline/20"
+            className="h-40 sm:h-56 lg:h-64 w-auto shrink-0 border border-hairline bg-hairline/20"
           />
         ))}
       </div>
