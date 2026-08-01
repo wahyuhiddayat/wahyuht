@@ -5,10 +5,10 @@ import TypingAnimation from "@/components/TypingAnimation";
 import { personalData } from "@/data/personal";
 
 const PHOTOS = [
-  { src: "/images/hero-thesis-committee.jpg", alt: "Wahyu presenting his thesis defense with the examining committee" },
-  { src: "/images/hero-thesis-defense.jpg", alt: "Wahyu at his thesis defense, Fakultas Ilmu Komputer UI" },
-  { src: "/images/hero-pwc-tour.jpg", alt: "Wahyu with colleagues on a company visit to PwC" },
-  { src: "/images/hero-campus-dusk.jpg", alt: "Wahyu and a friend on Universitas Indonesia campus at dusk" },
+  { src: "/images/hero-thesis-committee.jpg", alt: "Wahyu presenting his thesis defense with the examining committee", width: 480, height: 360 },
+  { src: "/images/hero-thesis-defense.jpg", alt: "Wahyu at his thesis defense, Fakultas Ilmu Komputer UI", width: 324, height: 540 },
+  { src: "/images/hero-pwc-tour.jpg", alt: "Wahyu with colleagues on a company visit to PwC", width: 480, height: 360 },
+  { src: "/images/hero-campus-dusk.jpg", alt: "Wahyu and a friend on Universitas Indonesia campus at dusk", width: 405, height: 540 },
 ];
 
 export default function HeroSection() {
@@ -42,22 +42,18 @@ export default function HeroSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+      <div className="flex flex-wrap items-start gap-2 sm:gap-3">
         {PHOTOS.map((photo) => (
-          <div
+          <Image
             key={photo.src}
-            className="relative aspect-[4/3] border border-hairline overflow-hidden bg-hairline/20"
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              loading="eager"
-              sizes="(min-width: 640px) 25vw, 50vw"
-              quality={90}
-              className="object-cover"
-            />
-          </div>
+            src={photo.src}
+            alt={photo.alt}
+            width={photo.width}
+            height={photo.height}
+            loading="eager"
+            quality={90}
+            className="h-40 sm:h-56 w-auto border border-hairline bg-hairline/20"
+          />
         ))}
       </div>
     </section>
