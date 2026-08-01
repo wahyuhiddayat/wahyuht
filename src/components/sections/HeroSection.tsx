@@ -50,7 +50,7 @@ export default function HeroSection() {
             alt={photo.alt}
             width={photo.width}
             height={photo.height}
-            loading="eager"
+            priority
             quality={90}
             className="h-40 sm:h-56 lg:h-64 w-auto shrink-0 border border-hairline bg-hairline/20"
           />
