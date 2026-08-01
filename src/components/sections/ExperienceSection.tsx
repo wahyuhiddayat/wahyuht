@@ -125,9 +125,9 @@ export default function ExperienceSection() {
       <div>
         <SectionHeading>Experience</SectionHeading>
         <div>
-          {experienceData.map((experience, index) => (
+          {experienceData.map((experience) => (
             <ExperienceItem
-              key={index}
+              key={`${experience.company}-${experience.position}`}
               position={experience.position}
               company={experience.company}
               period={experience.period}

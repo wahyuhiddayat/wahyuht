@@ -8,9 +8,9 @@ export default function SkillsSection() {
       <div>
         <SectionHeading>Capabilities</SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-          {skillsData.map((skill, index) => (
+          {skillsData.map((skill) => (
             <SkillCategory
-              key={index}
+              key={skill.title}
               title={skill.title}
               skills={skill.skills}
             />

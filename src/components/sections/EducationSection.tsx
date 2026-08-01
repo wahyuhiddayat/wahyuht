@@ -10,7 +10,7 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
       <div className="flex items-center gap-3">
         <OrganizationLogo src={logo} alt={`${institution} logo`} />
         <div className="min-w-0">
-          <p className="font-semibold text-ink text-sm sm:text-base" style={{ textWrap: 'balance' } as any}>
+          <p className="font-semibold text-ink text-sm sm:text-base text-balance">
             {degree}
           </p>
           {url ? (
@@ -37,9 +37,9 @@ export default function EducationSection() {
       <div>
         <SectionHeading>Education</SectionHeading>
         <div>
-          {educationData.map((education, index) => (
+          {educationData.map((education) => (
             <EducationItem
-              key={index}
+              key={`${education.institution}-${education.degree}`}
               degree={education.degree}
               institution={education.institution}
               period={education.period}

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 type ProjectCardProps = {
   title: string;
@@ -33,7 +32,6 @@ export default function ProjectCard({
             src={imageUrl}
             alt={title}
             fill
-            loading="eager"
             sizes={featured ? "(max-width: 1024px) 100vw, 60vw" : "(max-width: 768px) 100vw, 50vw"}
             className="object-contain"
           />
@@ -78,24 +76,24 @@ export default function ProjectCard({
           {links && (
             <div className="flex gap-4">
               {links.website && (
-                <Link
+                <a
                   href={links.website}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center text-sm text-accent hover:underline underline-offset-4"
                 >
                   Live Demo &#8599;
-                </Link>
+                </a>
               )}
               {links.github && (
-                <Link
+                <a
                   href={links.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center text-sm text-muted hover:text-ink transition-colors"
                 >
                   Source Code
-                </Link>
+                </a>
               )}
             </div>
           )}

@@ -56,5 +56,3 @@ export const projectsData: ProjectDetail[] = [
     }
   }
 ];
-
-export const getAllProjects = () => projectsData;

@@ -14,11 +14,11 @@ export default function OrganizationLogo({ src, alt }: OrganizationLogoProps) {
         {needsWhiteBacking ? (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative w-9 h-6">
-              <Image src={src} alt={alt} fill loading="eager" sizes="36px" className="object-contain" />
+              <Image src={src} alt={alt} fill sizes="36px" className="object-contain" />
             </div>
           </div>
         ) : (
-          <Image src={src} alt={alt} fill loading="eager" sizes="40px" className="object-contain" />
+          <Image src={src} alt={alt} fill sizes="40px" className="object-contain" />
         )}
       </div>
     </div>

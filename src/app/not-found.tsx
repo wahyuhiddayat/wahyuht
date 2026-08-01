@@ -2,17 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div
-      className="fixed inset-0 bg-paper transition-colors flex items-center justify-center z-[9999]"
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 9999
-      }}
-    >
+    <div className="fixed inset-0 bg-paper transition-colors flex items-center justify-center z-[9999]">
       <div className="max-w-lg mx-auto px-6 py-16 text-center">
         <section>
           <span className="font-mono text-sm text-accent block mb-3">404</span>
