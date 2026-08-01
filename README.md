@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Personal portfolio for Wahyu Hidayat, live at [wahyyuht.com](https://wahyyuht.com).
 
-## Getting Started
+A single-page Next.js site. All content (experience, projects, skills, education) lives in typed data files under `src/data/`, not hardcoded into components.
 
-First, run the development server:
+## Stack
+
+- [Next.js](https://nextjs.org) (App Router) + TypeScript
+- [Tailwind CSS](https://tailwindcss.com) for styling, with CSS variables driving light/dark theming
+- [Framer Motion](https://www.framer.com/motion/) for scroll reveals and transitions
+- [next-themes](https://github.com/pacocoursey/next-themes) for dark mode
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # start dev server at localhost:3000
+npm run build    # production build
+npm run start    # serve production build
+npm run lint     # eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+There is no test suite configured.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/` — routes, layout, and metadata (`sitemap.ts`, `robots.ts`, `manifest.ts`)
+- `src/components/sections/` — one component per page section (About, Experience, Projects, ...), presentational only
+- `src/components/` — shared UI (Navbar, ProjectCard, ThemeSwitcher, ...)
+- `src/data/` — typed content: personal info, experience, education, projects, skills
+- `src/lib/` — structured data (JSON-LD) generation
+- `src/hooks/` — `useActiveSection`, which drives nav highlighting on scroll
