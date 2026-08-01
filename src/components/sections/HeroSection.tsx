@@ -8,7 +8,7 @@ const PHOTOS = [
   { src: "/images/hero-thesis-committee.jpg", alt: "Wahyu presenting his thesis defense with the examining committee" },
   { src: "/images/hero-thesis-defense.jpg", alt: "Wahyu at his thesis defense, Fakultas Ilmu Komputer UI" },
   { src: "/images/hero-pwc-tour.jpg", alt: "Wahyu with colleagues on a company visit to PwC" },
-  { src: "/images/hero-me-and-evans.jpg", alt: "Wahyu and a friend on Universitas Indonesia campus at dusk", objectPosition: "object-bottom" },
+  { src: "/images/hero-campus-dusk.jpg", alt: "Wahyu and a friend on Universitas Indonesia campus at dusk" },
 ];
 
 export default function HeroSection() {
@@ -55,7 +55,7 @@ export default function HeroSection() {
               loading="eager"
               sizes="(min-width: 640px) 25vw, 50vw"
               quality={90}
-              className={`object-cover ${photo.objectPosition ?? ""}`}
+              className="object-cover"
             />
           </div>
         ))}
