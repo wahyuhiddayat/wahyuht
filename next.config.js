@@ -1,9 +1,8 @@
-// 'unsafe-inline' on script-src is required because Next.js streams RSC
-// payloads through inline <script> tags with no nonce; a strict nonce-based
-// CSP would need middleware and force dynamic rendering on every page.
+// 'unsafe-inline': Next streams RSC payloads via inline <script> tags with no nonce.
+// 'unsafe-eval' (dev only): Turbopack's hot-reload runtime needs eval() to patch modules.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''}`,
   "style-src 'self'",
   "img-src 'self'",
   "font-src 'self'",
