@@ -52,7 +52,7 @@ export default function HeroSection() {
             height={photo.height}
             loading="eager"
             quality={90}
-            className="h-40 sm:h-56 w-auto border border-hairline bg-hairline/20"
+            className="h-48 sm:h-56 lg:h-64 w-auto border border-hairline bg-hairline/20"
           />
         ))}
       </div>
