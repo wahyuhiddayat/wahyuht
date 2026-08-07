@@ -13,6 +13,20 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
+    position: "AI Engineer Intern",
+    company: "Telkom Indonesia",
+    period: "Aug 2026 – Feb 2027",
+    logo: "/images/telkom-indonesia.png",
+    url: "https://www.telkom.co.id",
+    details: {
+      description: "Selected for a data-driven AI internship at Telkom's EBIS division, focused on improving customer contact effectiveness and revenue leveraging.",
+      achievements: [
+        "Project analyzes a low customer contacted rate (currently 18%) and builds AI-driven solutions to improve contact effectiveness, progressing through data preparation, model development, and AI integration phases over the internship."
+      ],
+      skills: ["Data Analytics", "SQL", "AI/ML", "Excel/Google Sheets"]
+    }
+  },
+  {
     position: "Teaching Assistant, Cloud Computing & Social Media Analytics",
     company: "Faculty of Computer Science, Universitas Indonesia",
     period: "Aug 2026 – Present",
