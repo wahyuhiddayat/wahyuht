@@ -13,17 +13,18 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
-    position: "Teaching Assistant, Cloud Computing (Incoming)",
+    position: "Teaching Assistant, Cloud Computing & Social Media Analytics",
     company: "Faculty of Computer Science, Universitas Indonesia",
-    period: "Aug 2026",
+    period: "Aug 2026 – Present",
     logo: "/images/makara_fasilkom.png",
     url: "https://cs.ui.ac.id",
     details: {
-      description: "Selected to support the undergraduate Cloud Computing course, covering cloud service models and modern deployment infrastructure.",
+      description: "Selected to support two undergraduate courses: Cloud Computing and Social Media Analytics.",
       achievements: [
-        "Covers AWS-based deployment, IaaS/PaaS/SaaS, containers, Kubernetes, and serverless services."
+        "Cloud Computing covers AWS-based deployment, IaaS/PaaS/SaaS, containers, Kubernetes, and serverless services.",
+        "Social Media Analytics covers social media text analytics (text processing, classification, sentiment analysis, topic modeling), social network analysis (centrality, community detection, link prediction), and location-based and user profiling analytics."
       ],
-      skills: ["AWS", "Kubernetes", "Docker", "Cloud Computing"]
+      skills: ["AWS", "Kubernetes", "Docker", "Social Network Analysis", "NLP", "Sentiment Analysis"]
     }
   },
   {
