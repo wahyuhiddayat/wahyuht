@@ -11,6 +11,19 @@ const PHOTOS = [
   { src: "/images/hero-campus-dusk.jpg", alt: "Wahyu and a friend on Universitas Indonesia campus at dusk", width: 405, height: 540 },
 ];
 
+// Photos share a row height but not an aspect ratio, so each needs its own width hint.
+const ROW_HEIGHTS = { base: 160, sm: 224, lg: 256 };
+
+function photoSizes({ width, height }: { width: number; height: number }) {
+  const widthAt = (rowHeight: number) => Math.round((rowHeight * width) / height);
+
+  return [
+    `(min-width: 1024px) ${widthAt(ROW_HEIGHTS.lg)}px`,
+    `(min-width: 640px) ${widthAt(ROW_HEIGHTS.sm)}px`,
+    `${widthAt(ROW_HEIGHTS.base)}px`,
+  ].join(", ");
+}
+
 export default function HeroSection() {
   return (
     <section id="home" className="pt-10 pb-12 lg:pt-16 lg:pb-20 border-b border-hairline scroll-mt-16">
@@ -43,14 +56,16 @@ export default function HeroSection() {
       </div>
 
       <div className="flex items-start gap-2 sm:gap-3 overflow-x-auto pb-1">
-        {PHOTOS.map((photo) => (
+        {PHOTOS.map((photo, index) => (
           <Image
             key={photo.src}
             src={photo.src}
             alt={photo.alt}
             width={photo.width}
             height={photo.height}
-            priority
+            sizes={photoSizes(photo)}
+            // Only the first is a plausible LCP candidate; preloading all four made them compete.
+            priority={index === 0}
             quality={90}
             className="h-40 sm:h-56 lg:h-64 w-auto shrink-0 border border-hairline bg-hairline/20"
           />
