@@ -30,7 +30,8 @@ export function generatePersonSchema() {
       "https://github.com/wahyuhiddayat",
       "https://www.linkedin.com/in/wahyuuhidayat/",
       "https://www.instagram.com/wahyyuht/",
-      "https://open.spotify.com/user/wahyuuhidaayat"
+      "https://open.spotify.com/user/wahyuuhidaayat",
+      "https://wahyuuhidaayat.medium.com/"
     ],
     "knowsAbout": [
       "Data Science",

@@ -147,6 +147,14 @@ export default function RootLayout({
               >
                 Instagram
               </a>
+              <a
+                href="https://wahyuuhidaayat.medium.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted hover:text-accent transition-colors"
+              >
+                Medium
+              </a>
             </div>
             <p className="font-mono text-center text-xs text-muted">
               &copy; {new Date().getFullYear()} Wahyu. All rights reserved.
