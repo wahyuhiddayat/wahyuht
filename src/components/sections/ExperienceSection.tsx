@@ -3,7 +3,7 @@
 import SectionHeading from "@/components/SectionHeading";
 import OrganizationLogo from "@/components/OrganizationLogo";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { experienceData, type Experience } from "@/data/experience";
 
 function ExperienceItem({ position, company, period, logo, details, url }: Experience) {
@@ -75,17 +75,17 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
           </div>
         </div>
 
-        <AnimatePresence>
-          {isExpanded && details && (
-            <motion.div
-              id={panelId}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2, ease: 'easeInOut' }}
-              className="overflow-hidden pl-[60px]"
-            >
-              <div className="pt-3 space-y-3">
+        {/* Collapsed with CSS, not unmounted, so the text stays in the server-rendered HTML. */}
+        {details && (
+          <div
+            id={panelId}
+            inert={!isExpanded}
+            className={`grid transition-[grid-template-rows] duration-200 ease-in-out ${
+              isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+            }`}
+          >
+            <div className="min-h-0 overflow-hidden">
+              <div className="pt-3 space-y-3 pl-[60px]">
                 {details.description && (
                   <p className="text-muted text-sm leading-relaxed">{details.description}</p>
                 )}
@@ -111,9 +111,9 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
                   </div>
                 ) : null}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
