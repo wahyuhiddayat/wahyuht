@@ -15,7 +15,7 @@ export const experienceData: Experience[] = [
   {
     position: "AI Engineer Intern",
     company: "Telkom Indonesia",
-    period: "Aug 2026 – Feb 2027",
+    period: "Aug 2026 – Present",
     logo: "/images/telkom-indonesia.png",
     url: "https://www.telkom.co.id",
     details: {
