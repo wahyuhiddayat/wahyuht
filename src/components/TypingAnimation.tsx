@@ -44,15 +44,19 @@ export default function TypingAnimation({ words, className = "" }: TypingAnimati
   }, [currentText, currentWordIndex, isTyping, words]);
 
   return (
-    <span className={className}>
-      {currentText}
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-        className="ml-1"
-      >
-        |
-      </motion.span>
-    </span>
+    <>
+      {/* The animated span renders one character at a time and nothing on the server. */}
+      <span className="sr-only">{words.join(", ")}</span>
+      <span className={className} aria-hidden="true">
+        {currentText}
+        <motion.span
+          animate={{ opacity: [1, 0] }}
+          transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+          className="ml-1"
+        >
+          |
+        </motion.span>
+      </span>
+    </>
   );
 }
