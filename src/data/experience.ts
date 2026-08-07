@@ -57,7 +57,7 @@ export const experienceData: Experience[] = [
     }
   },
   {
-    position: "Artificial Intelligence Engineer Intern",
+    position: "AI Engineer Intern",
     company: "Universitas Indonesia Center for Legal Informatics",
     period: "Jul 2025 – Dec 2025",
     logo: "/images/lexin.png",
