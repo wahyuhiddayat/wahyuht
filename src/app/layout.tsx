@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Wahyu Hidayat",
+    default: "Wahyu Hidayat | AI, Data & Software Engineer",
     template: "%s | Wahyu Hidayat"
   },
   description: "Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: personalData.siteUrl,
-    title: 'Wahyu Hidayat | Data Scientist & Machine Learning Engineer',
+    title: 'Wahyu Hidayat | AI, Data & Software Engineer',
     description: 'Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI. Building intelligent solutions with clean code and practical insights.',
     siteName: 'Wahyu Hidayat Portfolio',
     images: [
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Wahyu Hidayat | Data Scientist & Machine Learning Engineer',
+    title: 'Wahyu Hidayat | AI, Data & Software Engineer',
     description: 'Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI.',
     images: ['/images/profile.jpg'],
   },

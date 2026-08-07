@@ -10,7 +10,7 @@ export function generatePersonSchema() {
     "url": personalData.siteUrl,
     "image": `${personalData.siteUrl}/images/profile.jpg`,
     "email": personalData.email,
-    "jobTitle": "Data Scientist & Machine Learning Engineer",
+    "jobTitle": "AI, Machine Learning, Data & Software Engineer",
     "worksFor": {
       "@type": "EducationalOrganization",
       "name": "Universitas Indonesia",
