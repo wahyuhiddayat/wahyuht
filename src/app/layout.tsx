@@ -124,7 +124,7 @@ export default function RootLayout({
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/wahyuuhidayat/"
+                href="https://www.linkedin.com/in/wahyyuht/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-muted hover:text-accent transition-colors"

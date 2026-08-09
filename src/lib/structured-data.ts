@@ -28,7 +28,7 @@ export function generatePersonSchema() {
     },
     "sameAs": [
       "https://github.com/wahyuhiddayat",
-      "https://www.linkedin.com/in/wahyuuhidayat/",
+      "https://www.linkedin.com/in/wahyyuht/",
       "https://www.instagram.com/wahyyuht/",
       "https://open.spotify.com/user/wahyuuhidaayat",
       "https://wahyuuhidaayat.medium.com/"
