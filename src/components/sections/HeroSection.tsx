@@ -9,6 +9,8 @@ const PHOTOS = [
   { src: "/images/hero-thesis-defense.jpg", alt: "Wahyu at his thesis defense, Fakultas Ilmu Komputer UI", width: 324, height: 540 },
   { src: "/images/hero-pwc-tour.jpg", alt: "Wahyu with colleagues on a company visit to PwC", width: 480, height: 360 },
   { src: "/images/hero-campus-dusk.jpg", alt: "Wahyu and a friend on Universitas Indonesia campus at dusk", width: 405, height: 540 },
+  { src: "/images/hero-graduation-cap.jpg", alt: "Wahyu tossing his graduation cap in front of the Universitas Indonesia rectorate", width: 360, height: 540 },
+  { src: "/images/hero-graduation-rektorat.jpg", alt: "Wahyu in his graduation sash with the Universitas Indonesia rectorate behind him", width: 360, height: 540 },
 ];
 
 // Photos share a row height but not an aspect ratio, so each needs its own width hint.
