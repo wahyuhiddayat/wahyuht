@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import TypingAnimation from "@/components/TypingAnimation";
 import { personalData } from "@/data/personal";
@@ -27,6 +28,24 @@ function photoSizes({ width, height }: { width: number; height: number }) {
 }
 
 export default function HeroSection() {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollMore, setCanScrollMore] = useState(true);
+
+  function handleScroll() {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const progress = maxScroll > 0 ? el.scrollLeft / maxScroll : 0;
+    setActiveIndex(Math.round(progress * (PHOTOS.length - 1)));
+    setCanScrollMore(el.scrollLeft < maxScroll - 1);
+  }
+
+  useEffect(() => {
+    handleScroll();
+  }, []);
+
   return (
     <section id="home" className="pt-10 pb-12 lg:pt-16 lg:pb-20 border-b border-hairline scroll-mt-16">
       <div>
@@ -57,21 +76,38 @@ export default function HeroSection() {
         </p>
       </div>
 
-      <div className="flex items-start gap-2 sm:gap-3 overflow-x-auto pb-1">
-        {PHOTOS.map((photo, index) => (
-          <Image
-            key={photo.src}
-            src={photo.src}
-            alt={photo.alt}
-            width={photo.width}
-            height={photo.height}
-            sizes={photoSizes(photo)}
-            // Only the first is a plausible LCP candidate; preloading all four made them compete.
-            priority={index === 0}
-            quality={90}
-            className="h-40 sm:h-56 lg:h-64 w-auto shrink-0 border border-hairline bg-hairline/20"
-          />
-        ))}
+      <div className="relative">
+        <div
+          ref={scrollerRef}
+          onScroll={handleScroll}
+          className="flex items-start gap-2 sm:gap-3 overflow-x-auto pb-1"
+        >
+          {PHOTOS.map((photo, index) => (
+            <Image
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              sizes={photoSizes(photo)}
+              // Only the first is a plausible LCP candidate; preloading all four made them compete.
+              priority={index === 0}
+              quality={90}
+              className="h-40 sm:h-56 lg:h-64 w-auto shrink-0 border border-hairline bg-hairline/20"
+            />
+          ))}
+        </div>
+
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-16 bg-gradient-to-l from-paper to-transparent transition-opacity duration-200 ${
+            canScrollMore ? "opacity-100" : "opacity-0"
+          }`}
+        />
+
+        <div className="font-mono text-xs text-muted mt-2 text-right">
+          {String(activeIndex + 1).padStart(2, "0")} / {String(PHOTOS.length).padStart(2, "0")}
+        </div>
       </div>
     </section>
   );
