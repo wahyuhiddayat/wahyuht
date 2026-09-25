@@ -36,9 +36,9 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
 export default function EducationSection() {
   return (
     <section id="education" className="py-14 lg:pt-16 lg:pb-12 border-b border-hairline scroll-mt-16">
-      <div>
+      <div className="section-grid">
         <SectionHeading>Education</SectionHeading>
-        <div>
+        <div className="section-body">
           {educationData.map((education) => (
             <EducationItem
               key={`${education.institution}-${education.degree}`}

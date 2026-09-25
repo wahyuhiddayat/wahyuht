@@ -151,15 +151,17 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="py-20 lg:pt-16 lg:pb-24 border-b border-hairline scroll-mt-16">
-      <div>
+      <div className="section-grid">
         <SectionHeading>Selected work</SectionHeading>
 
-        <FeaturedProject {...featured} />
+        <div className="section-body">
+          <FeaturedProject {...featured} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 lg:gap-y-14 pt-12 items-start">
-          {rest.map((project) => (
-            <ProjectCard key={project.title} {...project} />
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-8 gap-y-12 lg:gap-y-14 pt-12 items-start">
+            {rest.map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

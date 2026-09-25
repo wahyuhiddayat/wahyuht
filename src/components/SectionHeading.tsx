@@ -4,11 +4,11 @@ type SectionHeadingProps = {
   children: ReactNode;
 };
 
+/** Renders a section title in the left column of the section grid. */
 export default function SectionHeading({ children }: SectionHeadingProps) {
   return (
     <div className="section-heading">
       <h2>{children}</h2>
-      <span aria-hidden="true" />
     </div>
   );
 }

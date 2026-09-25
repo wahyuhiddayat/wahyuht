@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import TypingAnimation from "@/components/TypingAnimation";
+import { experienceData } from "@/data/experience";
 import { personalData } from "@/data/personal";
+
+const CURRENT_ROLES = experienceData.filter(({ period }) => period.endsWith("Present"));
 
 /** Introduces Wahyu with a short sequence of photographs. */
 export default function HeroSection() {
@@ -16,24 +19,40 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div>
-        <h1 className="max-w-xl text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.035em] text-ink text-balance mb-6">
-          {personalData.greeting}
-        </h1>
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-8 lg:items-end">
+        <div className="lg:col-span-7">
+          <h1 className="max-w-xl text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-[-0.035em] text-ink text-balance mb-6">
+            {personalData.greeting}
+          </h1>
 
-        <p className="max-w-lg text-xl sm:text-2xl text-muted leading-relaxed">
-          {personalData.tagline}{" "}
-          <span className="block mt-1">
-            <TypingAnimation
-              words={personalData.roles}
-              className="text-accent font-medium"
-            />
+          <p className="max-w-lg text-xl sm:text-2xl text-muted leading-relaxed">
+            {personalData.tagline}{" "}
+            <span className="block mt-1">
+              <TypingAnimation
+                words={personalData.roles}
+                className="text-accent font-medium"
+              />
+            </span>
+          </p>
+
+          <p className="mt-5 max-w-lg text-muted italic leading-relaxed">
+            {personalData.casualNote}
+          </p>
+        </div>
+
+        <div className="lg:col-span-5">
+          <span className="font-mono text-muted text-xs uppercase tracking-wide block mb-4">
+            Currently
           </span>
-        </p>
-
-        <p className="mt-5 max-w-lg text-muted italic leading-relaxed">
-          {personalData.casualNote}
-        </p>
+          <ul className="grid gap-6 sm:grid-cols-2">
+            {CURRENT_ROLES.map(({ company, position }) => (
+              <li key={`${company}-${position}`}>
+                <p className="text-lg font-semibold text-ink">{company}</p>
+                <p className="text-sm text-muted mt-1 text-balance">{position}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="mt-10 lg:mt-12">

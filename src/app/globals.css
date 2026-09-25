@@ -64,16 +64,21 @@ body {
     @apply leading-relaxed;
   }
 
+  /* Section grid: heading in a sticky left column, content across the remaining nine columns */
+  .section-grid {
+    @apply lg:grid lg:grid-cols-12 lg:gap-x-8;
+  }
+
   .section-heading {
-    @apply flex items-center gap-5 mb-10 lg:mb-14;
+    @apply mb-8 lg:mb-0 lg:col-span-3 lg:sticky lg:top-24 lg:self-start;
   }
 
   .section-heading h2 {
-    @apply text-2xl sm:text-3xl font-semibold tracking-tight text-ink whitespace-nowrap;
+    @apply text-2xl sm:text-3xl font-semibold tracking-tight text-ink;
   }
 
-  .section-heading span {
-    @apply block h-px flex-1 bg-hairline;
+  .section-body {
+    @apply min-w-0 lg:col-span-9;
   }
 
   .nav-link {
