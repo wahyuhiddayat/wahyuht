@@ -33,7 +33,7 @@ export const personalData = {
       height: 825,
     },
     {
-      src: "/images/gallery/e05dc534-e19f-40e2-8669-e44c4220feb8.webp",
+      src: "/images/gallery/portrait-black-shirt.webp",
       alt: "Portrait of Wahyu in a black shirt",
       width: 720,
       height: 1200,
@@ -77,7 +77,7 @@ export const personalData = {
       height: 1200,
     },
     {
-      src: "/images/gallery/ui-wahyu-44.webp",
+      src: "/images/gallery/ui-wahyu-44-floor.webp",
       alt: "Wahyu sitting on a wooden floor, photographed from above",
       width: 1200,
       height: 800,
