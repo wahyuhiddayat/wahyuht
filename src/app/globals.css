@@ -119,20 +119,23 @@ body {
     @apply border-b-0;
   }
 
-  /* Photo rows: fixed-height rows that stretch to full width; the ::after filler keeps the last row unstretched */
+  /* Photo rows: fixed-height rows that stretch to full width, cropping each photo slightly to fit */
   .photo-rows {
     --row-height: 110px;
-    @apply flex flex-wrap gap-3 lg:gap-4;
+    --row-gap: 0.75rem;
+    @apply flex flex-wrap;
+    gap: var(--row-gap);
+  }
+
+  /* Clips to exactly two rows, so the preview never ends on a half-empty row at any width */
+  .photo-rows-collapsed {
+    max-height: calc(var(--row-height) * 2 + var(--row-gap));
+    overflow: hidden;
   }
 
   .photo-rows > * {
     height: var(--row-height);
     flex-grow: 1;
-  }
-
-  .photo-rows::after {
-    content: "";
-    flex-grow: 10;
   }
 
   @screen sm {
@@ -144,6 +147,7 @@ body {
   @screen lg {
     .photo-rows {
       --row-height: 260px;
+      --row-gap: 1rem;
     }
   }
 }
