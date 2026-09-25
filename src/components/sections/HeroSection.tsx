@@ -5,7 +5,8 @@ import TypingAnimation from "@/components/TypingAnimation";
 import { experienceData } from "@/data/experience";
 import { personalData } from "@/data/personal";
 
-const CURRENT_ROLES = experienceData.filter(({ period }) => period.endsWith("Present"));
+// Experience is listed newest first, so the first ongoing entry is the headline role.
+const CURRENT_ROLE = experienceData.find(({ period }) => period.endsWith("Present"));
 
 /** Introduces Wahyu with a short sequence of photographs. */
 export default function HeroSection() {
@@ -40,19 +41,15 @@ export default function HeroSection() {
           </p>
         </div>
 
-        <div className="lg:col-span-5">
-          <span className="font-mono text-muted text-xs uppercase tracking-wide block mb-4">
-            Currently
-          </span>
-          <ul className="grid gap-6 sm:grid-cols-2">
-            {CURRENT_ROLES.map(({ company, position }) => (
-              <li key={`${company}-${position}`}>
-                <p className="text-lg font-semibold text-ink">{company}</p>
-                <p className="text-sm text-muted mt-1 text-balance">{position}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {CURRENT_ROLE && (
+          <div className="lg:col-span-5">
+            <span className="font-mono text-muted text-xs uppercase tracking-wide block mb-4">
+              Currently
+            </span>
+            <p className="text-lg font-semibold text-ink">{CURRENT_ROLE.company}</p>
+            <p className="text-sm text-muted mt-1">{CURRENT_ROLE.position}</p>
+          </div>
+        )}
       </div>
 
       <div className="mt-10 lg:mt-12">
