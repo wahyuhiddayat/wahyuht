@@ -19,26 +19,29 @@ export const experienceData: Experience[] = [
     logo: "/images/telkom-indonesia.png",
     url: "https://www.telkom.co.id",
     details: {
-      description: "Selected for a data-driven AI internship at Telkom's EBIS division, focused on improving customer contact effectiveness and revenue leveraging.",
+      description: "Building data pipelines, recommendation logic, and reporting automation for the sales team in Telkom's enterprise business (EBIS) division.",
       achievements: [
-        "Project analyzes a low customer contacted rate (currently 18%) and builds AI-driven solutions to improve contact effectiveness, progressing through data preparation, model development, and AI integration phases over the internship."
+        "Built a Python pipeline that classified 231,770 customer records by business sector, combining rule-based keyword matching with LLM-assisted labeling, validated against a 141-record benchmark.",
+        "Built a rule-based product recommendation system that profiled 32,535 subscriber lines by usage and tenure, flagging upgrade, additional-line, and fraud-review candidates for the sales team through a Tableau dashboard.",
+        "Automated a daily sales performance report by replacing a manual Excel process with a Python pipeline, matching every previously verified figure and fixing a data-counting error in the old process."
       ],
-      skills: ["Data Analytics", "SQL", "AI/ML", "Excel/Google Sheets"]
+      skills: ["Python", "LLMs", "Recommendation Systems", "Tableau", "Automation"]
     }
   },
   {
-    position: "Teaching Assistant, Cloud Computing & Social Media Analytics",
+    position: "Teaching Assistant",
     company: "Faculty of Computer Science, Universitas Indonesia",
-    period: "Aug 2026 – Present",
+    period: "Aug 2024 – Present",
     logo: "/images/makara_fasilkom.png",
     url: "https://cs.ui.ac.id",
     details: {
-      description: "Selected to support two undergraduate courses: Cloud Computing and Social Media Analytics.",
+      description: "Teaching assistant for three undergraduate courses: Cloud Computing, Social Media Analytics, and Introduction to Computer Organization.",
       achievements: [
-        "Cloud Computing covers AWS-based deployment, IaaS/PaaS/SaaS, containers, Kubernetes, and serverless services.",
-        "Social Media Analytics covers social media text analytics (text processing, classification, sentiment analysis, topic modeling), social network analysis (centrality, community detection, link prediction), and location-based and user profiling analytics."
+        "Cloud Computing (Aug 2026 – Present): one of three teaching assistants for 63 students, running weekly AWS labs on virtual machines, cloud storage, Kubernetes, serverless functions, and autoscaling, and debugging students' live deployments.",
+        "Social Media Analytics (Aug 2026 – Present): sole teaching assistant for 48 students on a project-based course, writing tutorials and grading milestones on sentiment analysis, topic modeling, and social network analysis.",
+        "Introduction to Computer Organization (Aug 2024 – Jan 2025): led weekly labs and tutorials for 46 students on MIPS and AVR assembly, datapath design, and I/O handling, and wrote problem sets and exam review materials."
       ],
-      skills: ["AWS", "Kubernetes", "Docker", "Social Network Analysis", "NLP", "Sentiment Analysis"]
+      skills: ["AWS", "Kubernetes", "Sentiment Analysis", "Social Network Analysis", "MIPS", "AVR Assembly"]
     }
   },
   {
@@ -86,22 +89,6 @@ export const experienceData: Experience[] = [
         "Represented the organization externally in a company visit to GoTo, a partnership proposal to PwC, inter-university exchanges with HMIF ITB and HIMATIF UNPAD, and university-wide forums on tuition policy."
       ],
       skills: ["Leadership", "Project Management", "Strategic Planning", "External Relations"]
-    }
-  },
-  {
-    position: "Teaching Assistant, Introduction to Computer Organization",
-    company: "Faculty of Computer Science, Universitas Indonesia",
-    period: "Aug 2024 – Jan 2025",
-    logo: "/images/makara_fasilkom.png",
-    url: "https://cs.ui.ac.id",
-    details: {
-      description: "Supported student learning in MIPS and AVR Assembly through labs, tutorials, and exam reviews.",
-      achievements: [
-        "Designed problem sets and worked solutions for homework, tutorials, and lab modules on MIPS and AVR.",
-        "Facilitated weekly lab and tutorial sessions for 46 students, teaching assembly programming, datapath design, and I/O handling.",
-        "Conducted midterm and final exam review sessions and wrote the accompanying study materials."
-      ],
-      skills: ["MIPS", "AVR Assembly", "Teaching", "Computer Organization"]
     }
   },
   {
