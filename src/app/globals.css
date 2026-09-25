@@ -118,4 +118,32 @@ body {
   .log-row:last-child {
     @apply border-b-0;
   }
+
+  /* Photo rows: fixed-height rows that stretch to full width; the ::after filler keeps the last row unstretched */
+  .photo-rows {
+    --row-height: 110px;
+    @apply flex flex-wrap gap-3 lg:gap-4;
+  }
+
+  .photo-rows > * {
+    height: var(--row-height);
+    flex-grow: 1;
+  }
+
+  .photo-rows::after {
+    content: "";
+    flex-grow: 10;
+  }
+
+  @screen sm {
+    .photo-rows {
+      --row-height: 200px;
+    }
+  }
+
+  @screen lg {
+    .photo-rows {
+      --row-height: 260px;
+    }
+  }
 }

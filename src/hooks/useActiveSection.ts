@@ -7,7 +7,7 @@ export function useActiveSection() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'projects', 'skills', 'education', 'contact'];
+      const sections = ['about', 'experience', 'projects', 'skills', 'education', 'gallery', 'contact'];
 
       const scrollY = window.scrollY;
       const viewportH = window.innerHeight || 0;
