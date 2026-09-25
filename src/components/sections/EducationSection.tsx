@@ -2,6 +2,7 @@ import SectionHeading from "@/components/SectionHeading";
 import OrganizationLogo from "@/components/OrganizationLogo";
 import { educationData, type Education } from "@/data/education";
 
+/** Shows one education entry with its period and institution. */
 function EducationItem({ degree, institution, period, logo, url }: Education) {
   return (
     <div className="log-row">
@@ -31,9 +32,10 @@ function EducationItem({ degree, institution, period, logo, url }: Education) {
   );
 }
 
+/** Renders Wahyu's education history. */
 export default function EducationSection() {
   return (
-    <section id="education" className="py-14 lg:py-20 border-b border-hairline scroll-mt-16">
+    <section id="education" className="py-14 lg:pt-16 lg:pb-12 border-b border-hairline scroll-mt-16">
       <div>
         <SectionHeading>Education</SectionHeading>
         <div>

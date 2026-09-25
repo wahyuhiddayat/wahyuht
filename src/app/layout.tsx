@@ -83,6 +83,7 @@ export const metadata: Metadata = {
   },
 };
 
+/** Wraps the portfolio in its shared navigation, content shell, and footer. */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -112,9 +113,9 @@ export default function RootLayout({
           disableTransitionOnChange={true}
         >
           <Navbar />
-          <main className="max-w-6xl mx-auto px-6 py-8 min-h-screen">{children}</main>
-          <footer className="max-w-6xl mx-auto px-6 py-8 border-t border-hairline mt-12">
-            <div className="flex justify-center gap-6 mb-4">
+          <main className="max-w-[1600px] mx-auto px-6 lg:px-8 py-8 min-h-screen">{children}</main>
+          <footer className="max-w-[1600px] mx-auto px-6 lg:px-8 py-8 border-t border-hairline mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
               <a
                 href="https://github.com/wahyuhiddayat"
                 target="_blank"
@@ -156,7 +157,7 @@ export default function RootLayout({
                 Medium
               </a>
             </div>
-            <p className="font-mono text-center text-xs text-muted">
+            <p className="font-mono text-xs text-muted sm:text-right">
               &copy; {new Date().getFullYear()} Wahyu. All rights reserved.
             </p>
           </footer>

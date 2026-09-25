@@ -6,11 +6,13 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { experienceData, type Experience } from "@/data/experience";
 
+/** Shows one dated role and its expandable details. */
 function ExperienceItem({ position, company, period, logo, details, url }: Experience) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const panelId = `${company.replace(/\W+/g, '-').toLowerCase()}-panel`;
+  const panelId = `${company}-${position}`.replace(/\W+/g, '-').toLowerCase() + '-panel';
 
-  const toggle = (e?: React.MouseEvent | React.KeyboardEvent) => {
+  /** Expands details unless the visitor is selecting role text. */
+  const toggle = () => {
     if (!details) return;
     const sel = typeof window !== 'undefined' ? window.getSelection?.() : null;
     if (sel && sel.toString()) return;
@@ -32,24 +34,17 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
               aria-expanded={isExpanded}
               aria-controls={panelId}
               onClick={toggle}
-              onKeyDown={(e) => {
-                if (!details) return;
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  toggle(e);
-                }
-              }}
-              className={`w-full min-h-6 flex items-center gap-3 text-left outline-none focus-visible:underline ${details ? 'cursor-pointer' : 'cursor-default'}`}
+              className={`w-fit max-w-full min-h-11 flex items-center gap-2 text-left outline-none focus-visible:underline ${details ? 'cursor-pointer' : 'cursor-default'}`}
             >
-            <p className="font-semibold text-ink text-sm sm:text-base select-text">
+            <span className="font-semibold text-ink text-sm sm:text-base select-text">
               {position}
-            </p>
+            </span>
             {details && (
               <motion.svg
                 initial={false}
                 animate={{ rotate: isExpanded ? 180 : 0 }}
                 transition={{ duration: 0.15 }}
-                className="w-3.5 h-3.5 text-muted shrink-0 ml-auto"
+                className="w-3.5 h-3.5 text-muted shrink-0 ml-1"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -85,7 +80,7 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
             }`}
           >
             <div className="min-h-0 overflow-hidden">
-              <div className="pt-3 space-y-3 pl-[60px]">
+              <div className="pt-3 space-y-3 pl-[60px] max-w-3xl">
                 {details.description && (
                   <p className="text-muted text-sm leading-relaxed">{details.description}</p>
                 )}
@@ -119,9 +114,10 @@ function ExperienceItem({ position, company, period, logo, details, url }: Exper
   );
 }
 
+/** Renders Wahyu's professional and organizational experience. */
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-20 lg:py-28 border-b border-hairline scroll-mt-16">
+    <section id="experience" className="py-20 lg:pt-24 lg:pb-16 border-b border-hairline scroll-mt-16">
       <div>
         <SectionHeading>Experience</SectionHeading>
         <div>

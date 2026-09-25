@@ -1,67 +1,27 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import TypingAnimation from "@/components/TypingAnimation";
 import { personalData } from "@/data/personal";
 
-const PHOTOS = [
-  { src: "/images/hero-graduation-cap.jpg", alt: "Wahyu tossing his graduation cap in front of the Universitas Indonesia rectorate", width: 360, height: 540 },
-  { src: "/images/hero-thesis-committee.jpg", alt: "Wahyu presenting his thesis defense with the examining committee", width: 480, height: 360 },
-  { src: "/images/hero-graduation-rektorat.jpg", alt: "Wahyu in his graduation sash with the Universitas Indonesia rectorate behind him", width: 360, height: 540 },
-  { src: "/images/hero-pwc-tour.jpg", alt: "Wahyu with colleagues on a company visit to PwC", width: 480, height: 360 },
-  { src: "/images/hero-thesis-defense.jpg", alt: "Wahyu at his thesis defense, Fakultas Ilmu Komputer UI", width: 324, height: 540 },
-  { src: "/images/hero-campus-dusk.jpg", alt: "Wahyu and a friend on Universitas Indonesia campus at dusk", width: 405, height: 540 },
-];
-
-// Photos share a row height but not an aspect ratio, so each needs its own width hint.
-const ROW_HEIGHTS = { base: 160, sm: 224, lg: 256 };
-
-function photoSizes({ width, height }: { width: number; height: number }) {
-  const widthAt = (rowHeight: number) => Math.round((rowHeight * width) / height);
-
-  return [
-    `(min-width: 1024px) ${widthAt(ROW_HEIGHTS.lg)}px`,
-    `(min-width: 640px) ${widthAt(ROW_HEIGHTS.sm)}px`,
-    `${widthAt(ROW_HEIGHTS.base)}px`,
-  ].join(", ");
-}
-
+/** Introduces Wahyu and presents his photographs as one gallery. */
 export default function HeroSection() {
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [canScrollMore, setCanScrollMore] = useState(true);
-
-  function handleScroll() {
-    const el = scrollerRef.current;
-    if (!el) return;
-
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    const progress = maxScroll > 0 ? el.scrollLeft / maxScroll : 0;
-    setActiveIndex(Math.round(progress * (PHOTOS.length - 1)));
-    setCanScrollMore(el.scrollLeft < maxScroll - 1);
-  }
-
-  useEffect(() => {
-    handleScroll();
-  }, []);
-
   return (
-    <section id="home" className="pt-10 pb-12 lg:pt-16 lg:pb-20 border-b border-hairline scroll-mt-16">
-      <div>
-        <div className="flex items-start justify-between gap-6 mb-4">
-          <span className="font-mono text-xs text-accent">Available for opportunities</span>
-          <div className="font-mono text-xs text-muted text-right leading-relaxed">
-            <div>{personalData.location}</div>
-            <div>GMT+7</div>
-          </div>
+    <section id="home" className="border-b border-hairline scroll-mt-16 py-10 lg:pt-8 lg:pb-24">
+      <div className="flex items-start justify-between gap-6 mb-8 font-mono text-xs">
+        <span className="text-accent">Available for opportunities</span>
+        <div className="text-right text-muted leading-relaxed">
+          <div>{personalData.location}</div>
+          <div>GMT+7</div>
         </div>
+      </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.035em] text-ink max-w-4xl mb-5 text-balance">
+      <div>
+        <h1 className="max-w-xl text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.035em] text-ink text-balance mb-6">
           {personalData.greeting}
         </h1>
 
-        <p className="text-xl sm:text-2xl text-muted mb-3 leading-relaxed">
+        <p className="max-w-lg text-xl sm:text-2xl text-muted leading-relaxed">
           {personalData.tagline}{" "}
           <span className="block mt-1">
             <TypingAnimation
@@ -71,43 +31,26 @@ export default function HeroSection() {
           </span>
         </p>
 
-        <p className="text-muted italic leading-relaxed mb-10">
+        <p className="mt-5 max-w-lg text-muted italic leading-relaxed">
           {personalData.casualNote}
         </p>
       </div>
 
-      <div className="relative">
-        <div
-          ref={scrollerRef}
-          onScroll={handleScroll}
-          className="flex items-start gap-2 sm:gap-3 overflow-x-auto pb-1"
-        >
-          {PHOTOS.map((photo, index) => (
+      <div className="mt-10 lg:mt-12 columns-2 md:columns-3 xl:columns-4 gap-4 lg:gap-6" aria-label="Photo gallery">
+        {personalData.photos.map((photo, index) => (
+          <div key={photo.src} className="mb-4 lg:mb-6 break-inside-avoid">
             <Image
-              key={photo.src}
               src={photo.src}
               alt={photo.alt}
               width={photo.width}
               height={photo.height}
-              sizes={photoSizes(photo)}
-              // Only the first is a plausible LCP candidate; preloading all four made them compete.
+              sizes="(min-width: 1600px) 370px, (min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw"
               priority={index === 0}
-              quality={90}
-              className="h-40 sm:h-56 lg:h-64 w-auto shrink-0 border border-hairline bg-hairline/20"
+              quality={82}
+              className="block w-full h-auto border border-hairline"
             />
-          ))}
-        </div>
-
-        <div
-          aria-hidden
-          className={`pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-16 bg-gradient-to-l from-paper to-transparent transition-opacity duration-200 ${
-            canScrollMore ? "opacity-100" : "opacity-0"
-          }`}
-        />
-
-        <div className="font-mono text-xs text-muted mt-2 text-right">
-          {String(activeIndex + 1).padStart(2, "0")} / {String(PHOTOS.length).padStart(2, "0")}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

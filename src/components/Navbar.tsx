@@ -44,7 +44,7 @@ export default function Navbar() {
 
   return (
     <div className="sticky top-0 z-50 bg-paper border-b border-hairline">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center" aria-label="Primary">
+      <nav className="max-w-[1600px] mx-auto px-6 lg:px-8 h-16 flex items-center" aria-label="Primary">
         <button
           type="button"
           onClick={() => scrollToSection('home')}
@@ -96,7 +96,7 @@ export default function Navbar() {
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden overflow-hidden border-t border-hairline bg-paper"
           >
-            <div className="max-w-6xl mx-auto px-6 py-4 grid grid-cols-2 gap-x-6">
+            <div className="max-w-[1600px] mx-auto px-6 lg:px-8 py-4 grid grid-cols-2 gap-x-6">
               {NAV_ITEMS.map(({ id, label }) => {
                 const isActive = activeSection === id;
                 return (
