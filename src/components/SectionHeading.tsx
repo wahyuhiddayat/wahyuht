@@ -10,8 +10,8 @@ type SectionHeadingProps = {
 export default function SectionHeading({ title, aside }: SectionHeadingProps) {
   return (
     <header className="section-header">
-      <h2 className="text-headline lg:col-span-8">{title}</h2>
-      {aside && <div className="lg:col-span-4 lg:self-end lg:text-right">{aside}</div>}
+      <h2 className="text-headline">{title}</h2>
+      {aside && <div className="shrink-0">{aside}</div>}
     </header>
   );
 }

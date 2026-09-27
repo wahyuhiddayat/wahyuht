@@ -18,7 +18,7 @@ export default function AboutSection() {
           {personalData.bio}
         </p>
 
-        <dl className="grid gap-5 sm:grid-cols-3 lg:grid-cols-1 lg:col-span-4 lg:row-start-1">
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-3 lg:grid-cols-1 lg:col-span-4 lg:row-start-1">
           <div>
             <dt className="fact-label">Languages</dt>
             <dd className="fact-value">{personalData.languages}</dd>

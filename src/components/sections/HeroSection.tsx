@@ -37,7 +37,7 @@ export default function HeroSection() {
       </div>
 
       <div className="mt-12 lg:mt-16">
-        <div className="grid grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-3 lg:gap-4">
           {personalData.heroPhotos.map((photo) => {
             const isWide = photo.width > photo.height;
             return (
@@ -47,12 +47,12 @@ export default function HeroSection() {
                 alt={photo.alt}
                 width={photo.width}
                 height={photo.height}
-                sizes={isWide ? "(min-width: 1024px) 40vw, 100vw" : "(min-width: 1024px) 20vw, 33vw"}
+                sizes={isWide ? "(min-width: 768px) 40vw, 100vw" : "(min-width: 768px) 20vw, 33vw"}
                 priority
                 quality={82}
                 className={
                   isWide
-                    ? "col-span-3 order-last aspect-[4/3] lg:col-span-2 lg:order-none lg:aspect-auto w-full h-full object-cover border border-hairline"
+                    ? "col-span-3 order-last aspect-[4/3] md:col-span-2 md:order-none md:aspect-auto w-full h-full object-cover border border-hairline"
                     : "aspect-[2/3] w-full h-full object-cover border border-hairline"
                 }
               />

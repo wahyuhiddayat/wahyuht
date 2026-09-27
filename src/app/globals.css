@@ -70,7 +70,7 @@ body {
    * Nothing inside a section is set larger than its headline.
    */
   .text-display {
-    @apply text-5xl sm:text-6xl lg:text-[4rem] font-semibold tracking-[-0.035em] leading-[1.05] text-ink;
+    @apply text-4xl sm:text-6xl lg:text-[4rem] font-semibold tracking-[-0.035em] leading-[1.05] text-ink;
   }
 
   .text-headline {
@@ -90,9 +90,9 @@ body {
     @apply py-16 lg:py-24 border-b border-hairline scroll-mt-16;
   }
 
-  /* Section header: the title on the left, an optional aside on the right */
+  /* Section header: the title on the left, an optional aside on the same baseline at the right, wrapping below it on narrow screens */
   .section-header {
-    @apply grid gap-5 lg:grid-cols-12 lg:gap-8 mb-10 lg:mb-14;
+    @apply flex flex-wrap items-end justify-between gap-x-6 gap-y-2 mb-10 lg:mb-14;
   }
 
   .fact-label {
