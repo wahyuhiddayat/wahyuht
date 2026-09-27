@@ -47,7 +47,7 @@ export const experienceData: Experience[] = [
         position: "Teaching Assistant, Cloud Computing",
         period: "Aug 2026 – Present",
         details: {
-          description: "One of three teaching assistants supporting 63 students through weekly AWS labs.",
+          description: "Support an undergraduate course on deploying and operating applications on AWS, covering compute, storage, containers, and serverless services through labs, tutorials, and grading.",
           achievements: [
             "Support 63 students through weekly AWS labs on virtual machine provisioning, cloud storage, container orchestration with Kubernetes, serverless functions, and autoscaling.",
             "Write tutorial problems and grade lab and project submissions spanning IaaS, PaaS, SaaS, microservices, high availability, cloud security, and cloud migration design.",
@@ -60,7 +60,7 @@ export const experienceData: Experience[] = [
         position: "Teaching Assistant, Social Media Analytics",
         period: "Aug 2026 – Present",
         details: {
-          description: "Sole teaching assistant for 48 students on a project-based social media analytics course.",
+          description: "Support a project-based undergraduate course on collecting, modeling, and analyzing social media data, through tutorials, milestone grading, and project guidance.",
           achievements: [
             "Serve as the sole teaching assistant for 48 students on a project-based course covering data collection through APIs and web scraping, reproducible data pipelines, and data quality assessment.",
             "Write tutorial problems and grade project milestones on sentiment analysis, topic modeling, and social network analysis over multilingual social media data.",
@@ -73,7 +73,7 @@ export const experienceData: Experience[] = [
         position: "Teaching Assistant, Introduction to Computer Organization",
         period: "Aug 2024 – Jan 2025",
         details: {
-          description: "Supported student learning in MIPS and AVR Assembly through labs, tutorials, and exam reviews.",
+          description: "Supported an introductory course on how computers execute programs, teaching MIPS and AVR assembly through labs, tutorials, and exam reviews.",
           achievements: [
             "Designed problem sets and worked solutions for homework, tutorials, and lab modules on MIPS and AVR.",
             "Facilitated weekly lab and tutorial sessions for 46 students, teaching assembly programming, datapath design, and I/O handling.",
@@ -145,26 +145,26 @@ export const experienceData: Experience[] = [
         position: "Deputy of Advocacy and Student Welfare",
         period: "Mar 2024 – Feb 2025",
         details: {
-          description: "Led a 9-member team to deliver 7 programs enhancing student welfare and advocacy.",
+          description: "Headed the student advocacy and welfare department, representing students' interests on tuition, financial aid, and mental health to faculty administration.",
           achievements: [
-            "Advocated on tuition fees, mental health, and financial aid",
-            "Acted as liaison between students and faculty administration",
-            "Negotiated solutions to address academic and social concerns"
+            "Led a 9-member team to plan and deliver 7 student welfare and advocacy programs over the term, covering tuition fees, financial aid, and mental health support.",
+            "Advocated for students on tuition fee and financial aid policy, serving as the primary liaison between the student body and faculty administration.",
+            "Negotiated with faculty administration to resolve students' academic and social concerns, turning individual student issues into solutions the faculty could act on."
           ],
-          skills: ["Advocacy", "Team Leadership", "Policy Negotiation"]
+          skills: ["Team Leadership", "Student Advocacy", "Stakeholder Management", "Negotiation", "Program Management"]
         }
       },
       {
         position: "Staff of Advocacy and Student Welfare",
         period: "Apr 2023 – Feb 2024",
         details: {
-          description: "Managed department social media to promote welfare programs and engage the student community.",
+          description: "Ran communications for the student advocacy and welfare department, keeping students informed about welfare programs and academic policies.",
           achievements: [
-            "Created and shared content on academic policies, aid, and mental health",
-            "Handled student inquiries with accurate and timely responses",
-            "Collaborated on strategies to increase student engagement"
+            "Managed the department's social media channels, creating and publishing content on academic policies, financial aid, and mental health resources for the student body.",
+            "Responded to student inquiries on welfare programs and academic policies with accurate, timely answers, acting as a first point of contact for the department.",
+            "Collaborated with the department on engagement strategies to increase student awareness of, and participation in, welfare and advocacy programs."
           ],
-          skills: ["Social Media Management", "Content Creation", "Student Engagement"]
+          skills: ["Social Media Management", "Content Strategy", "Communications", "Community Engagement"]
         }
       },
     ],
