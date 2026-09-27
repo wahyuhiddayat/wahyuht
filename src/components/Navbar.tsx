@@ -21,7 +21,7 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 const DESKTOP_NAV_ITEMS = NAV_ITEMS.filter(({ id }) =>
-  ['about', 'experience', 'projects', 'contact'].includes(id),
+  ['about', 'experience', 'projects', 'gallery', 'contact'].includes(id),
 );
 
 export default function Navbar() {

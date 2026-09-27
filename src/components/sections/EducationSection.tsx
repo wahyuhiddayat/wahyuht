@@ -2,54 +2,45 @@ import SectionHeading from "@/components/SectionHeading";
 import OrganizationLogo from "@/components/OrganizationLogo";
 import { educationData, type Education } from "@/data/education";
 
-/** Shows one education entry with its period and institution. */
+/** Shows one degree in the same organization-then-detail layout as experience. */
 function EducationItem({ degree, institution, period, logo, url }: Education) {
   return (
-    <div className="log-row">
-      <div className="self-center font-mono text-muted text-xs sm:text-sm whitespace-nowrap">{period}</div>
-
-      <div className="flex items-center gap-3">
+    <article className="entry">
+      <div className="entry-org">
         <OrganizationLogo src={logo} alt={`${institution} logo`} />
-        <div className="min-w-0">
-          <p className="font-semibold text-ink text-sm sm:text-base text-balance">
-            {degree}
-          </p>
+        <div className="entry-org-name">
           {url ? (
             <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted text-xs sm:text-sm mt-0.5 hover:text-accent transition-colors inline-block"
+              className="font-semibold text-ink hover:text-accent transition-colors"
             >
               {institution}
             </a>
           ) : (
-            <p className="text-muted text-xs sm:text-sm mt-0.5">{institution}</p>
+            <p className="font-semibold text-ink">{institution}</p>
           )}
         </div>
       </div>
-    </div>
+
+      <div className="entry-body entry-title-row">
+        <h3 className="text-title">{degree}</h3>
+        <span className="text-meta whitespace-nowrap">{period}</span>
+      </div>
+    </article>
   );
 }
 
 /** Renders Wahyu's education history. */
 export default function EducationSection() {
   return (
-    <section id="education" className="py-14 lg:pt-16 lg:pb-12 border-b border-hairline scroll-mt-16">
-      <div className="section-grid">
-        <SectionHeading>Education</SectionHeading>
-        <div className="section-body">
-          {educationData.map((education) => (
-            <EducationItem
-              key={`${education.institution}-${education.degree}`}
-              degree={education.degree}
-              institution={education.institution}
-              period={education.period}
-              logo={education.logo}
-              url={education.url}
-            />
-          ))}
-        </div>
+    <section id="education" className="section">
+      <SectionHeading title="Education" />
+      <div>
+        {educationData.map((education) => (
+          <EducationItem key={`${education.institution}-${education.degree}`} {...education} />
+        ))}
       </div>
     </section>
   );

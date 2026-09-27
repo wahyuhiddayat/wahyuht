@@ -64,21 +64,56 @@ body {
     @apply leading-relaxed;
   }
 
-  /* Section grid: heading in a sticky left column, content across the remaining nine columns */
-  .section-grid {
-    @apply lg:grid lg:grid-cols-12 lg:gap-x-8;
+  /*
+   * Type scale, five steps: display (hero name only), headline (one per section),
+   * title (roles, projects, organizations), body, and meta (mono dates and labels).
+   * Nothing inside a section is set larger than its headline.
+   */
+  .text-display {
+    @apply text-5xl sm:text-6xl lg:text-[4rem] font-semibold tracking-[-0.035em] leading-[1.05] text-ink;
   }
 
-  .section-heading {
-    @apply mb-8 lg:mb-0 lg:col-span-3 lg:sticky lg:top-24 lg:self-start;
+  .text-headline {
+    @apply text-3xl lg:text-4xl font-semibold tracking-tight leading-tight text-ink text-balance;
   }
 
-  .section-heading h2 {
-    @apply text-2xl sm:text-3xl font-semibold tracking-tight text-ink;
+  .text-title {
+    @apply text-base sm:text-lg font-semibold text-ink;
   }
 
-  .section-body {
-    @apply min-w-0 lg:col-span-9;
+  .text-meta {
+    @apply font-mono text-xs text-muted;
+  }
+
+  /* Section: one vertical rhythm and a single hairline between sections */
+  .section {
+    @apply py-16 lg:py-24 border-b border-hairline scroll-mt-16;
+  }
+
+  /* Section header: the title on the left, an optional aside on the right */
+  .section-header {
+    @apply grid gap-5 lg:grid-cols-12 lg:gap-8 mb-10 lg:mb-14;
+  }
+
+  .fact-label {
+    @apply block font-mono text-xs uppercase tracking-wide text-muted mb-1;
+  }
+
+  .fact-value {
+    @apply text-sm font-medium text-ink;
+  }
+
+  /* Buttons: flat and square, ink for the primary action, hairline outline for the rest */
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 px-5 text-sm font-medium border transition-colors outline-none focus-visible:underline;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-paper border-ink hover:bg-accent hover:border-accent;
+  }
+
+  .btn-secondary {
+    @apply btn text-ink border-hairline hover:border-ink;
   }
 
   .nav-link {
@@ -115,44 +150,68 @@ body {
     @apply inline-block px-2.5 py-1 rounded-full border border-hairline text-muted text-xs;
   }
 
-  /* Log row: label + content separated by a hairline rule, no card */
-  .log-row {
-    @apply grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2 sm:gap-6 py-5 border-b border-hairline;
+  /* Entry: an organization on the left, what happened there on the right, divided by hairlines */
+  .entry {
+    @apply grid gap-5 lg:grid-cols-12 lg:gap-8 py-8 border-t border-hairline;
   }
 
-  .log-row:last-child {
-    @apply border-b-0;
+  .entry:first-child {
+    @apply border-t-0 pt-0;
   }
 
-  /* Photo rows: fixed-height rows that stretch to full width, cropping each photo slightly to fit */
-  .photo-rows {
-    --row-height: 110px;
-    --row-gap: 0.75rem;
-    @apply flex flex-wrap;
-    gap: var(--row-gap);
+  /* Org names and role titles both center on the 40px logo row so their first lines align */
+  .entry-org {
+    @apply flex items-start gap-3 lg:col-span-4;
   }
 
-  /* Clips to exactly two rows, so the preview never ends on a half-empty row at any width */
-  .photo-rows-collapsed {
-    max-height: calc(var(--row-height) * 2 + var(--row-gap));
-    overflow: hidden;
+  .entry-org-name {
+    @apply min-w-0 min-h-10 flex flex-col justify-center;
   }
 
-  .photo-rows > * {
-    height: var(--row-height);
-    flex-grow: 1;
+  .entry-title-row {
+    @apply flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:min-h-10;
   }
 
-  @screen sm {
-    .photo-rows {
-      --row-height: 200px;
+  /* Indented past a transparent rule so bodies line up whether or not a timeline is drawn */
+  .entry-body {
+    @apply min-w-0 lg:col-span-8 ml-[5px] pl-6 border-l border-transparent;
+  }
+
+  /*
+   * Marquee: the photo set is rendered twice in one track, so sliding the track
+   * by exactly half its width loops seamlessly. Items carry their own right
+   * padding instead of a flex gap so both halves are the same width.
+   */
+  .marquee {
+    @apply overflow-hidden;
+  }
+
+  .marquee-track {
+    @apply flex w-max;
+    animation: marquee 80s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-item {
+    @apply shrink-0 pr-3 lg:pr-4;
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
     }
   }
 
-  @screen lg {
-    .photo-rows {
-      --row-height: 260px;
-      --row-gap: 1rem;
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      @apply overflow-x-auto;
+    }
+
+    .marquee-track {
+      animation: none;
     }
   }
 }

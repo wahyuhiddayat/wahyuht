@@ -8,7 +8,7 @@ export function generatePersonSchema() {
     "alternateName": "Wahyu Hidayat",
     "description": personalData.bio,
     "url": personalData.siteUrl,
-    "image": `${personalData.siteUrl}/images/profile.jpg`,
+    "image": `${personalData.siteUrl}/images/profile/portrait.jpg`,
     "email": personalData.email,
     "jobTitle": "AI, Machine Learning, Data & Software Engineer",
     "worksFor": {

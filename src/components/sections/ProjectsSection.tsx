@@ -1,34 +1,15 @@
-import Image from "next/image";
 import SectionHeading from "@/components/SectionHeading";
 import { projectsData, type ProjectDetail } from "@/data/projects";
 
-/** Displays an existing project image at a consistent aspect ratio. */
-function ProjectThumbnail({
-  title,
-  imageUrl,
-  sizes,
-  className = "",
-}: {
-  title: string;
-  imageUrl: string;
-  sizes: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`relative aspect-video border border-hairline overflow-hidden bg-paper ${className}`}
-    >
-      <Image src={imageUrl} alt={title} fill sizes={sizes} className="object-cover" />
-    </div>
-  );
-}
+// Cards show this many tags; the rest collapse into a "+n" count so rows stay even.
+const VISIBLE_SKILLS = 4;
 
 /** Provides the links available for a project. */
 function ProjectLinks({ links }: { links?: ProjectDetail["links"] }) {
   if (!links || (!links.website && !links.github)) return null;
 
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-5">
       {links.website && (
         <a
           href={links.website}
@@ -36,7 +17,7 @@ function ProjectLinks({ links }: { links?: ProjectDetail["links"] }) {
           rel="noopener noreferrer"
           className="inline-flex min-h-11 items-center text-sm text-accent hover:underline underline-offset-4"
         >
-          Live Demo &#8599;
+          Live demo &#8599;
         </a>
       )}
       {links.github && (
@@ -46,7 +27,7 @@ function ProjectLinks({ links }: { links?: ProjectDetail["links"] }) {
           rel="noopener noreferrer"
           className="inline-flex min-h-11 items-center text-sm text-muted hover:text-ink transition-colors"
         >
-          Source Code
+          Source code
         </a>
       )}
     </div>
@@ -54,11 +35,11 @@ function ProjectLinks({ links }: { links?: ProjectDetail["links"] }) {
 }
 
 /** Displays a recorded project measurement when one exists. */
-function ProjectMetric({ metric }: { metric?: string }) {
+function ProjectMetric({ metric, className = "" }: { metric?: string; className?: string }) {
   if (!metric) return null;
 
   return (
-    <p className="reading text-sm mb-3">
+    <p className={`reading ${className}`}>
       {metric.includes("→") ? (
         <>
           {metric.split("→")[0]}
@@ -72,75 +53,63 @@ function ProjectMetric({ metric }: { metric?: string }) {
   );
 }
 
-/** Shows a project with its available image or as a compact text entry. */
-function ProjectCard({ title, description, date, metric, skills, links, imageUrl }: ProjectDetail) {
+/** Lists skills as chips, optionally capped with a count of the ones left out. */
+function SkillChips({ skills, limit }: { skills: string[]; limit?: number }) {
+  const shown = limit ? skills.slice(0, limit) : skills;
+  const hidden = skills.length - shown.length;
+
   return (
-    <article className={`flex flex-col ${imageUrl ? "" : "border-t border-hairline pt-5"}`}>
-      {imageUrl && (
-        <ProjectThumbnail title={title} imageUrl={imageUrl} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" className="mb-4" />
-      )}
+    <div className="flex flex-wrap gap-1.5">
+      {shown.map((skill) => (
+        <span key={skill} className="chip">
+          {skill}
+        </span>
+      ))}
+      {hidden > 0 && <span className="chip" title={skills.slice(shown.length).join(", ")}>+{hidden}</span>}
+    </div>
+  );
+}
 
-      <div className="flex justify-between items-baseline gap-3 mb-2">
-        <h3 className="font-semibold text-ink text-lg text-balance">{title}</h3>
-        <span className="font-mono text-xs text-muted shrink-0">{date}</span>
+/** Shows a project in the index. Every card shares this anatomy so rows stay even. */
+function ProjectCard({ title, description, date, metric, skills, links }: ProjectDetail) {
+  return (
+    <article className="flex flex-col border-t border-hairline pt-6">
+      <p className="text-meta">{date}</p>
+      <h3 className="text-title text-balance mt-2">{title}</h3>
+      <p className="text-sm text-muted leading-relaxed mt-2 line-clamp-3">{description}</p>
+      <ProjectMetric metric={metric} className="text-sm mt-3" />
+      <div className="mt-4">
+        <SkillChips skills={skills} limit={VISIBLE_SKILLS} />
       </div>
-
-      <p className="text-muted text-sm leading-relaxed mb-3 max-w-[68ch]">{description}</p>
-
-      <ProjectMetric metric={metric} />
-
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {skills.map((skill) => (
-          <span key={skill} className="chip">
-            {skill}
-          </span>
-        ))}
+      <div className="mt-auto pt-2">
+        <ProjectLinks links={links} />
       </div>
-
-      <ProjectLinks links={links} />
     </article>
   );
 }
 
-/** Gives the lead project a wide layout without inventing image assets. */
-function FeaturedProject({ title, description, date, metric, skills, links, imageUrl }: ProjectDetail) {
+/** Gives the lead project a full-width row with its result set apart on the right. */
+function FeaturedProject({ title, description, date, metric, skills, links }: ProjectDetail) {
   return (
-    <article className={`grid gap-6 lg:gap-10 items-start pb-14 lg:pb-16 border-b border-hairline ${imageUrl ? "lg:grid-cols-[1.35fr_1fr]" : "lg:grid-cols-[1.1fr_0.9fr]"}`}>
-      {imageUrl ? (
-        <ProjectThumbnail title={title} imageUrl={imageUrl} sizes="(max-width: 1024px) 100vw, 60vw" />
-      ) : (
-        <div className="lg:pt-2">
-          <span className="font-mono text-xs text-muted block mb-5">{date}</span>
-          <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-ink text-balance max-w-[16ch]">
-            {title}
-          </h3>
+    <article className="grid gap-6 lg:grid-cols-12 lg:gap-8 border-t border-hairline pt-8">
+      <div className="lg:col-span-7">
+        <p className="text-meta">{date} · Featured</p>
+        <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-ink text-balance mt-2">
+          {title}
+        </h3>
+        <p className="text-muted leading-relaxed mt-3 max-w-[65ch]">{description}</p>
+        <div className="mt-5">
+          <SkillChips skills={skills} />
         </div>
-      )}
-
-      <div className="lg:pt-2 flex flex-col">
-        {imageUrl && (
-          <div className="flex justify-between items-baseline gap-3 mb-3">
-            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-ink text-balance">
-              {title}
-            </h3>
-            <span className="font-mono text-xs text-muted shrink-0">{date}</span>
-          </div>
-        )}
-
-        <p className="text-ink text-base leading-relaxed mb-4 max-w-[68ch]">{description}</p>
-
-        <ProjectMetric metric={metric} />
-
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {skills.map((skill) => (
-            <span key={skill} className="chip">
-              {skill}
-            </span>
-          ))}
-        </div>
-
         <ProjectLinks links={links} />
       </div>
+
+      {metric && (
+        <div className="lg:col-span-4 lg:col-start-9 lg:border-l lg:border-hairline lg:pl-8">
+          <p className="fact-label">Result</p>
+          <ProjectMetric metric={metric} className="text-base" />
+        </div>
+      )}
     </article>
   );
 }
@@ -150,19 +119,27 @@ export default function ProjectsSection() {
   const [featured, ...rest] = projectsData;
 
   return (
-    <section id="projects" className="py-20 lg:pt-16 lg:pb-24 border-b border-hairline scroll-mt-16">
-      <div className="section-grid">
-        <SectionHeading>Selected work</SectionHeading>
+    <section id="projects" className="section">
+      <SectionHeading
+        title="Selected work"
+        aside={
+          <a
+            href="https://github.com/wahyuhiddayat"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center text-sm text-muted hover:text-accent transition-colors"
+          >
+            All on GitHub &#8599;
+          </a>
+        }
+      />
 
-        <div className="section-body">
-          <FeaturedProject {...featured} />
+      <FeaturedProject {...featured} />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-8 gap-y-12 lg:gap-y-14 pt-12 items-start">
-            {rest.map((project) => (
-              <ProjectCard key={project.title} {...project} />
-            ))}
-          </div>
-        </div>
+      <div className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 mt-16">
+        {rest.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
       </div>
     </section>
   );

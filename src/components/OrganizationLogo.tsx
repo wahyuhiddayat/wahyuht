@@ -6,7 +6,7 @@ type OrganizationLogoProps = {
 };
 
 export default function OrganizationLogo({ src, alt }: OrganizationLogoProps) {
-  const needsWhiteBacking = src === "/images/badr-interactive.png";
+  const needsWhiteBacking = src === "/images/logos/badr-interactive.png";
 
   return (
     <div className="w-12 h-10 shrink-0 flex items-center">

@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: 'Wahyu Hidayat Portfolio',
     images: [
       {
-        url: '/images/profile.jpg',
+        url: '/images/profile/portrait.jpg',
         width: 1200,
         height: 630,
         alt: 'Wahyu Hidayat - Data Scientist & Machine Learning Engineer',
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Wahyu Hidayat | AI, Data & Software Engineer',
     description: 'Computer Science graduate from Universitas Indonesia specializing in Data Science, Machine Learning, and AI.',
-    images: ['/images/profile.jpg'],
+    images: ['/images/profile/portrait.jpg'],
   },
   robots: {
     index: true,
@@ -114,7 +114,7 @@ export default function RootLayout({
         >
           <Navbar />
           <main className="max-w-[1600px] mx-auto px-6 lg:px-8 py-8 min-h-screen">{children}</main>
-          <footer className="max-w-[1600px] mx-auto px-6 lg:px-8 py-8 border-t border-hairline mt-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <footer className="max-w-[1600px] mx-auto px-6 lg:px-8 py-8 border-t border-hairline flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               <a
                 href="https://github.com/wahyuhiddayat"
@@ -157,9 +157,12 @@ export default function RootLayout({
                 Medium
               </a>
             </div>
-            <p className="font-mono text-xs text-muted sm:text-right">
-              &copy; {new Date().getFullYear()} Wahyu. All rights reserved.
-            </p>
+            <div className="flex items-center gap-6 font-mono text-xs text-muted">
+              <p>&copy; {new Date().getFullYear()} Wahyu Hidayat</p>
+              <a href="#home" className="hover:text-accent transition-colors">
+                Back to top &uarr;
+              </a>
+            </div>
           </footer>
         </ThemeProvider>
       </body>

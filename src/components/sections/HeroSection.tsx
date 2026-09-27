@@ -2,33 +2,19 @@
 
 import Image from "next/image";
 import TypingAnimation from "@/components/TypingAnimation";
-import { experienceData } from "@/data/experience";
 import { personalData } from "@/data/personal";
 
-// Experience is listed newest first, so the first ongoing entry is the headline role.
-const CURRENT_ROLE = experienceData.find(({ period }) => period.endsWith("Present"));
-
-/** Introduces Wahyu with a short sequence of photographs. */
+/** Introduces Wahyu: name, status, and a short sequence of photographs. */
 export default function HeroSection() {
   return (
-    <section id="home" className="border-b border-hairline scroll-mt-16 py-10 lg:pt-8 lg:pb-24">
-      <div className="flex items-start justify-between gap-6 mb-8 font-mono text-xs">
-        <span className="text-accent">Available for opportunities</span>
-        <div className="text-right text-muted leading-relaxed">
-          <div>{personalData.location}</div>
-          <div>GMT+7</div>
-        </div>
-      </div>
+    <section id="home" className="border-b border-hairline scroll-mt-16 pt-10 pb-16 lg:pt-16 lg:pb-24">
+      <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-8">
+          <h1 className="text-display mb-6">{personalData.greeting}</h1>
 
-      <div className="grid gap-10 lg:grid-cols-12 lg:gap-8 lg:items-end">
-        <div className="lg:col-span-7">
-          <h1 className="max-w-xl text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-[-0.035em] text-ink text-balance mb-6">
-            {personalData.greeting}
-          </h1>
-
-          <p className="max-w-lg text-xl sm:text-2xl text-muted leading-relaxed">
-            {personalData.tagline}{" "}
-            <span className="block mt-1">
+          <p className="text-xl sm:text-2xl text-muted leading-snug">
+            {personalData.tagline}
+            <span className="block mt-1 min-h-[1.375em]">
               <TypingAnimation
                 words={personalData.roles}
                 className="text-accent font-medium"
@@ -36,23 +22,21 @@ export default function HeroSection() {
             </span>
           </p>
 
-          <p className="mt-5 max-w-lg text-muted italic leading-relaxed">
+          <p className="mt-5 max-w-lg text-muted leading-relaxed">
             {personalData.casualNote}
           </p>
         </div>
 
-        {CURRENT_ROLE && (
-          <div className="lg:col-span-5">
-            <span className="font-mono text-muted text-xs uppercase tracking-wide block mb-4">
-              Currently
-            </span>
-            <p className="text-lg font-semibold text-ink">{CURRENT_ROLE.company}</p>
-            <p className="text-sm text-muted mt-1">{CURRENT_ROLE.position}</p>
-          </div>
-        )}
+        <div className="lg:col-span-4 lg:text-right space-y-1">
+          <p className="text-sm font-medium text-ink flex items-center gap-2 lg:justify-end">
+            <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-accent" />
+            {personalData.availability}
+          </p>
+          <p className="text-meta">{personalData.location} · GMT+7</p>
+        </div>
       </div>
 
-      <div className="mt-10 lg:mt-12">
+      <div className="mt-12 lg:mt-16">
         <div className="grid grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-4">
           {personalData.heroPhotos.map((photo) => {
             const isWide = photo.width > photo.height;
